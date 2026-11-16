@@ -1,0 +1,1422 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>English Practice · Listening y Pronunciación</title>
+<style>
+:root{
+  --bg:#eef3fb;--card:#ffffff;--fg:#0f1f3a;--mut:#5a6b86;--line:#d6e1f1;
+  --acc:#1456c8;--acc-d:#0b3b91;--accfg:#ffffff;--acc2:#e7f0fe;--acc3:#cfe0fc;
+  --ok:#15803d;--okbg:#e6f6ec;--bad:#c62828;--badbg:#fdecec;--warn:#eaf2ff;--warnb:#b9d0f5;
+  --pink:#dbe8fd;--green:#bcd4fb;--blue:#9cc0f8;--shadow:0 1px 2px rgba(15,40,90,.06),0 6px 18px rgba(15,40,90,.07);
+  --hero:linear-gradient(135deg,#0a2a6b 0%,#1456c8 55%,#2f80ed 100%);
+  --radius:16px;
+}
+:root[data-theme=dark]{
+  --bg:#0b1426;--card:#121e36;--fg:#e8eefb;--mut:#9db0d0;--line:#243556;
+  --acc:#5aa2ff;--acc-d:#3b82f6;--accfg:#06142b;--acc2:#162a4d;--acc3:#1d3a6b;
+  --ok:#4ade80;--okbg:#0f2a1d;--bad:#ff8a8a;--badbg:#341a1f;--warn:#13264a;--warnb:#27457c;
+  --pink:#1c3566;--green:#24457f;--blue:#2d5599;--shadow:none;
+  --hero:linear-gradient(135deg,#0a1f4d 0%,#123c91 55%,#1d5fd1 100%);
+}
+*{box-sizing:border-box}
+html,body{margin:0}
+body{font-family:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer}
+:focus-visible{outline:3px solid #7db2ff;outline-offset:2px}
+
+/* ---------- ENCABEZADO ---------- */
+header.top{background:var(--hero);color:#fff;position:sticky;top:0;z-index:20;box-shadow:0 4px 18px rgba(10,42,107,.28)}
+.topin{max-width:1120px;margin:0 auto;padding:12px 16px 6px;display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:20px;letter-spacing:.2px;color:#fff}
+.logo .lg{width:36px;height:36px;border-radius:10px;background:#fff;color:var(--acc-d);display:grid;place-items:center;font-size:15px;font-weight:900;letter-spacing:-.5px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
+.logo em{font-style:normal;font-weight:500;opacity:.85}
+.sp{flex:1}
+.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;white-space:nowrap;backdrop-filter:blur(4px)}
+.setbar{max-width:1120px;margin:0 auto;padding:4px 16px 10px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;font-size:13px}
+.setbar label{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.85)}
+.setbar select,.setbar input[type=range]{max-width:200px}
+.setbar select{background:rgba(255,255,255,.95);color:#0f1f3a;border:0;border-radius:8px;padding:5px 8px}
+.setbar input[type=range]{accent-color:#fff}
+.setbar .btn{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
+.setbar .btn:hover{background:rgba(255,255,255,.24);border-color:#fff}
+nav.tabs{max-width:1120px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
+nav.tabs::-webkit-scrollbar{display:none}
+nav.tabs button{white-space:nowrap;border:0;background:transparent;color:rgba(255,255,255,.82);border-radius:10px 10px 0 0;padding:10px 15px;font-weight:600;font-size:14px;border-bottom:3px solid transparent;transition:background .12s}
+nav.tabs button:hover{background:rgba(255,255,255,.12);color:#fff}
+nav.tabs button[aria-current=page]{background:var(--bg);color:var(--acc-d);border-bottom-color:var(--bg)}
+:root[data-theme=dark] nav.tabs button[aria-current=page]{color:var(--acc)}
+
+main{max-width:1120px;margin:0 auto;padding:22px 16px 70px}
+h2{margin:0 0 4px;font-size:28px;letter-spacing:-.3px;color:var(--acc-d)}
+:root[data-theme=dark] h2{color:#fff}
+h3{margin:26px 0 12px;font-size:17px;letter-spacing:.1px;display:flex;align-items:center;gap:8px;color:var(--fg)}
+h3::after{content:"";flex:1;height:1px;background:var(--line)}
+.muted{color:var(--mut)}
+small{color:var(--mut)}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow);margin:12px 0}
+
+/* ---------- PORTADA ---------- */
+.hero{background:var(--hero);color:#fff;border-radius:22px;padding:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:22px;align-items:center;box-shadow:0 14px 34px rgba(20,86,200,.28);position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;right:-70px;top:-70px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.08)}
+.hero::after{content:"";position:absolute;right:90px;bottom:-110px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.06)}
+.hero>*{position:relative;z-index:1}
+.hero h1{margin:0 0 8px;font-size:32px;line-height:1.15;letter-spacing:-.5px}
+.hero p{margin:0 0 18px;opacity:.9;max-width:520px}
+.hero .cta{display:flex;flex-wrap:wrap;gap:10px}
+.hero .btn.w{background:#fff;color:var(--acc-d);border-color:#fff}
+.hero .btn.w:hover{background:#e7f0fe}
+.hero .btn.o{background:transparent;color:#fff;border-color:rgba(255,255,255,.55)}
+.hero .btn.o:hover{background:rgba(255,255,255,.14);border-color:#fff}
+.hstats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.hs{background:rgba(255,255,255,.13);border:1px solid rgba(255,255,255,.22);border-radius:14px;padding:12px 8px;text-align:center}
+.hs b{display:block;font-size:26px;line-height:1.1}
+.hs span{font-size:12px;opacity:.85}
+.minibar{grid-column:1/-1;margin-top:2px}
+.minibar .lbl{display:flex;justify-content:space-between;font-size:12px;opacity:.9;margin-bottom:4px}
+.minibar .t{height:8px;background:rgba(255,255,255,.2);border-radius:99px;overflow:hidden}
+.minibar .t div{height:100%;background:#fff;border-radius:99px}
+@media(max-width:760px){.hero{grid-template-columns:1fr;padding:22px}.hero h1{font-size:26px}}
+
+/* ---------- TARJETAS ---------- */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;text-align:left;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:5px;transition:transform .12s,box-shadow .12s,border-color .12s;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:linear-gradient(180deg,#2f80ed,#0a2a6b);opacity:0;transition:opacity .12s}
+.card:hover{transform:translateY(-3px);border-color:var(--acc);box-shadow:0 10px 26px rgba(20,86,200,.18)}
+.card:hover::before{opacity:1}
+.card .ic{width:46px;height:46px;border-radius:13px;background:var(--acc2);display:grid;place-items:center;font-size:24px;margin-bottom:6px}
+.card b{font-size:16px;color:var(--fg)}
+.card span.d{color:var(--mut);font-size:13px}
+.card .go{margin-top:auto;color:var(--acc);font-weight:700;font-size:13px;padding-top:8px}
+
+/* ---------- BOTONES ---------- */
+.btn{border:1px solid var(--line);background:var(--card);border-radius:11px;padding:9px 15px;font-weight:600;transition:background .12s,border-color .12s,transform .06s;color:var(--fg)}
+.btn:hover{border-color:var(--acc);background:var(--acc2)}
+.btn:active{transform:scale(.98)}
+.btn.pri,.btn.big{background:linear-gradient(180deg,#2a72e0,#1456c8);color:#fff;border-color:#1456c8;box-shadow:0 2px 8px rgba(20,86,200,.3)}
+.btn.pri:hover,.btn.big:hover{background:linear-gradient(180deg,#3b82f0,#1a63df);border-color:#1a63df}
+.btn.sm{padding:5px 11px;font-size:13px;border-radius:9px}
+.btn.ghost{background:transparent}
+.btn[disabled]{opacity:.55;cursor:default}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0}
+.chip{display:inline-flex;align-items:center;gap:5px;background:var(--acc2);color:var(--acc-d);border-radius:999px;padding:4px 12px;font-size:13px;font-weight:700}
+:root[data-theme=dark] .chip{color:var(--acc)}
+.chips button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-weight:600;font-size:13px}
+.chips button:hover{border-color:var(--acc)}
+.chips button.on{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+select,input[type=text],input[type=number],textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:var(--fg)}
+input[type=text]:focus,input[type=number]:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(20,86,200,.18);outline:none}
+
+/* ---------- ALFABETO ---------- */
+.abcrow{display:flex;flex-wrap:wrap;gap:9px;margin:9px 0}
+.tile{width:74px;height:80px;border:0;border-radius:13px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px;color:var(--fg);box-shadow:inset 0 -3px 0 rgba(10,42,107,.12);transition:transform .1s}
+.tile b{font-size:27px;font-family:Arial,sans-serif;font-weight:600;color:var(--acc-d)}
+:root[data-theme=dark] .tile b{color:#fff}
+.tile i{font-size:13px;font-weight:700;color:var(--mut)}
+.tile.pink{background:var(--pink)}.tile.green{background:var(--green)}.tile.blue{background:var(--blue)}
+.tile:hover{transform:translateY(-3px) scale(1.04);filter:brightness(.97)}
+.spellout{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.spellout div{background:var(--acc2);border-radius:9px;padding:6px 10px;text-align:center;min-width:46px}
+.spellout b{display:block;font-size:20px;color:var(--acc-d)}
+:root[data-theme=dark] .spellout b{color:#fff}
+.spellout i{font-size:12px;color:var(--mut)}
+
+/* ---------- TABLAS Y LISTAS ---------- */
+table{border-collapse:separate;border-spacing:0;width:100%;font-size:15px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+th,td{border-bottom:1px solid var(--line);padding:10px 12px;text-align:left}
+tr:last-child td,tr:last-child th{border-bottom:0}
+th{background:var(--acc2);color:var(--acc-d);font-size:14px}
+:root[data-theme=dark] th{color:#fff}
+.say{cursor:pointer;border-bottom:1px dashed var(--acc);color:var(--acc);font-weight:600}
+.say:hover{background:var(--acc2)}
+.natrow{display:grid;grid-template-columns:1.4fr 1.2fr auto;gap:8px;align-items:center;padding:9px 6px;border-bottom:1px solid var(--line)}
+.natrow:hover{background:var(--acc2);border-radius:10px}
+.natn{font-weight:700;font-size:17px}
+.natn u{text-decoration:none;color:#fff;background:var(--acc);border-radius:5px;padding:0 4px;margin-left:1px}
+.tilegrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(125px,1fr));gap:10px}
+.vt{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:12px 6px;display:flex;flex-direction:column;align-items:center;gap:2px;min-height:98px;box-shadow:var(--shadow);transition:transform .1s,border-color .1s}
+.vt:hover{border-color:var(--acc);background:var(--acc2);transform:translateY(-2px)}
+.vt .em{font-size:32px}
+.vt b{font-size:15px}.vt small{font-size:12px}
+.sw{width:34px;height:34px;border-radius:50%;border:2px solid var(--line);display:inline-block}
+.numgrid{display:flex;flex-wrap:wrap;gap:7px}
+.numgrid button{min-width:48px;border:1px solid var(--line);background:var(--card);border-radius:10px;padding:7px 9px;font-weight:700}
+.numgrid button:hover{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.two{grid-template-columns:1fr}.natrow{grid-template-columns:1fr auto}.natn{grid-column:1}}
+.wordchip{display:inline-block;margin:3px;padding:6px 13px;border-radius:999px;border:1px solid var(--line);background:var(--card);font-weight:600}
+.wordchip:hover{background:var(--acc2);border-color:var(--acc)}
+.wordchip.long{border-color:var(--acc);background:var(--acc2)}
+
+/* ---------- PRUEBAS ---------- */
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px;box-shadow:var(--shadow);max-width:840px;margin:0 auto}
+.qhead{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.qnum{font-weight:700;color:var(--mut)}.qscore{font-weight:800;color:var(--ok)}
+.bar{height:10px;background:var(--acc2);border-radius:99px;margin:14px 0;overflow:hidden}
+.bar div{height:100%;background:linear-gradient(90deg,#2f80ed,#0a2a6b);border-radius:99px;transition:width .3s}
+.qprompt{font-size:20px;margin:12px 0;font-weight:600}
+.qprompt .big{display:block;font-size:30px;margin-top:8px;color:var(--acc-d)}
+:root[data-theme=dark] .qprompt .big{color:#fff}
+.arow{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 14px}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:11px}
+.opt{border:2px solid var(--line);background:var(--card);border-radius:14px;padding:14px 12px;font-weight:700;font-size:17px;text-align:center;display:flex;align-items:center;justify-content:center;gap:10px;min-height:58px;transition:border-color .1s,background .1s,transform .06s}
+.opt:hover:not([disabled]){border-color:var(--acc);background:var(--acc2);transform:translateY(-1px)}
+.opt.ok{border-color:var(--ok);background:var(--okbg)}
+.opt.bad{border-color:var(--bad);background:var(--badbg)}
+.opt[disabled]{cursor:default}
+.opt .sw{width:30px;height:30px}
+.typerow{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+.typerow input{flex:1;min-width:200px;font-size:19px;padding:12px 14px}
+.hint{font-size:13px;color:var(--mut);margin-top:6px}
+.fb{margin-top:16px;border-radius:14px;padding:0}
+.fb.ok,.fb.bad{padding:13px 16px}
+.fb.ok{background:var(--okbg);border:1px solid var(--ok)}
+.fb.bad{background:var(--badbg);border:1px solid var(--bad)}
+.nextrow{margin-top:14px;display:flex;justify-content:flex-end}
+.bank,.ans{display:flex;flex-wrap:wrap;gap:8px;min-height:54px;padding:9px;border-radius:14px;margin:9px 0}
+.ans{border:2px dashed var(--acc3);background:var(--acc2)}
+.bank button,.ans button{border:1px solid var(--acc);background:var(--card);border-radius:11px;padding:9px 14px;font-weight:700;font-size:17px;color:var(--acc-d);box-shadow:0 2px 0 var(--acc3)}
+:root[data-theme=dark] .bank button,:root[data-theme=dark] .ans button{color:#fff}
+.target{font-size:32px;font-weight:800;text-align:center;margin:12px 0;line-height:1.25;color:var(--acc-d)}
+:root[data-theme=dark] .target{color:#fff}
+.target .w-ok{color:var(--ok)}.target .w-bad{color:var(--bad);text-decoration:underline wavy}
+.heard{text-align:center;color:var(--mut);margin:4px 0}
+.micbtn{background:linear-gradient(180deg,#1f6be0,#0b3b91);color:#fff;border-color:#0b3b91;font-size:18px;padding:13px 24px;border-radius:999px;box-shadow:0 4px 14px rgba(11,59,145,.4)}
+.micbtn:hover{background:linear-gradient(180deg,#2f80ed,#0f48ad);border-color:#0f48ad}
+.micbtn.live{animation:pulse 1s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(47,128,237,.6)}100%{box-shadow:0 0 0 18px rgba(47,128,237,0)}}
+.center{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:12px 0;align-items:center}
+.notice{background:var(--warn);border:1px solid var(--warnb);border-left:4px solid var(--acc);border-radius:10px;padding:11px 14px;font-size:14px;margin:12px 0}
+.result{text-align:center}
+.result .score{font-size:64px;font-weight:800;background:linear-gradient(135deg,#2f80ed,#0a2a6b);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1.1;margin:6px 0}
+:root[data-theme=dark] .result .score{background:linear-gradient(135deg,#8cc0ff,#fff);-webkit-background-clip:text;background-clip:text}
+.wronglist{text-align:left;margin-top:14px}
+.wronglist div{border-bottom:1px solid var(--line);padding:8px 0}
+.pbar{display:grid;grid-template-columns:160px 1fr 100px;gap:12px;align-items:center;margin:10px 0}
+.pbar .t{height:12px;background:var(--acc2);border-radius:99px;overflow:hidden}
+.pbar .t div{height:100%;background:linear-gradient(90deg,#2f80ed,#0a2a6b);border-radius:99px}
+.flash{border:2px solid var(--acc);border-radius:20px;padding:28px 14px;text-align:center;background:linear-gradient(180deg,var(--acc2),var(--card));min-height:160px;display:flex;flex-direction:column;justify-content:center;gap:6px}
+.flash .f1{font-size:32px;font-weight:800;color:var(--acc-d)}
+:root[data-theme=dark] .flash .f1{color:#fff}
+details{margin:8px 0}
+summary{cursor:pointer;font-weight:600;color:var(--acc)}
+textarea{width:100%;min-height:76px;font-size:18px}
+.pill{font-size:12px;background:var(--acc2);padding:2px 8px;border-radius:99px;margin-left:6px}
+@media(max-width:700px){header.top{position:static}}
+.foot{text-align:center;color:var(--mut);font-size:12px;margin-top:40px}
+</style>
+</head>
+<body>
+<header class="top">
+  <div class="topin">
+    <div class="logo"><span class="lg" aria-hidden="true">EP</span><span>English <em>Practice</em></span></div>
+    <div class="sp"></div>
+    <div class="stat" id="stXP">⭐ 0 XP</div>
+    <div class="stat" id="stStreak">🔥 Racha 0</div>
+    <div class="stat" id="stLevel">Nivel 1</div>
+  </div>
+  <div class="setbar">
+    <label>Voz <select id="voiceSel" aria-label="Voz en inglés"></select></label>
+    <label>Velocidad <input id="rate" type="range" min="0.5" max="1.2" step="0.05" value="0.9" aria-label="Velocidad de la voz"> <span id="rateVal">0.90</span></label>
+    <label>Preguntas por prueba
+      <select id="qn"><option>5</option><option>10</option><option>15</option><option>20</option></select>
+    </label>
+    <button class="btn sm" id="testVoice" type="button">🔊 Probar voz</button>
+    <button class="btn sm" id="themeBtn" type="button">🌙 / ☀️</button>
+  </div>
+  <nav class="tabs" id="tabs" aria-label="Secciones"></nav>
+</header>
+<main id="view"></main>
+
+<script>
+(function(){
+'use strict';
+/* ============================================================
+   UTILIDADES
+   ============================================================ */
+var KEY='englishPractice_v1';
+function $(s,r){return (r||document).querySelector(s);}
+function h(tag,props){
+  var e=document.createElement(tag);
+  if(props){for(var k in props){var v=props[k];
+    if(k==='class')e.className=v;
+    else if(k==='html')e.innerHTML=v;
+    else if(k.slice(0,2)==='on')e.addEventListener(k.slice(2),v);
+    else if(v!==false&&v!=null)e.setAttribute(k,v);}}
+  var kids=Array.prototype.slice.call(arguments,2);
+  (function add(list){list.forEach(function(c){
+    if(c==null||c===false)return;
+    if(Array.isArray(c))return add(c);
+    e.append(c.nodeType?c:document.createTextNode(String(c)));});})(kids);
+  return e;
+}
+function rnd(n){return Math.floor(Math.random()*n);}
+function pick(a){return a[rnd(a.length)];}
+function shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=rnd(i+1);var t=a[i];a[i]=a[j];a[j]=t;}return a;}
+function uniq(a){return a.filter(function(x,i){return a.indexOf(x)===i;});}
+function sample(a,n){return shuffle(a).slice(0,n);}
+function mcOpts(correct,pool,n){
+  n=n||4;
+  var wrong=sample(uniq(pool).filter(function(x){return x!==correct;}),n-1);
+  return shuffle([correct].concat(wrong));
+}
+function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
+function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
+function aOrAn(w){return /^[aeiou]/i.test(w)?'an':'a';}
+
+/* ============================================================
+   ESTADO (se guarda en el navegador)
+   ============================================================ */
+var S={stats:{},xp:0,streak:0,best:0,mistakes:[],rate:0.9,voice:'',qn:10,theme:''};
+try{var saved=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in saved)S[k]=saved[k];}catch(e){}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+
+var TOPICS={
+  alphabet:'Alfabeto',listening:'Listening',pron:'Pronunciación',nat:'Nacionalidades',
+  numbers:'Números',vowels:'Vocales',be:'Verbo BE',poss:'Posesivos',simple:'Present Simple',vocab:'Vocabulario'
+};
+
+/* ============================================================
+   DATOS
+   ============================================================ */
+var ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+var ES_PRON={A:'ei',B:'bi',C:'ci',D:'di',E:'ii',F:'ef',G:'yi',H:'eich',I:'ai',J:'yei',K:'kei',L:'el',M:'em',N:'en',O:'ou',P:'pi',Q:'kiu',R:'ar',S:'es',T:'ti',U:'iu',V:'vi',W:'dobl ui',X:'ex',Y:'wai',Z:'zi'};
+var SAY_LETTER={A:'ay',B:'bee',C:'see',D:'dee',E:'ee',F:'eff',G:'jee',H:'aitch',I:'eye',J:'jay',K:'kay',L:'el',M:'em',N:'en',O:'oh',P:'pee',Q:'cue',R:'are',S:'ess',T:'tee',U:'you',V:'vee',W:'double you',X:'ex',Y:'why',Z:'zee'};
+var LETTER_ACCEPT={A:['a','ay','eh','hey','eight'],B:['b','bee','be'],C:['c','see','sea','si'],D:['d','dee'],E:['e','ee'],F:['f','eff','ef'],G:['g','gee','jee','ji'],H:['h','aitch','age'],I:['i','eye','ai','hi'],J:['j','jay','jai'],K:['k','kay','okay'],L:['l','el','ell'],M:['m','em'],N:['n','en','and'],O:['o','oh','owe','zero'],P:['p','pee','pea'],Q:['q','cue','queue','kew'],R:['r','are','our'],S:['s','ess','es'],T:['t','tee','tea'],U:['u','you','yu'],V:['v','vee'],W:['w','double you','double u','doubleu'],X:['x','ex'],Y:['y','why','wise'],Z:['z','zee','zed']};
+var CONFUS=[['E','I'],['G','J'],['B','V','P','D','T'],['A','H','K'],['M','N'],['Y','W'],['C','S','Z'],['Q','U','K'],['R','L'],['F','S','X']];
+
+var FIRST=['Noah','Mason','Eli','Theo','Emma','Olivia','Liam','Sophia','Lucas','Mia','Ethan','Ava','Jack','Grace','Henry','Nora','Oliver','Ruby','Daniel','Chloe'];
+var LAST=['Anderson','Hughes','Sanders','Johnson','Miller','Brown','Wilson','Taylor','Clark','Walker','Harris','Young','Lewis','King','Scott','Green','Baker','Adams','Turner','Parker'];
+var EMAILS=['john.smith@gmail.com','emma_clark@outlook.com','mason.hughes@work.com','olivia88@mail.com','theo-sanders@company.com','noah.anderson@latam.com','mia.baker@gmail.com','lucas_young@yahoo.com'];
+
+/* paises: [es, en, nacionalidad, articulo] */
+var RAW_COUNTRIES=[
+['Chile','Chile','Chilean'],['Argentina','Argentina','Argentinian'],['Perú','Peru','Peruvian'],['Colombia','Colombia','Colombian'],
+['Brasil','Brazil','Brazilian'],['México','Mexico','Mexican'],['Venezuela','Venezuela','Venezuelan'],['Ecuador','Ecuador','Ecuadorian'],
+['Bolivia','Bolivia','Bolivian'],['Uruguay','Uruguay','Uruguayan'],['Paraguay','Paraguay','Paraguayan'],['Cuba','Cuba','Cuban'],
+['Panamá','Panama','Panamanian'],['Costa Rica','Costa Rica','Costa Rican'],['Guatemala','Guatemala','Guatemalan'],['Honduras','Honduras','Honduran'],
+['El Salvador','El Salvador','Salvadoran'],['Nicaragua','Nicaragua','Nicaraguan'],['República Dominicana','Dominican Republic','Dominican','the '],
+['Puerto Rico','Puerto Rico','Puerto Rican'],['Haití','Haiti','Haitian'],
+['Estados Unidos','United States','American','the '],['Canadá','Canada','Canadian'],
+['España','Spain','Spanish'],['Francia','France','French'],['Italia','Italy','Italian'],['Alemania','Germany','German'],['Portugal','Portugal','Portuguese'],
+['Reino Unido','United Kingdom','British','the '],['Inglaterra','England','English'],['Irlanda','Ireland','Irish'],['Escocia','Scotland','Scottish'],['Gales','Wales','Welsh'],
+['Países Bajos','Netherlands','Dutch','the '],['Bélgica','Belgium','Belgian'],['Suiza','Switzerland','Swiss'],['Austria','Austria','Austrian'],['Grecia','Greece','Greek'],
+['Polonia','Poland','Polish'],['Rusia','Russia','Russian'],['Ucrania','Ukraine','Ukrainian'],['Turquía','Turkey','Turkish'],['Suecia','Sweden','Swedish'],
+['Noruega','Norway','Norwegian'],['Dinamarca','Denmark','Danish'],['Finlandia','Finland','Finnish'],['Hungría','Hungary','Hungarian'],['Rumania','Romania','Romanian'],
+['República Checa','Czech Republic','Czech','the '],
+['China','China','Chinese'],['Japón','Japan','Japanese'],['Corea del Sur','South Korea','Korean'],['India','India','Indian'],['Vietnam','Vietnam','Vietnamese'],
+['Tailandia','Thailand','Thai'],['Filipinas','Philippines','Filipino','the '],['Indonesia','Indonesia','Indonesian'],['Pakistán','Pakistan','Pakistani'],['Irán','Iran','Iranian'],
+['Irak','Iraq','Iraqi'],['Israel','Israel','Israeli'],['Arabia Saudita','Saudi Arabia','Saudi'],['Líbano','Lebanon','Lebanese'],['Taiwán','Taiwan','Taiwanese'],
+['Egipto','Egypt','Egyptian'],['Marruecos','Morocco','Moroccan'],['Nigeria','Nigeria','Nigerian'],['Kenia','Kenya','Kenyan'],['Sudáfrica','South Africa','South African'],
+['Senegal','Senegal','Senegalese'],['Sudán','Sudan','Sudanese'],['Etiopía','Ethiopia','Ethiopian'],
+['Australia','Australia','Australian'],['Nueva Zelanda','New Zealand','New Zealander']
+];
+var COUNTRIES=RAW_COUNTRIES.map(function(r){
+  var nat=r[2],suf='other',len=0;
+  if(/ese$/.test(nat)){suf='ese';len=3;}
+  else if(/ish$/.test(nat)){suf='ish';len=3;}
+  else if(/sh$/.test(nat)){suf='ish';len=2;}
+  else if(/an$/.test(nat)){suf='an';len=/ian$/.test(nat)?3:2;}
+  return {es:r[0],en:r[1],nat:nat,the:r[3]||'',suf:suf,len:len};
+});
+var SUF_LABEL={ish:'-ish / -sh',an:'-an / -ian',ese:'-ese',other:'otra terminación'};
+
+var COLORS=[
+ {en:'blue',es:'azul',hex:'#1e6fd9'},{en:'yellow',es:'amarillo',hex:'#f5c400'},{en:'red',es:'rojo',hex:'#d62828'},
+ {en:'green',es:'verde',hex:'#2a9d3f'},{en:'orange',es:'naranja',hex:'#f77f00'},{en:'purple',es:'morado',hex:'#7b2cbf'},
+ {en:'pink',es:'rosado / rosa',hex:'#ff7fb0'},{en:'black',es:'negro',hex:'#111111'},{en:'white',es:'blanco',hex:'#ffffff'},
+ {en:'brown',es:'café / marrón',hex:'#7b4a1e'},{en:'gray',es:'gris',hex:'#8d99ae'}
+];
+var PETS=[
+ {en:'parrot',es:'loro',em:'🦜'},{en:'dog',es:'perro',em:'🐶'},{en:'hedgehog',es:'erizo',em:'🦔'},{en:'cat',es:'gato',em:'🐱'},
+ {en:'rabbit',es:'conejo',em:'🐰'},{en:'fish',es:'pez',em:'🐟'},{en:'guinea pig',es:'cobaya / conejillo de indias',em:'🐾'},{en:'lizard',es:'lagarto / lagartija',em:'🦎'}
+];
+var FARM=[
+ {en:'horse',es:'caballo',em:'🐴'},{en:'chicken',es:'gallina',em:'🐔'},{en:'sheep',es:'oveja',em:'🐑'},{en:'cow',es:'vaca',em:'🐮'},
+ {en:'rooster',es:'gallo',em:'🐓'},{en:'goat',es:'cabra',em:'🐐'},{en:'monkey',es:'mono',em:'🐒'},{en:'donkey',es:'burro',em:'🐾'},{en:'pig',es:'cerdo / chancho',em:'🐷'}
+];
+var ANIMALS=PETS.concat(FARM);
+var PETNAMES=['Max','Luna','Nemo','Kiwi','Coco','Rex','Bella','Toby'];
+
+var LONGW=[
+ {w:'cake',v:'A',p:'a_e'},{w:'train',v:'A',p:'ai'},{w:'spray',v:'A',p:'ay'},{w:'eight',v:'A',p:'eigh'},{w:'steak',v:'A',p:'ea'},{w:'vein',v:'A',p:'ei'},{w:'they',v:'A',p:'ey'},{w:'table',v:'A',p:'a (final de sílaba)'},
+ {w:'peach',v:'E',p:'ea'},{w:'sheep',v:'E',p:'ee'},{w:'monkey',v:'E',p:'ey'},{w:'puppy',v:'E',p:'y'},{w:'these',v:'E',p:'e_e'},{w:'ceiling',v:'E',p:'ei'},{w:'shield',v:'E',p:'ie'},{w:'emu',v:'E',p:'e (final de sílaba)'},
+ {w:'bike',v:'I',p:'i_e'},{w:'knight',v:'I',p:'igh'},{w:'child',v:'I',p:'i + dos consonantes'},{w:'fly',v:'I',p:'y'},{w:'pie',v:'I',p:'ie'},{w:'tiger',v:'I',p:'i (final de sílaba)'},
+ {w:'nose',v:'O',p:'o_e'},{w:'goat',v:'O',p:'oa'},{w:'window',v:'O',p:'ow'},{w:'gold',v:'O',p:'o + dos consonantes'},{w:'toe',v:'O',p:'oe'},{w:'soul',v:'O',p:'ou'},{w:'though',v:'O',p:'ough'},{w:'pony',v:'O',p:'o (final de sílaba)'},
+ {w:'mule',v:'U',p:'u_e'},{w:'feud',v:'U',p:'eu'},{w:'few',v:'U',p:'ew'},{w:'argue',v:'U',p:'ue'},{w:'music',v:'U',p:'u (final de sílaba)'}
+];
+var SHORTW=[['apple','A'],['jet','E'],['fish','I'],['clock','O'],['sun','U'],['cat','A'],['bed','E'],['pig','I'],['dog','O'],['bus','U'],['hat','A'],['pen','E'],['sit','I'],['hot','O'],['cup','U']];
+var LONG_SIMPLE=[['cake','A'],['feet','E'],['kite','I'],['rope','O'],['cute','U'],['name','A'],['tree','E'],['bike','I'],['boat','O'],['tube','U'],['train','A'],['sheep','E'],['nose','O'],['mule','U'],['peach','E'],['goat','O']];
+var MINPAIRS=[['tape','tap'],['mate','mat'],['hope','hop'],['cute','cut'],['note','not'],['kite','kit'],['bite','bit'],['tube','tub']];
+
+var SENTENCES=[
+ ['I am from Chile.','Yo soy de Chile.'],['I am Chilean.','Yo soy chileno/a.'],['She is thirty-two years old.','Ella tiene treinta y dos años.'],
+ ['They are Argentinian.','Ellos son argentinos.'],['Her fish is called Nemo.','Su pez (de ella) se llama Nemo.'],['Theo is thirty-two years old.','Theo tiene treinta y dos años.'],
+ ['He is not from Japan.','Él no es de Japón.'],['Is she from Canada?','¿Ella es de Canadá?'],['My name is Noah Anderson.','Mi nombre es Noah Anderson.'],
+ ['Raquel lives in Santiago.','Raquel vive en Santiago.'],['We are from Italy. We are Italian.','Somos de Italia. Somos italianos.'],['Their parrot is green.','Su loro (de ellos) es verde.'],
+ ['His dog is brown.','Su perro (de él) es café.'],['Our cat is black and white.','Nuestro gato es blanco y negro.'],['You are my friend.','Tú eres mi amigo/a.'],
+ ['What is your name?','¿Cuál es tu nombre?'],['Where are you from?','¿De dónde eres?'],['How do you spell your name?','¿Cómo se deletrea tu nombre?'],
+ ['How old are you?','¿Cuántos años tienes?'],['I have two pets.','Tengo dos mascotas.'],['My rabbit is white.','Mi conejo es blanco.'],['The cow is on the farm.','La vaca está en la granja.']
+];
+
+var PASSAGES=[
+ {t:'Hello! My name is Noah Anderson. I am thirty-two years old. I am from Canada. I am Canadian. I have a dog. His name is Max.',
+  q:[{q:'¿De dónde es Noah?',o:['Canada','Chile','Italy','Japan'],a:'Canada'},{q:'¿Cuántos años tiene Noah?',o:['thirty-two','twenty-three','thirteen','thirty'],a:'thirty-two'},{q:'¿Qué mascota tiene Noah?',o:['a dog','a cat','a parrot','a rabbit'],a:'a dog'},{q:'¿Cómo se llama su mascota?',o:['Max','Rex','Nemo','Luna'],a:'Max'}]},
+ {t:'This is Mason Hughes. He is from Australia. He is Australian. He is twenty-five years old. His cat is called Luna. Luna is black.',
+  q:[{q:'¿Cómo se llama el gato de Mason?',o:['Luna','Coco','Bella','Kiwi'],a:'Luna'},{q:'¿De qué color es el gato?',o:['black','white','brown','gray'],a:'black'},{q:'¿Cuál es la nacionalidad de Mason?',o:['Australian','Austrian','American','Argentinian'],a:'Australian'},{q:'¿Cuántos años tiene Mason?',o:['twenty-five','fifteen','fifty','twenty-four'],a:'twenty-five'}]},
+ {t:'My name is Eli Sanders. I am from Japan. I am Japanese. My sister is Sofia. She is twenty-eight years old. Her rabbit is white.',
+  q:[{q:'¿Quién es Sofia?',o:['La hermana de Eli','La madre de Eli','La amiga de Eli','La prima de Eli'],a:'La hermana de Eli'},{q:'¿Qué mascota tiene Sofia?',o:['a rabbit','a hedgehog','a lizard','a horse'],a:'a rabbit'},{q:'¿Cuántos años tiene Sofia?',o:['twenty-eight','eighteen','eighty','twenty-seven'],a:'twenty-eight'},{q:'¿De qué país es Eli?',o:['Japan','China','Chile','Italy'],a:'Japan'}]},
+ {t:'We are Maria and Carlos. We are from Chile. We are Chilean. Our parrot is green and yellow. Its name is Kiwi.',
+  q:[{q:'¿De qué color es el loro?',o:['green and yellow','red and blue','black and white','orange and pink'],a:'green and yellow'},{q:'¿Cómo se llama el loro?',o:['Kiwi','Coco','Toby','Max'],a:'Kiwi'},{q:'¿Cuál es la nacionalidad de Maria y Carlos?',o:['Chilean','Chinese','Colombian','Canadian'],a:'Chilean'}]},
+ {t:'On the farm there are three cows, two horses, five sheep and one rooster. The rooster is red.',
+  q:[{q:'¿Cuántas ovejas hay?',o:['five','three','two','one'],a:'five'},{q:'¿De qué color es el gallo?',o:['red','white','black','brown'],a:'red'},{q:'¿Cuántas vacas hay?',o:['three','five','two','four'],a:'three'},{q:'¿Cuántos caballos hay?',o:['two','three','five','one'],a:'two'}]}
+];
+
+/* ============================================================
+   NUMEROS
+   ============================================================ */
+var ONES=['zero','one','two','three','four','five','six','seven','eight','nine','ten','eleven','twelve','thirteen','fourteen','fifteen','sixteen','seventeen','eighteen','nineteen'];
+var TENS=['','','twenty','thirty','forty','fifty','sixty','seventy','eighty','ninety'];
+function numWords(n){
+  n=Math.floor(n);
+  if(n<20)return ONES[n];
+  if(n<100){var o=n%10;return TENS[Math.floor(n/10)]+(o?'-'+ONES[o]:'');}
+  if(n<1000){var r=n%100;return ONES[Math.floor(n/100)]+' hundred'+(r?' and '+numWords(r):'');}
+  if(n===1000)return 'one thousand';
+  return String(n);
+}
+var STRESS_TEEN={13:'thir-TEEN',14:'four-TEEN',15:'fif-TEEN',16:'six-TEEN',17:'seven-TEEN',18:'eigh-TEEN',19:'nine-TEEN'};
+var STRESS_TY={30:'THIR-ty',40:'FOR-ty',50:'FIF-ty',60:'SIX-ty',70:'SEV-en-ty',80:'EIGH-ty',90:'NINE-ty'};
+
+/* ============================================================
+   NORMALIZACION Y COMPARACION
+   ============================================================ */
+function expand(s){
+  return s.replace(/[’‘]/g,"'")
+    .replace(/\bi'm\b/g,'i am')
+    .replace(/\b(you|we|they)'re\b/g,'$1 are')
+    .replace(/\b(he|she|it|that|there|what|who)'s\b/g,'$1 is')
+    .replace(/\b(is|are|was|were|do|does|did)n't\b/g,'$1 not')
+    .replace(/\bcan't\b/g,'can not');
+}
+function normText(s,mode){
+  s=expand(String(s).toLowerCase().trim());
+  s=s.replace(/\d+/g,function(m){return ' '+numWords(+m)+' ';});
+  s=s.replace(/[^a-z' ]/g,' ').replace(/\s+/g,' ').trim();
+  if(mode==='num')s=(' '+s+' ').replace(/ and /g,' ').trim();
+  return s;
+}
+function checkType(q,val){
+  val=String(val||'').trim();
+  if(!val)return false;
+  if(q.cmp==='letters'){var f=function(x){return x.toLowerCase().replace(/[^a-z0-9]/g,'');};return f(val)===f(q.answer);}
+  if(q.cmp==='email'){return val.toLowerCase().replace(/\s+/g,'')===q.answer.toLowerCase();}
+  var acc=[q.answer].concat(q.accept||[]);
+  var m=q.cmp==='num'?'num':'';
+  var nv=normText(val,m);
+  return acc.some(function(a){return normText(a,m)===nv;});
+}
+function lev(a,b){
+  var m=a.length,n=b.length,d=[],i,j;
+  for(i=0;i<=m;i++){d[i]=[i];}
+  for(j=1;j<=n;j++){d[0][j]=j;}
+  for(i=1;i<=m;i++)for(j=1;j<=n;j++){
+    d[i][j]=Math.min(d[i-1][j]+1,d[i][j-1]+1,d[i-1][j-1]+(a[i-1]===b[j-1]?0:1));
+  }
+  return d[m][n];
+}
+function sim(a,b){var L=Math.max(a.length,b.length);return L?1-lev(a,b)/L:1;}
+function tokens(s){return normText(s,'num').split(' ').filter(Boolean);}
+function scoreSpeech(target,alts,accept){
+  var tt=tokens(target),best={score:0,marks:tt.map(function(w){return {w:w,ok:false};}),heard:alts[0]||''};
+  for(var a=0;a<alts.length;a++){
+    var alt=alts[a],ht=tokens(alt);
+    if(accept&&accept.length){
+      var joined=ht.join(' ');
+      if(accept.indexOf(joined)>-1||ht.some(function(x){return accept.indexOf(x)>-1;})){
+        return {score:1,marks:tt.map(function(w){return {w:w,ok:true};}),heard:alt};
+      }
+    }
+    var used={},marks=[],ok=0;
+    tt.forEach(function(w){
+      var bi=-1,bs=0;
+      ht.forEach(function(x,i){if(used[i])return;var s=sim(w,x);if(s>bs){bs=s;bi=i;}});
+      if(bi>-1&&bs>=0.72){used[bi]=true;ok++;marks.push({w:w,ok:true});}else marks.push({w:w,ok:false});
+    });
+    var sc=tt.length?ok/tt.length:0;
+    if(sc>best.score||a===0&&sc>=best.score){best={score:sc,marks:marks,heard:alt};}
+  }
+  return best;
+}
+
+/* ============================================================
+   AUDIO (voz del navegador) Y MICROFONO
+   ============================================================ */
+var TTS=('speechSynthesis' in window)&&('SpeechSynthesisUtterance' in window);
+var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
+var voices=[];
+function loadVoices(){
+  if(!TTS)return;
+  voices=speechSynthesis.getVoices().filter(function(v){return /^en/i.test(v.lang);});
+  var sel=$('#voiceSel');sel.innerHTML='';
+  if(!voices.length){sel.append(h('option',{value:''},'Voz predeterminada'));return;}
+  voices.forEach(function(v){sel.append(h('option',{value:v.name},v.name+' ('+v.lang+')'));});
+  var cur=voices.filter(function(v){return v.name===S.voice;})[0];
+  if(!cur){
+    cur=voices.filter(function(v){return /natural|online/i.test(v.name)&&/en-US/i.test(v.lang);})[0]||
+        voices.filter(function(v){return /en[-_]US/i.test(v.lang);})[0]||voices[0];
+  }
+  sel.value=cur.name;S.voice=cur.name;
+}
+function curVoice(){return voices.filter(function(v){return v.name===S.voice;})[0]||null;}
+function say(text,rate){
+  return new Promise(function(res){
+    if(!TTS){res();return;}
+    var u=new SpeechSynthesisUtterance(text);
+    u.lang='en-US';var v=curVoice();if(v){u.voice=v;u.lang=v.lang;}
+    u.rate=rate||S.rate;
+    u.onend=u.onerror=function(){res();};
+    speechSynthesis.speak(u);
+  });
+}
+function spellTokens(str){
+  var out=[];
+  str.split('').forEach(function(ch){
+    var U=ch.toUpperCase();
+    if(SAY_LETTER[U]&&/[a-z]/i.test(ch))out.push(SAY_LETTER[U]);
+    else if(/\d/.test(ch))out.push(ONES[+ch]);
+    else if(ch==='.')out.push('dot');
+    else if(ch==='@')out.push('at');
+    else if(ch==='-')out.push('dash');
+    else if(ch==='_')out.push('underscore');
+    else if(ch===' ')out.push(null);
+  });
+  return out;
+}
+var playTok=0;
+async function playAudio(a,slow){
+  if(!a)return;
+  if(!TTS){toast('Tu navegador no tiene voz integrada. Prueba con Chrome o Edge.');return;}
+  var t=++playTok;
+  speechSynthesis.cancel();
+  await sleep(70);
+  var rate=slow?Math.min(0.6,S.rate):S.rate;
+  if(a.text){await say(a.text,rate);return;}
+  if(a.spell){
+    var tk=spellTokens(a.spell);
+    for(var i=0;i<tk.length;i++){
+      if(t!==playTok)return;
+      if(tk[i]===null){await sleep(500);continue;}
+      await say(tk[i],rate);
+      await sleep(slow?520:300);
+    }
+  }
+}
+function stopAll(){playTok++;if(TTS)speechSynthesis.cancel();if(curRec){try{curRec.abort();}catch(e){}}}
+var curRec=null;
+function listenOnce(){
+  return new Promise(function(resolve,reject){
+    var r=new SR();curRec=r;
+    r.lang='en-US';r.maxAlternatives=5;r.interimResults=false;r.continuous=false;
+    var done=false;
+    r.onresult=function(e){
+      done=true;var alts=[];
+      for(var i=0;i<e.results[0].length;i++)alts.push(e.results[0][i].transcript);
+      resolve(alts);
+    };
+    r.onerror=function(e){if(!done){done=true;reject(e.error||'error');}};
+    r.onnomatch=function(){if(!done){done=true;reject('no-speech');}};
+    r.onend=function(){if(!done){done=true;reject('no-speech');}};
+    try{r.start();}catch(e){reject('error');}
+  });
+}
+var toastTimer;
+function toast(msg){
+  var t=$('#toast');
+  if(!t){t=h('div',{id:'toast',style:'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#0a2a6b;color:#fff;padding:10px 16px;border-radius:10px;z-index:99;max-width:90%;font-size:14px'});document.body.append(t);}
+  t.textContent=msg;t.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.style.display='none';},3500);
+}
+
+/* ============================================================
+   GENERADORES DE PREGUNTAS
+   ============================================================ */
+var QZ={};
+function def(id,icon,title,desc,topic,gen){QZ[id]={id:id,icon:icon,title:title,desc:desc,topic:topic,gen:gen};}
+function letterDistractors(L){
+  var g=[];CONFUS.forEach(function(x){if(x.indexOf(L)>-1)g=g.concat(x);});
+  g=uniq(g).filter(function(x){return x!==L;});
+  var base=shuffle(g).slice(0,3);
+  while(base.length<3){var c=pick(ALPHA);if(c!==L&&base.indexOf(c)<0)base.push(c);}
+  return base;
+}
+function speakQ(target,es,extra){
+  var q={kind:'speak',prompt:'Escucha el modelo y <b>repítelo en voz alta</b>.',target:target,es:es||'',answer:target};
+  if(extra)for(var k in extra)q[k]=extra[k];
+  return q;
+}
+function natSentence(c){return 'I am from '+c.the+c.en+'. I am '+c.nat+'.';}
+
+/* ---------- ALFABETO ---------- */
+def('al_listen','👂','Escucha la letra','Oyes una letra y eliges cuál es.','alphabet',function(){
+  var L=pick(ALPHA);
+  return {kind:'mc',prompt:'Escucha y elige la <b>letra</b> que oyes.',audio:{spell:L},options:shuffle([L].concat(letterDistractors(L))),answer:L,
+    explain:'Era la letra <b>'+L+'</b> (se dice “'+ES_PRON[L]+'”).'};
+});
+def('al_pron','🔤','Pronunciación ↔ letra','Une la letra con su sonido (ei, bi, ci…).','alphabet',function(){
+  var L=pick(ALPHA);
+  if(Math.random()<0.5){
+    return {kind:'mc',prompt:'¿Qué letra se pronuncia <b>“'+ES_PRON[L]+'”</b>?',options:shuffle([L].concat(letterDistractors(L))),answer:L,explain:'“'+ES_PRON[L]+'” = <b>'+L+'</b>.'};
+  }
+  return {kind:'mc',prompt:'¿Cómo se pronuncia la letra <b class="big">'+L+'</b>',options:mcOpts(ES_PRON[L],Object.keys(ES_PRON).map(function(k){return ES_PRON[k];})),answer:ES_PRON[L],explain:'La letra '+L+' se dice “'+ES_PRON[L]+'”.',audio:null};
+});
+def('al_spell','✍️','Dictado de deletreo','Oyes un nombre deletreado y lo escribes.','alphabet',function(){
+  var nm=Math.random()<0.5?pick(FIRST):pick(LAST);
+  return {kind:'type',cmp:'letters',prompt:'Escucha cómo se <b>deletrea</b> un nombre y escríbelo.',audio:{spell:nm},answer:nm,hint:nm.length+' letras',explain:'El nombre era <b>'+nm+'</b>.'};
+});
+def('al_email','📧','Deletrea un correo','Dictado de correos: at = @, dot = punto.','alphabet',function(){
+  var e=pick(EMAILS);
+  return {kind:'type',cmp:'email',prompt:'Escribe el <b>correo electrónico</b> que oyes. (<i>at</i> = @, <i>dot</i> = punto, <i>dash</i> = guion, <i>underscore</i> = guion bajo)',audio:{spell:e},answer:e,explain:'El correo era <b>'+e+'</b>.'};
+});
+def('al_speak','🎤','Di la letra','Pronuncia cada letra con el micrófono.','alphabet',function(){
+  var L=pick(ALPHA);
+  return speakQ(L,'Se dice “'+ES_PRON[L]+'”',{prompt:'Di en voz alta la letra:',model:{spell:L},accept:LETTER_ACCEPT[L],explain:'La letra '+L+' se dice “'+ES_PRON[L]+'”.'});
+});
+
+/* ---------- LISTENING ---------- */
+def('li_comp','🎧','Comprensión auditiva','Escuchas un texto corto y respondes.','listening',function(){
+  var p=pick(PASSAGES),qq=pick(p.q);
+  return {kind:'mc',prompt:'Escucha el audio completo y responde:<span class="big" style="font-size:20px">'+qq.q+'</span>',audio:{text:p.t},options:shuffle(qq.o),answer:qq.a,explain:'Texto: <i>'+p.t+'</i>'};
+});
+def('li_dict','📝','Dictado de frases','Escribe exactamente la frase que oyes.','listening',function(){
+  var s=pick(SENTENCES);
+  return {kind:'type',prompt:'Escribe la frase que escuchas.',audio:{text:s[0]},answer:s[0],hint:s[0].split(' ').length+' palabras',explain:'Significa: '+s[1]};
+});
+def('li_numbers','🔢','Números que escuchas','Escribe el número (incluye 13/30, 14/40…).','listening',function(){
+  var n;
+  if(Math.random()<0.45){var b=13+rnd(7);n=Math.random()<0.5?b:(b-10)*10;}
+  else n=Math.random()<0.7?rnd(101):100+rnd(900);
+  return {kind:'type',cmp:'num',prompt:'Escribe el <b>número</b> que oyes (en cifras).',audio:{text:numWords(n)},answer:String(n),explain:'Era <b>'+n+'</b> = '+numWords(n)+'.'};
+});
+def('li_nat','🌍','¿De qué país es?','Oyes una nacionalidad y eliges el país.','listening',function(){
+  var c=pick(COUNTRIES),others=sample(COUNTRIES.filter(function(x){return x!==c;}),3);
+  var pron=pick(['He','She','I','We','They']);
+  var be={He:'is',She:'is',I:'am',We:'are',They:'are'}[pron];
+  return {kind:'mc',prompt:'Escucha y elige de qué <b>país</b> es la persona.',audio:{text:pron+' '+be+' '+c.nat+'.'},options:shuffle([c.es].concat(others.map(function(o){return o.es;}))),answer:c.es,explain:'<b>'+c.nat+'</b> = de '+c.es+'.'};
+});
+def('li_vocab','🐾','Animales que escuchas','Oyes un animal y eliges su significado.','listening',function(){
+  var a=pick(ANIMALS),pool=ANIMALS.map(function(x){return x.es.split(' / ')[0];});
+  var ans=a.es.split(' / ')[0];
+  return {kind:'mc',prompt:'Escucha la palabra y elige su <b>significado</b>.',audio:{text:a.en},options:mcOpts(ans,pool),answer:ans,explain:'<b>'+a.en+'</b> = '+a.es+' '+a.em};
+});
+def('li_colors','🎨','Colores que escuchas','Oyes un color y tocas el correcto.','listening',function(){
+  var c=pick(COLORS),others=sample(COLORS.filter(function(x){return x!==c;}),3);
+  return {kind:'mc',prompt:'Escucha y toca el <b>color</b> correcto.',audio:{text:c.en},options:shuffle([c].concat(others)).map(function(x){return {label:'',color:x.hex,value:x.en};}),answer:c.en,explain:'<b>'+c.en+'</b> = '+c.es+'.'};
+});
+def('li_ages','🎂','Edades y nacionalidades','Escuchas una presentación y respondes.','listening',function(){
+  var nm=pick(FIRST),c=pick(COUNTRIES),age=10+rnd(60);
+  var txt=nm+' is '+numWords(age)+' years old. '+nm+' is '+c.nat+'.';
+  if(Math.random()<0.5)return {kind:'type',cmp:'num',prompt:'¿Cuántos <b>años</b> tiene la persona? (cifras)',audio:{text:txt},answer:String(age),explain:txt};
+  return {kind:'mc',prompt:'¿Cuál es su <b>nacionalidad</b>?',audio:{text:txt},options:mcOpts(c.nat,COUNTRIES.map(function(x){return x.nat;})),answer:c.nat,explain:txt};
+});
+
+/* ---------- PRONUNCIACION ---------- */
+def('pr_letters','🔤','Letras','Di cada letra del alfabeto.','pron',function(){
+  var L=pick(ALPHA);
+  return speakQ(L,'Se dice “'+ES_PRON[L]+'”',{prompt:'Di en voz alta la letra:',model:{spell:L},accept:LETTER_ACCEPT[L],explain:'La letra '+L+' se dice “'+ES_PRON[L]+'”.'});
+});
+def('pr_nat','🌍','Nacionalidades','Pronuncia nacionalidades y frases con país.','pron',function(){
+  var c=pick(COUNTRIES);
+  if(Math.random()<0.5)return speakQ(c.nat,'Nacionalidad de '+c.es,{explain:c.nat+' = nacionalidad de '+c.es+'.'});
+  return speakQ(natSentence(c),'Soy de '+c.es+'. Soy '+c.nat.toLowerCase()+'.');
+});
+def('pr_sent','💬','Frases de clase','Repite frases completas de las clases.','pron',function(){
+  var s=pick(SENTENCES);return speakQ(s[0],s[1]);
+});
+def('pr_numbers','🔢','Números','Pronuncia números, ojo con 13/30, 14/40…','pron',function(){
+  var n;
+  if(Math.random()<0.5){var b=13+rnd(7);n=Math.random()<0.5?b:(b-10)*10;}else n=rnd(101);
+  var tip=STRESS_TEEN[n]||STRESS_TY[n]||'';
+  return speakQ(numWords(n),String(n)+(tip?'  ·  acento: '+tip:''),{explain:String(n)+' = '+numWords(n)+(tip?' ('+tip+')':'')});
+});
+def('pr_vowels','🅰️','Vocales largas y cortas','Pronuncia palabras con vocal larga o corta.','pron',function(){
+  var w=Math.random()<0.5?pick(LONG_SIMPLE):pick(SHORTW);
+  var isLong=LONG_SIMPLE.some(function(x){return x[0]===w[0];});
+  return speakQ(w[0],'Vocal '+w[1]+' '+(isLong?'LARGA':'CORTA'));
+});
+def('pr_vocab','🐾','Animales y colores','Pronuncia mascotas, animales de granja y colores.','pron',function(){
+  var it=pick(ANIMALS.concat(COLORS));return speakQ(it.en,it.es);
+});
+def('pr_poss','👤','Posesivos','Pronuncia frases con my, your, his, her…','pron',function(){
+  var s=pick([['My dog is called Max.','Mi perro se llama Max.'],['Your cat is black.','Tu gato es negro.'],['His parrot is green.','Su loro (de él) es verde.'],['Her fish is called Nemo.','Su pez (de ella) se llama Nemo.'],['Our rabbit is white.','Nuestro conejo es blanco.'],['Their horse is brown.','Su caballo (de ellos) es café.']]);
+  return speakQ(s[0],s[1]);
+});
+
+/* ---------- NACIONALIDADES ---------- */
+def('nt_c2n','✍️','País → nacionalidad','Escribe la nacionalidad en inglés.','nat',function(){
+  var c=pick(COUNTRIES);
+  return {kind:'type',prompt:'¿Cuál es la <b>nacionalidad</b> de quien es de <b>'+c.es+'</b> ('+c.en+')?',answer:c.nat,audio:null,hint:'Empieza con mayúscula',explain:'Persona de '+c.es+' = <b>'+c.nat+'</b>.'};
+});
+def('nt_n2c','🧭','Nacionalidad → país','Elige el país de la nacionalidad.','nat',function(){
+  var c=pick(COUNTRIES);
+  return {kind:'mc',prompt:'¿De qué país es una persona <b>'+c.nat+'</b>?',options:mcOpts(c.es,COUNTRIES.map(function(x){return x.es;})),answer:c.es,explain:c.nat+' → '+c.es+'.'};
+});
+def('nt_fill','🧩','Completa la frase','He is from China. He is ___.','nat',function(){
+  var c=pick(COUNTRIES),p=pick([['He','is'],['She','is'],['I','am'],['We','are'],['They','are'],['You','are']]);
+  return {kind:'type',prompt:'Completa: <span class="big">'+p[0]+' '+p[1]+' from '+c.the+c.en+'. '+p[0]+' '+p[1]+' ______.</span>',answer:c.nat,hint:'Escribe la nacionalidad',explain:p[0]+' '+p[1]+' from '+c.the+c.en+'. '+p[0]+' '+p[1]+' <b>'+c.nat+'</b>.'};
+});
+def('nt_suffix','🔚','¿Qué terminación tiene?','-ish, -an, -ese u otra.','nat',function(){
+  var c=pick(COUNTRIES);
+  var opts=['-ish / -sh','-an / -ian','-ese','otra terminación'];
+  return {kind:'mc',prompt:'¿Qué terminación tiene <b class="big">'+c.nat+'</b>',audio:null,options:opts,answer:SUF_LABEL[c.suf],explain:'<b>'+c.nat+'</b> pertenece al grupo <b>'+SUF_LABEL[c.suf]+'</b>.'};
+});
+def('nt_odd','🕵️','El que no encaja','Encuentra la nacionalidad con distinta terminación.','nat',function(){
+  var groups=['ish','an','ese'],g=pick(groups),o=pick(groups.filter(function(x){return x!==g;}));
+  var A=sample(COUNTRIES.filter(function(c){return c.suf===g;}),3),B=pick(COUNTRIES.filter(function(c){return c.suf===o;}));
+  return {kind:'mc',prompt:'¿Cuál termina <b>distinto</b> a las demás?',options:shuffle(A.concat([B]).map(function(c){return c.nat;})),answer:B.nat,explain:'<b>'+B.nat+'</b> es '+SUF_LABEL[o]+'; las otras son '+SUF_LABEL[g]+'.'};
+});
+def('nt_spell','🔊','Escucha y escribe la nacionalidad','Dictado de nacionalidades.','nat',function(){
+  var c=pick(COUNTRIES);
+  return {kind:'type',prompt:'Escucha y <b>escribe</b> la nacionalidad.',audio:{text:c.nat},answer:c.nat,explain:'<b>'+c.nat+'</b> (de '+c.es+').'};
+});
+def('nt_trans','🔁','Traduce la frase','Español → inglés con país y nacionalidad.','nat',function(){
+  var c=pick(COUNTRIES),p=pick([['Yo soy','I am','am'],['Él es','He is','is'],['Ella es','She is','is'],['Nosotros somos','We are','are'],['Ellos son','They are','are']]);
+  var useNat=Math.random()<0.5;
+  if(useNat){
+    return {kind:'type',prompt:'Traduce al inglés: <span class="big">'+p[0]+' de '+c.es+'. '+p[0]+' '+c.nat.toLowerCase()+'.</span>',answer:p[1]+' from '+c.the+c.en+'. '+p[1]+' '+c.nat+'.',accept:[p[1]+' from '+c.en+'. '+p[1]+' '+c.nat+'.'],explain:p[1]+' from '+c.the+c.en+'. '+p[1]+' '+c.nat+'.'};
+  }
+  return {kind:'type',prompt:'Traduce al inglés: <span class="big">'+p[0]+' de '+c.es+'.</span>',answer:p[1]+' from '+c.the+c.en+'.',accept:[p[1]+' from '+c.en+'.'],explain:p[1]+' from '+c.the+c.en+'.'};
+});
+def('nt_speak','🎤','Di tu nacionalidad','I am from… I am…','pron',function(){
+  var c=pick(COUNTRIES);return speakQ(natSentence(c),'Soy de '+c.es+'.');
+});
+
+/* ---------- NUMEROS ---------- */
+function confusablePair(){var b=13+rnd(7);return [b,(b-10)*10];}
+def('nm_pairs','👂','13 o 30, 14 o 40…','Distingue los números que suenan parecido.','numbers',function(){
+  var pr=confusablePair(),n=Math.random()<0.5?pr[0]:pr[1];
+  var o=uniq([String(pr[0]),String(pr[1]),String(pr[0]+1<=20?pr[0]+1:pr[0]-1),String(pr[1]+10)]);
+  return {kind:'mc',prompt:'Escucha y elige el <b>número</b>.',audio:{text:numWords(n)},options:shuffle(o),answer:String(n),
+    explain:pr[0]+' = '+STRESS_TEEN[pr[0]]+' (acento al final) · '+pr[1]+' = '+STRESS_TY[pr[1]]+' (acento al inicio).'};
+});
+def('nm_w2n','🔡','Palabras → cifras','Escribe el número con cifras.','numbers',function(){
+  var n=rnd(101);
+  return {kind:'type',cmp:'num',prompt:'Escribe en <b>cifras</b>: <span class="big">'+numWords(n)+'</span>',audio:null,answer:String(n),explain:numWords(n)+' = '+n};
+});
+def('nm_n2w','✍️','Cifras → palabras','Escribe el número en inglés.','numbers',function(){
+  var n=Math.random()<0.8?rnd(100):100+rnd(900);
+  return {kind:'type',cmp:'num',prompt:'Escribe en <b>inglés</b>: <span class="big">'+n+'</span>',answer:numWords(n),hint:'Para decenas y unidades usa guion: 47 = forty-seven',explain:n+' = <b>'+numWords(n)+'</b>'};
+});
+def('nm_age','🎂','Di la edad','Traduce la edad completa.','numbers',function(){
+  var n=2+rnd(80),p=pick([['Él','He','is'],['Ella','She','is'],['Yo','I','am'],['Nosotros','We','are'],['Ellos','They','are']]);
+  var es={Él:'tiene',Ella:'tiene',Yo:'tengo',Nosotros:'tenemos',Ellos:'tienen'}[p[0]];
+  return {kind:'type',cmp:'num',prompt:'Traduce al inglés: <span class="big">'+p[0]+' '+es+' '+n+' años.</span>',answer:p[1]+' '+p[2]+' '+numWords(n)+' years old.',explain:'La edad se dice con BE: <b>'+p[1]+' '+p[2]+' '+numWords(n)+' years old.</b>'};
+});
+def('nm_math','➕','Suma escuchando','Escucha la suma y escribe el resultado.','numbers',function(){
+  var a=1+rnd(50),b=1+rnd(49);
+  return {kind:'type',cmp:'num',prompt:'Escucha la suma y escribe el <b>resultado</b> (cifras).',audio:{text:numWords(a)+' plus '+numWords(b)},answer:String(a+b),explain:a+' + '+b+' = <b>'+(a+b)+'</b> ('+numWords(a+b)+')'};
+});
+
+/* ---------- VOCALES ---------- */
+def('vw_ls','🔊','¿Larga o corta?','Escucha la palabra y clasifica su vocal.','vowels',function(){
+  var isL=Math.random()<0.5,w=isL?pick(LONG_SIMPLE):pick(SHORTW);
+  return {kind:'mc',prompt:'Escucha la palabra. ¿La vocal suena <b>larga</b> o <b>corta</b>?',audio:{text:w[0]},options:['Larga (dice su nombre)','Corta'],answer:isL?'Larga (dice su nombre)':'Corta',explain:'<b>'+w[0]+'</b>: vocal <b>'+w[1]+'</b> '+(isL?'LARGA':'CORTA')+'.'};
+});
+def('vw_pairs','👯','Par de palabras','Distingue pares como tape / tap.','vowels',function(){
+  var pr=pick(MINPAIRS),i=rnd(2),w=pr[i];
+  return {kind:'mc',prompt:'Escucha y elige la palabra que oyes.',audio:{text:w},options:shuffle(pr.slice()),answer:w,explain:'<b>'+pr[0]+'</b> (vocal larga) vs <b>'+pr[1]+'</b> (vocal corta).'};
+});
+def('vw_vowel','🅰️','¿Qué vocal suena larga?','Identifica el sonido A, E, I, O o U.','vowels',function(){
+  var it=pick(LONGW);
+  return {kind:'mc',prompt:'Escucha <b>'+it.w+'</b>. ¿Qué sonido de vocal larga tiene?',audio:{text:it.w},options:['A','E','I','O','U'],answer:it.v,explain:'<b>'+it.w+'</b> tiene el sonido largo de <b>'+it.v+'</b> (patrón <b>'+it.p+'</b>).'};
+});
+def('vw_short','🔈','¿Qué vocal suena corta?','Identifica la vocal corta de la palabra.','vowels',function(){
+  var it=pick(SHORTW);
+  return {kind:'mc',prompt:'Escucha <b>'+it[0]+'</b>. ¿Qué vocal suena <b>corta</b>?',audio:{text:it[0]},options:['A','E','I','O','U'],answer:it[1],explain:'<b>'+it[0]+'</b> tiene la <b>'+it[1]+'</b> corta.'};
+});
+def('vw_pattern','🧬','Patrón de escritura','¿Cómo se escribe ese sonido largo?','vowels',function(){
+  var it=pick(LONGW);
+  var same=uniq(LONGW.filter(function(x){return x.v===it.v;}).map(function(x){return x.p;}));
+  var other=uniq(LONGW.map(function(x){return x.p;}));
+  var opts=mcOpts(it.p,same.length>=4?same:same.concat(other),4);
+  return {kind:'mc',prompt:'<b class="big">'+it.w+'</b> tiene sonido largo de <b>'+it.v+'</b>. ¿Qué patrón de escritura usa?',audio:{text:it.w},options:opts,answer:it.p,explain:'<b>'+it.w+'</b> usa el patrón <b>'+it.p+'</b>.'};
+});
+
+/* ---------- VERBO BE ---------- */
+var SUBJ=[
+ {s:'I',q:'I',be:'am'},{s:'You',q:'you',be:'are'},{s:'He',q:'he',be:'is'},{s:'She',q:'she',be:'is'},{s:'It',q:'it',be:'is'},
+ {s:'We',q:'we',be:'are'},{s:'They',q:'they',be:'are'},{s:'My dog',q:'my dog',be:'is'},{s:'My parents',q:'my parents',be:'are'},
+ {s:'Noah',q:'Noah',be:'is'},{s:'Noah and Mia',q:'Noah and Mia',be:'are'},{s:'The cats',q:'the cats',be:'are'}
+];
+var COMP=['from Chile','from Canada','from Japan','Chilean','Italian','Argentinian','thirty years old','twenty-five years old','at home','in Santiago','happy','tired','ready'];
+function beParts(){return {s:pick(SUBJ),c:pick(COMP)};}
+def('be_fill','🟦','Am / Is / Are','Completa con la forma correcta de BE.','be',function(){
+  var p=beParts();
+  return {kind:'mc',prompt:'Completa con <b>am / is / are</b>:<span class="big">'+p.s.s+' ____ '+p.c+'.</span>',options:['am','is','are'],answer:p.s.be,explain:'<b>'+p.s.s+' '+p.s.be+' '+p.c+'.</b>  I → am · he/she/it → is · we/you/they → are.'};
+});
+def('be_neg','🚫','Forma negativa','Convierte a negativa (isn’t / aren’t / am not).','be',function(){
+  var p=beParts(),ans=p.s.s+' '+p.s.be+' not '+p.c+'.';
+  return {kind:'type',prompt:'Escribe la forma <b>negativa</b>:<span class="big">'+p.s.s+' '+p.s.be+' '+p.c+'.</span>',answer:ans,hint:'Puedes usar isn’t / aren’t',explain:'Negativa: <b>'+ans+'</b>'};
+});
+def('be_q','❓','Forma de pregunta','Convierte a pregunta (Is she…?).','be',function(){
+  var p=beParts(),ans=cap(p.s.be)+' '+p.s.q+' '+p.c+'?';
+  return {kind:'type',prompt:'Escribe la <b>pregunta</b>:<span class="big">'+p.s.s+' '+p.s.be+' '+p.c+'.</span>',answer:ans,explain:'Pregunta: <b>'+ans+'</b> (el verbo BE pasa al inicio).'};
+});
+def('be_order','🧱','Ordena la frase','Arma la oración con las palabras.','be',function(){
+  var p=beParts(),t=pick(['aff','neg','q']),txt;
+  if(t==='aff')txt=p.s.s+' '+p.s.be+' '+p.c+'.';
+  else if(t==='neg')txt=p.s.s+' '+p.s.be+' not '+p.c+'.';
+  else txt=cap(p.s.be)+' '+p.s.q+' '+p.c+'?';
+  var words=txt.replace(/[.?]/g,'').split(' '),sh=shuffle(words),tries=0;
+  while(sh.join(' ')===words.join(' ')&&tries++<10)sh=shuffle(words);
+  return {kind:'order',prompt:'Ordena las palabras para formar una <b>'+(t==='aff'?'afirmación':t==='neg'?'negación':'pregunta')+'</b>.',words:sh,answer:txt,explain:'Frase correcta: <b>'+txt+'</b>'};
+});
+def('be_contr','✂️','Contracciones','isn’t, aren’t, am not.','be',function(){
+  var p=beParts(),ans=p.s.be==='is'?"isn't":p.s.be==='are'?"aren't":'am not';
+  return {kind:'mc',prompt:'Elige la forma <b>negativa</b>:<span class="big">'+p.s.s+' ____ '+p.c+'.</span>',options:["isn't","aren't",'am not',"don't"],answer:ans,
+    explain:p.s.be==='am'?'Con I se usa <b>am not</b> (no existe “amn’t”).':'Con '+p.s.s+' se usa <b>'+ans+'</b>.'};
+});
+
+/* ---------- POSESIVOS ---------- */
+var POSS=[['I','my'],['you','your'],['he','his'],['she','her'],['we','our'],['they','their']];
+var PNOUNS=['dog','cat','parrot','rabbit','fish','hedgehog','lizard','guinea pig','horse','cow'];
+def('po_fill','👤','Adjetivos posesivos','my, your, his, her, our, their.','poss',function(){
+  var p=pick(POSS),n=pick(PNOUNS);
+  return {kind:'mc',prompt:'Completa con el posesivo:<span class="big">('+p[0]+') ____ '+n+' is called '+pick(PETNAMES)+'.</span>',options:POSS.map(function(x){return x[1];}),answer:p[1],explain:'<b>'+p[0]+' → '+p[1]+'</b>. Tabla: I–my · you–your · he–his · she–her · we–our · they–their.'};
+});
+var POSS_CTX=[
+ ['Anna is my friend. ____ dog is white.','her'],['Tom is my brother. ____ cat is black.','his'],['Anna and Tom are my friends. ____ parrot is green.','their'],
+ ['My sister and I have a rabbit. ____ rabbit is called Coco.','our'],['You have a horse. ____ horse is brown.','your'],['I have a fish. ____ fish is orange.','my'],
+ ['Mia is from Chile. ____ cat is called Luna.','her'],['Ben and Eli are Canadian. ____ dog is called Rex.','their'],['Noah is thirty-two. ____ hedgehog is small.','his'],['We have a goat. ____ goat is white.','our']
+];
+def('po_ctx','📖','Posesivo según el contexto','Elige quién es el dueño.','poss',function(){
+  var it=pick(POSS_CTX);
+  return {kind:'mc',prompt:'Elige el posesivo correcto:<span class="big" style="font-size:22px">'+it[0]+'</span>',options:POSS.map(function(x){return x[1];}),answer:it[1],explain:it[0].replace('____','<b>'+it[1]+'</b>')};
+});
+def('po_type','⌨️','Escribe el posesivo','Sin opciones: tú lo escribes.','poss',function(){
+  var p=pick(POSS),n=pick(PNOUNS);
+  return {kind:'type',prompt:'Escribe el posesivo de <b>'+p[0]+'</b>:<span class="big">____ '+n+' is called '+pick(PETNAMES)+'.</span>',answer:p[1],explain:p[0]+' → <b>'+p[1]+'</b>'};
+});
+def('po_persona','🧑‍🤝‍🧑','Persona gramatical','1ª, 2ª o 3ª persona (singular / plural).','poss',function(){
+  var items=[['I','1ª persona singular'],['you','2ª persona (singular o plural)'],['he','3ª persona singular'],['she','3ª persona singular'],['it','3ª persona singular'],['we','1ª persona plural'],['they','3ª persona plural']];
+  var it=pick(items);
+  return {kind:'mc',prompt:'¿Qué persona gramatical es <b class="big">'+it[0]+'</b>',options:['1ª persona singular','2ª persona (singular o plural)','3ª persona singular','1ª persona plural','3ª persona plural'],answer:it[1],explain:'<b>'+it[0]+'</b> = '+it[1]+'.'};
+});
+
+/* ---------- PRESENT SIMPLE ---------- */
+var VERBS=[['live','lives','in Santiago'],['work','works','in an office'],['play','plays','football'],['like','likes','music'],['study','studies','English'],['watch','watches','TV'],['have','has','a dog'],['go','goes','to work'],['run','runs','every morning'],['speak','speaks','Spanish']];
+var S3=['He','She','Raquel','My brother','The dog'],SN=['I','You','We','They','My parents'];
+def('ps_verb','⏱️','Verbo con -s','Present Simple: he lives / they live.','simple',function(){
+  var v=pick(VERBS),third=Math.random()<0.5,subj=third?pick(S3):pick(SN),ans=third?v[1]:v[0];
+  if(Math.random()<0.5)return {kind:'mc',prompt:'Elige la forma correcta:<span class="big">'+subj+' ____ '+v[2]+'.</span>',options:shuffle([v[0],v[1]]),answer:ans,explain:(third?'3ª persona singular (he/she/it) lleva <b>-s</b>: ':'Con I/you/we/they no lleva -s: ')+'<b>'+subj+' '+ans+' '+v[2]+'.</b>'};
+  return {kind:'type',prompt:'Escribe el verbo <b>('+v[0]+')</b> en la forma correcta:<span class="big">'+subj+' ____ '+v[2]+'.</span>',answer:ans,explain:'<b>'+subj+' '+ans+' '+v[2]+'.</b>'};
+});
+var USES=[['I go to the gym every Monday.','Hábito o rutina'],['She drinks coffee every morning.','Hábito o rutina'],['Water boils at 100 degrees.','Verdad general'],['The sun rises in the east.','Verdad general'],['Raquel lives in Santiago.','Situación permanente'],['My parents live in Chile.','Situación permanente'],['The train leaves at eight o’clock.','Horario fijo'],['The class starts at nine.','Horario fijo']];
+def('ps_use','🧭','¿Para qué se usa?','Hábito, verdad general, situación permanente u horario.','simple',function(){
+  var it=pick(USES);
+  return {kind:'mc',prompt:'¿Qué uso del Present Simple es?<span class="big" style="font-size:22px">'+it[0]+'</span>',options:['Hábito o rutina','Verdad general','Situación permanente','Horario fijo'],answer:it[1],explain:'<b>'+it[1]+'</b>.'};
+});
+
+/* ---------- OTRAS DE GRAMATICA (BE) ---------- */
+def('gr_called','🏷️','Is called / are called','Su pez se llama Nemo.','poss',function(){
+  var plural=Math.random()<0.4;
+  var s=plural?'Their dogs ____ Max and Rex.':'Her fish ____ '+pick(PETNAMES)+'.';
+  return {kind:'mc',prompt:'Completa:<span class="big">'+s+'</span>',options:['is called','are called','call','called'],answer:plural?'are called':'is called',explain:s.replace('____','<b>'+(plural?'are called':'is called')+'</b>')};
+});
+def('gr_age','🎂','La edad con BE','I am 35 years old (no “I have”).','be',function(){
+  var n=2+rnd(70),nm=pick(FIRST),t=Math.random()<0.5;
+  if(t){var p=pick([['I','am'],['You','are'],['We','are'],['They','are'],['He','is'],['She','is']]);
+    return {kind:'mc',prompt:'Completa:<span class="big">'+p[0]+' ____ '+numWords(n)+' years old.</span>',options:['am','is','are','have'],answer:p[1],explain:'En inglés la edad usa BE: <b>'+p[0]+' '+p[1]+' '+numWords(n)+' years old.</b> (no “have”).'};}
+  return {kind:'mc',prompt:'Completa:<span class="big">'+nm+' is '+numWords(n)+' ____ .</span>',options:['years old','year old','years','old years'],answer:'years old',explain:'<b>'+nm+' is '+numWords(n)+' years old.</b>'};
+});
+var TRANS=[
+ ['Yo soy de Chile.','I am from Chile.'],['Ella es italiana.','She is Italian.'],['Ellos son argentinos.','They are Argentinian.'],['Él tiene treinta y dos años.','He is thirty-two years old.'],
+ ['Mi perro se llama Max.','My dog is called Max.',['My dog’s name is Max.']],['Su pez (de ella) se llama Nemo.','Her fish is called Nemo.'],['Nosotros somos de Japón.','We are from Japan.'],
+ ['Su loro (de ellos) es verde.','Their parrot is green.'],['Tú eres mi amigo.','You are my friend.'],['¿Ella es de Canadá?','Is she from Canada?'],['Él no es de Francia.','He is not from France.'],['Nuestro gato es negro.','Our cat is black.'],
+ ['Su perro (de él) es café.','His dog is brown.'],['Mi conejo es blanco.','My rabbit is white.'],['Raquel vive en Santiago.','Raquel lives in Santiago.']
+];
+def('gr_trans','🔁','Traducción ES → EN','Frases con BE, posesivos y Present Simple.','be',function(){
+  var it=pick(TRANS);
+  return {kind:'type',prompt:'Traduce al inglés:<span class="big">'+it[0]+'</span>',answer:it[1],accept:it[2]||[],explain:'<b>'+it[1]+'</b>'};
+});
+
+/* ---------- VOCABULARIO ---------- */
+function firstEs(x){return x.es.split(' / ')[0];}
+def('vb_en_es','🇬🇧','Inglés → español','Elige el significado.','vocab',function(){
+  var a=pick(ANIMALS.concat(COLORS));
+  var pool=ANIMALS.concat(COLORS).map(firstEs);
+  return {kind:'mc',prompt:'¿Qué significa <b class="big">'+a.en+'</b>',audio:{text:a.en},options:mcOpts(firstEs(a),pool),answer:firstEs(a),explain:'<b>'+a.en+'</b> = '+a.es+(a.em?' '+a.em:'')};
+});
+def('vb_es_en','🇨🇱','Español → inglés','Escribe la palabra en inglés.','vocab',function(){
+  var a=pick(ANIMALS.concat(COLORS));
+  return {kind:'type',prompt:'Escribe en inglés: <b class="big">'+a.es+'</b>',answer:a.en,explain:a.es+' = <b>'+a.en+'</b>'};
+});
+def('vb_emoji','🖼️','Dibujo → palabra','Mira el emoji y escribe el animal.','vocab',function(){
+  var a=pick(ANIMALS.filter(function(x){return x.em!=='🐾';}));
+  return {kind:'type',prompt:'¿Cómo se dice en inglés este animal? <b class="big" style="font-size:56px">'+a.em+'</b>',answer:a.en,explain:a.em+' = <b>'+a.en+'</b> ('+a.es+')'};
+});
+def('vb_color','🎨','Color → palabra','Mira el color y elige su nombre.','vocab',function(){
+  var c=pick(COLORS);
+  return {kind:'mc',prompt:'¿Qué color es?<span class="big"><span class="sw" style="width:60px;height:60px;background:'+c.hex+'"></span></span>',options:mcOpts(c.en,COLORS.map(function(x){return x.en;})),answer:c.en,explain:'<b>'+c.en+'</b> = '+c.es};
+});
+def('vb_spell','🔤','Deletrea el animal','Oyes el animal deletreado y lo escribes.','vocab',function(){
+  var a=pick(ANIMALS.concat(COLORS));
+  return {kind:'type',cmp:'letters',prompt:'Escucha el deletreo y escribe la palabra.',audio:{spell:a.en},answer:a.en,hint:a.en.replace(/[^ ]/g,'•').length+' caracteres',explain:'Era <b>'+a.en+'</b> ('+a.es+').'};
+});
+def('vb_called','🏷️','Mi mascota se llama…','Completa frases sobre mascotas.','vocab',function(){
+  var a=pick(PETS),nm=pick(PETNAMES),p=pick(POSS);
+  return {kind:'type',prompt:'Completa con <b>is called</b> y el posesivo de <b>'+p[0]+'</b>:<span class="big">____ '+a.en+' ____ '+nm+'.</span>',answer:p[1]+' '+a.en+' is called '+nm+'.',explain:'<b>'+cap(p[1])+' '+a.en+' is called '+nm+'.</b>'};
+});
+
+/* ---------- EXAMEN ---------- */
+var EXAM_POOL=['al_listen','al_pron','al_spell','li_comp','li_dict','li_numbers','li_nat','li_vocab','li_colors','li_ages','nt_c2n','nt_n2c','nt_fill','nt_suffix','nt_odd','nt_spell','nt_trans','nm_pairs','nm_w2n','nm_n2w','nm_age','nm_math','vw_ls','vw_pairs','vw_vowel','vw_short','vw_pattern','be_fill','be_neg','be_q','be_order','be_contr','po_fill','po_ctx','po_type','po_persona','ps_verb','ps_use','gr_called','gr_age','gr_trans','vb_en_es','vb_es_en','vb_emoji','vb_color','vb_spell','vb_called'];
+function mixedGen(){return QZ[pick(EXAM_POOL)].gen();}
+
+/* ============================================================
+   SESION DE PRUEBA
+   ============================================================ */
+var sess=null;
+function qKey(q){return JSON.stringify([q.prompt,q.answer,q.target||'',q.audio||'']);}
+function startQuiz(id,opts){
+  opts=opts||{};
+  stopAll();
+  var d=QZ[id]||{id:id,icon:opts.icon||'🎯',title:opts.title||'Prueba',topic:'vocab',gen:opts.gen};
+  var n=opts.n||parseInt(S.qn,10)||10,qs=[],seen={},tries=0;
+  if(opts.list){qs=opts.list.slice(0,n);}
+  else{
+    while(qs.length<n&&tries<n*25){
+      tries++;
+      var q=(d.gen||opts.gen)();
+      if(!q)continue;
+      q.topic=q.topic||d.topic;
+      var k=qKey(q);
+      if(seen[k])continue;
+      seen[k]=1;qs.push(q);
+    }
+  }
+  if(!qs.length){toast('No hay preguntas disponibles.');return;}
+  sess={id:id,title:opts.title||d.title,icon:opts.icon||d.icon,qs:qs,i:0,score:0,wrong:[],back:opts.back||'home',review:!!opts.review};
+  renderQ();
+  window.scrollTo(0,0);
+}
+function record(q,ok){
+  var t=q.topic||'vocab';
+  S.stats[t]=S.stats[t]||{c:0,t:0};
+  S.stats[t].t++;
+  if(ok){S.stats[t].c++;S.streak++;S.best=Math.max(S.best,S.streak);S.xp+=10+Math.min(S.streak,5);}
+  else S.streak=0;
+  var k=qKey(q);
+  if(!ok){
+    if(!S.mistakes.some(function(m){return qKey(m)===k;})){S.mistakes.push(q);if(S.mistakes.length>80)S.mistakes.shift();}
+  }else if(sess&&sess.review){S.mistakes=S.mistakes.filter(function(m){return qKey(m)!==k;});}
+  save();renderStats();
+}
+function renderStats(){
+  $('#stXP').textContent='⭐ '+S.xp+' XP';
+  $('#stStreak').textContent='🔥 Racha '+S.streak;
+  $('#stLevel').textContent='Nivel '+(Math.floor(S.xp/200)+1);
+}
+
+function renderQ(){
+  var q=sess.qs[sess.i],answered=false,attempts=0;
+  var v=$('#view');v.innerHTML='';
+  var wrap=h('div',{class:'qcard'});
+  wrap.append(h('div',{class:'qhead'},
+    h('button',{class:'btn ghost sm',type:'button',onclick:function(){stopAll();go(sess.back);}},'← Salir'),
+    h('span',{class:'chip'},sess.icon+' '+sess.title),
+    h('span',{class:'sp'}),
+    h('span',{class:'qnum'},(sess.i+1)+' / '+sess.qs.length),
+    h('span',{class:'qscore'},'✔ '+sess.score)));
+  wrap.append(h('div',{class:'bar'},h('div',{style:'width:'+(sess.i/sess.qs.length*100)+'%'})));
+  wrap.append(h('div',{class:'qprompt',html:q.prompt}));
+  if(q.audio){
+    wrap.append(h('div',{class:'arow'},
+      h('button',{class:'btn big',type:'button',onclick:function(){playAudio(q.audio);}},'🔊 Escuchar'),
+      h('button',{class:'btn',type:'button',onclick:function(){playAudio(q.audio,true);}},'🐢 Más lento')));
+    setTimeout(function(){if(sess&&sess.qs[sess.i]===q)playAudio(q.audio);},300);
+  }
+  var body=h('div',{class:'qbody'});wrap.append(body);
+  var fb=h('div',{class:'fb','aria-live':'polite'});wrap.append(fb);
+  var last=sess.i===sess.qs.length-1;
+  var nxt=h('button',{class:'btn pri',type:'button',onclick:function(){stopAll();if(last)renderResult();else{sess.i++;renderQ();}}},last?'Ver resultados ✓':'Siguiente →');
+  nxt.hidden=true;
+  wrap.append(h('div',{class:'nextrow'},nxt));
+  v.append(wrap);
+
+  function finish(ok,shown){
+    if(answered)return;answered=true;
+    if(ok)sess.score++;else sess.wrong.push(q);
+    record(q,ok);
+    var ans=q.kind==='speak'?q.target:q.answer;
+    fb.className='fb '+(ok?'ok':'bad');
+    fb.innerHTML=(ok?'✅ <b>¡Correcto!</b>':'❌ <b>Incorrecto.</b> Respuesta: <b>'+ans+'</b>')+(shown?'<div class="hint">Tu respuesta: '+shown+'</div>':'')+(q.explain?'<div style="margin-top:6px">'+q.explain+'</div>':'');
+    nxt.hidden=false;setTimeout(function(){nxt.focus();},250);
+    wrap.querySelector('.qscore').textContent='✔ '+sess.score;
+  }
+
+  if(q.kind==='mc'){
+    var opts=h('div',{class:'opts',role:'group'});
+    q.options.forEach(function(o,idx){
+      var isObj=typeof o==='object',val=isObj?o.value:o;
+      var b=h('button',{class:'opt',type:'button','aria-label':isObj?('Color '+(idx+1)):val},
+        isObj?h('span',{class:'sw',style:'width:44px;height:44px;background:'+o.color}):null,
+        isObj?null:val);
+      b.dataset.v=val;
+      b.addEventListener('click',function(){
+        if(answered)return;
+        var ok=val===q.answer;
+        Array.prototype.forEach.call(opts.children,function(x){x.disabled=true;if(x.dataset.v===q.answer)x.classList.add('ok');});
+        if(!ok)b.classList.add('bad');
+        finish(ok,isObj?val:null);
+      });
+      opts.append(b);
+    });
+    body.append(opts);
+    if(q.options.length<=5)body.append(h('div',{class:'hint'},'Tip: puedes usar las teclas 1–'+q.options.length+'.'));
+    sess.keys=function(e){
+      var n=parseInt(e.key,10);
+      if(!answered&&n>=1&&n<=q.options.length&&opts.children[n-1])opts.children[n-1].click();
+    };
+  }
+  else if(q.kind==='type'){
+    var inp=h('input',{type:'text',autocomplete:'off',autocapitalize:'none',spellcheck:'false','aria-label':'Tu respuesta',placeholder:'Escribe aquí…'});
+    var chk=h('button',{class:'btn pri',type:'button'},'Comprobar');
+    var skip=h('button',{class:'btn ghost',type:'button'},'No sé');
+    function submit(){if(answered)return;var val=inp.value;if(!val.trim()){inp.focus();return;}var ok=checkType(q,val);inp.disabled=true;chk.disabled=true;skip.disabled=true;finish(ok,val);}
+    chk.addEventListener('click',submit);
+    skip.addEventListener('click',function(){if(answered)return;inp.disabled=true;chk.disabled=true;skip.disabled=true;finish(false,'(sin respuesta)');});
+    inp.addEventListener('keydown',function(e){if(e.key==='Enter')submit();});
+    body.append(h('div',{class:'typerow'},inp,chk,skip));
+    if(q.hint)body.append(h('div',{class:'hint'},'💡 '+q.hint));
+    setTimeout(function(){inp.focus();},50);
+    sess.keys=null;
+  }
+  else if(q.kind==='order'){
+    var bank=h('div',{class:'bank'}),ans=h('div',{class:'ans'});
+    var items=q.words.map(function(w,i){return {w:w,i:i,placed:false};});
+    function draw(){
+      bank.innerHTML='';ans.innerHTML='';
+      var placed=items.filter(function(x){return x.placed;}).sort(function(a,b){return (a.ord||0)-(b.ord||0);});
+      items.forEach(function(it){if(!it.placed)bank.append(h('button',{type:'button',onclick:function(){if(answered)return;it.placed=true;it.ord=++cnt;draw();}},it.w));});
+      placed.forEach(function(it){ans.append(h('button',{type:'button',onclick:function(){if(answered)return;it.placed=false;draw();}},it.w));});
+    }
+    var cnt=0;draw();
+    var ck=h('button',{class:'btn pri',type:'button',onclick:function(){
+      if(answered)return;
+      var placed=items.filter(function(x){return x.placed;}).sort(function(a,b){return a.ord-b.ord;}).map(function(x){return x.w;});
+      if(placed.length!==items.length){toast('Usa todas las palabras.');return;}
+      var user=placed.join(' ');finish(normText(user)===normText(q.answer),user);
+    }},'Comprobar');
+    var clr=h('button',{class:'btn ghost',type:'button',onclick:function(){if(answered)return;items.forEach(function(x){x.placed=false;});draw();}},'Borrar');
+    body.append(ans,bank,h('div',{class:'typerow'},ck,clr));
+    sess.keys=null;
+  }
+  else if(q.kind==='speak'){
+    body.append(h('div',{class:'target',id:'tgt'},q.target));
+    if(q.es)body.append(h('div',{class:'heard'},q.es));
+    var heard=h('div',{class:'heard',id:'heard'},'');
+    var mic=h('button',{class:'btn micbtn',type:'button'},'🎤 Hablar');
+    body.append(h('div',{class:'center'},
+      h('button',{class:'btn',type:'button',onclick:function(){playAudio(q.model||{text:q.target});}},'🔊 Escuchar modelo'),
+      h('button',{class:'btn',type:'button',onclick:function(){playAudio(q.model||{text:q.target},true);}},'🐢 Lento'),
+      SR?mic:null));
+    body.append(heard);
+    if(!SR){
+      body.append(h('div',{class:'notice'},'Tu navegador no tiene reconocimiento de voz (usa Chrome o Edge). Escucha el modelo, repítelo en voz alta y autoevalúate:'));
+    }
+    var self=h('div',{class:'center'},
+      h('button',{class:'btn',type:'button',onclick:function(){finish(true,'autoevaluación');}},'✅ Lo dije bien'),
+      h('button',{class:'btn',type:'button',onclick:function(){finish(false,'autoevaluación');}},'🔁 Aún no me sale'));
+    if(SR){body.append(h('details',null,h('summary',null,'¿No funciona el micrófono? Autoevalúate'),self));}else body.append(self);
+    if(SR)mic.addEventListener('click',async function(){
+      if(answered)return;
+      stopAll();mic.classList.add('live');mic.textContent='🎙️ Escuchando…';mic.disabled=true;heard.textContent='';
+      try{
+        await sleep(150);
+        var alts=await listenOnce();
+        var r=scoreSpeech(q.target,alts,q.accept);
+        $('#tgt').innerHTML=r.marks.map(function(m){return '<span class="'+(m.ok?'w-ok':'w-bad')+'">'+m.w+'</span>';}).join(' ');
+        heard.textContent='Te escuché: “'+r.heard+'”  ·  precisión '+Math.round(r.score*100)+'%';
+        attempts++;
+        if(r.score>=0.8){finish(true,r.heard);}
+        else if(attempts>=3){finish(false,r.heard);}
+        else{heard.textContent+='  ·  Inténtalo otra vez ('+attempts+'/3)';}
+      }catch(err){
+        var msg={'not-allowed':'Permite el micrófono en el navegador y vuelve a intentar.','service-not-allowed':'El micrófono está bloqueado para esta página.','no-speech':'No te escuché. Acércate al micrófono e inténtalo de nuevo.','network':'El reconocimiento de voz necesita conexión a Internet.','audio-capture':'No se encontró un micrófono.'}[err]||'No pude reconocer tu voz. Inténtalo otra vez.';
+        heard.textContent=msg;
+      }
+      mic.classList.remove('live');mic.textContent='🎤 Hablar';mic.disabled=false;
+    });
+    sess.keys=null;
+  }
+}
+
+function renderResult(){
+  var v=$('#view');v.innerHTML='';
+  var pct=Math.round(sess.score/sess.qs.length*100);
+  var msg=pct>=90?'¡Excelente! 🏆':pct>=70?'¡Muy bien! 👏':pct>=50?'Vas bien, sigue practicando 💪':'Repasa y vuelve a intentarlo 📚';
+  var wrap=h('div',{class:'qcard result'},
+    h('div',{class:'chip'},sess.icon+' '+sess.title),
+    h('div',{class:'score'},pct+'%'),
+    h('h3',{style:'margin:4px 0'},msg),
+    h('p',{class:'muted'},sess.score+' de '+sess.qs.length+' correctas  ·  ⭐ '+S.xp+' XP'));
+  if(sess.wrong.length){
+    var wl=h('div',{class:'wronglist'},h('b',null,'Para repasar:'));
+    sess.wrong.forEach(function(q){
+      var ans=q.kind==='speak'?q.target:q.answer;
+      wl.append(h('div',null,h('div',{html:q.prompt.replace(/<span class="big"[^>]*>/g,'<span>')}),h('div',{html:'✔ <b>'+ans+'</b>'+(q.explain?' — '+q.explain:'')})));
+    });
+    wrap.append(wl);
+  }
+  var again=h('button',{class:'btn pri',type:'button',onclick:function(){
+    if(sess.review)startQuiz('review',{list:shuffle(S.mistakes),title:'Repaso de errores',icon:'🔁',review:true,back:'progress'});
+    else startQuiz(sess.id,{title:sess.title,icon:sess.icon,back:sess.back,gen:sess.id==='mixed'?mixedGen:null,n:sess.qs.length});
+  }},'🔁 Repetir');
+  var back=h('button',{class:'btn',type:'button',onclick:function(){go(sess.back);}},'← Volver');
+  var home=h('button',{class:'btn',type:'button',onclick:function(){go('home');}},'🏠 Inicio');
+  wrap.append(h('div',{class:'center',style:'margin-top:16px'},again,back,home));
+  v.append(wrap);
+  window.scrollTo(0,0);
+}
+document.addEventListener('keydown',function(e){
+  if(sess&&sess.keys&&!/INPUT|TEXTAREA|SELECT/.test((e.target||{}).tagName||''))sess.keys(e);
+});
+
+/* ============================================================
+   PANELES DE ESTUDIO
+   ============================================================ */
+function tileBtn(label,sub,say,cls){
+  return h('button',{type:'button',class:'vt '+(cls||''),onclick:function(){playAudio({text:say||label});}},h('b',null,label),sub?h('small',null,sub):null);
+}
+function studyAlphabet(c){
+  c.append(h('h3',{style:'margin-top:0'},'Toca una letra para escucharla'));
+  [['A','I','pink'],['J','R','green'],['S','Z','blue']].forEach(function(r){
+    var row=h('div',{class:'abcrow'});
+    for(var i=ALPHA.indexOf(r[0]);i<=ALPHA.indexOf(r[1]);i++){
+      (function(L){row.append(h('button',{type:'button',class:'tile '+r[2],'aria-label':'Letra '+L,onclick:function(){playAudio({spell:L});}},h('b',null,L),h('i',null,ES_PRON[L])));})(ALPHA[i]);
+    }
+    c.append(row);
+  });
+  c.append(h('div',{class:'notice'},'⚠️ Letras que más se confunden: <b>E (ii) / I (ai)</b> · <b>G (yi) / J (yei)</b> · <b>W (dobl ui) / Y (wai)</b> · <b>A (ei) / H (eich)</b> · <b>B / V / P</b>.'.replace(/<[^>]+>/g,'')));
+  var inp=h('input',{type:'text',placeholder:'Escribe un nombre, ej. Anderson',maxlength:30,'aria-label':'Palabra a deletrear'});
+  var out=h('div',{class:'spellout'});
+  function go1(){
+    out.innerHTML='';var w=inp.value.trim();
+    w.split('').forEach(function(ch){
+      var U=ch.toUpperCase();
+      if(ES_PRON[U])out.append(h('div',null,h('b',null,U),h('i',null,ES_PRON[U])));
+    });
+    if(w)playAudio({spell:w});
+  }
+  inp.addEventListener('keydown',function(e){if(e.key==='Enter')go1();});
+  c.append(h('h3',null,'🔍 Deletreador'),h('div',{class:'typerow'},inp,h('button',{class:'btn pri',type:'button',onclick:go1},'🔊 Deletrear')),out);
+  c.append(h('h3',null,'📧 Para correos'),h('p',null,'@ = ',h('span',{class:'say','data-say':'at'},'at'),' · . = ',h('span',{class:'say','data-say':'dot'},'dot'),' · - = ',h('span',{class:'say','data-say':'dash'},'dash'),' · _ = ',h('span',{class:'say','data-say':'underscore'},'underscore')));
+}
+function studyListening(c){
+  c.append(h('p',{class:'muted'},'Cómo practicar: 1) escucha sin leer, 2) responde, 3) vuelve a escuchar en modo lento y lee el texto.'));
+  PASSAGES.forEach(function(p,i){
+    var tx=h('div',{class:'hint',hidden:true},p.t);
+    c.append(h('div',{style:'margin:8px 0'},
+      h('button',{class:'btn sm',type:'button',onclick:function(){playAudio({text:p.t});}},'🔊 Audio '+(i+1)),' ',
+      h('button',{class:'btn sm',type:'button',onclick:function(){playAudio({text:p.t},true);}},'🐢 Lento'),' ',
+      h('button',{class:'btn sm ghost',type:'button',onclick:function(){tx.hidden=!tx.hidden;}},'📄 Mostrar/ocultar texto'),tx));
+  });
+}
+function studyPron(c){
+  c.append(h('div',{class:'notice'},'🎤 El reconocimiento de voz funciona en <b>Chrome</b> o <b>Edge</b> y necesita Internet y permiso de micrófono.'.replace(/<[^>]+>/g,'')));
+  c.append(h('h3',{style:'margin-top:0'},'Laboratorio libre'));
+  var ta=h('textarea',{'aria-label':'Texto a practicar'},'Her fish is called Nemo.');
+  var res=h('div',{class:'heard'}),tg=h('div',{class:'target'});
+  var mic=h('button',{class:'btn micbtn',type:'button'},'🎤 Hablar');
+  c.append(ta,h('div',{class:'center'},
+    h('button',{class:'btn',type:'button',onclick:function(){playAudio({text:ta.value});}},'🔊 Escuchar'),
+    h('button',{class:'btn',type:'button',onclick:function(){playAudio({text:ta.value},true);}},'🐢 Lento'),
+    SR?mic:null),tg,res);
+  if(!SR)c.append(h('div',{class:'notice'},'Tu navegador no admite micrófono: usa Chrome o Edge para esta función.'));
+  if(SR)mic.addEventListener('click',async function(){
+    stopAll();mic.classList.add('live');mic.textContent='🎙️ Escuchando…';mic.disabled=true;res.textContent='';
+    try{
+      await sleep(150);var alts=await listenOnce();var r=scoreSpeech(ta.value,alts);
+      tg.innerHTML=r.marks.map(function(m){return '<span class="'+(m.ok?'w-ok':'w-bad')+'">'+m.w+'</span>';}).join(' ');
+      res.textContent='Te escuché: “'+r.heard+'”  ·  precisión '+Math.round(r.score*100)+'%  (verde = bien, rojo = repasar)';
+    }catch(e){res.textContent='No pude escucharte ('+e+'). Revisa el permiso del micrófono.';}
+    mic.classList.remove('live');mic.textContent='🎤 Hablar';mic.disabled=false;
+  });
+}
+function studyNat(c){
+  var filter='all',q='';
+  var FILT=[['all','Todas'],['ish','-ish / -sh'],['an','-an / -ian'],['ese','-ese'],['other','Otras']];
+  c.append(h('p',{class:'muted'},'Regla de clase: <b>-ish</b> (Spanish, Polish, Turkish, British, English), <b>-an</b> (Italian, Argentinian, Russian, American) y <b>-ese</b> (Chinese, Japanese). Estructura: <i>I am from Chile. I am Chilean.</i>'.replace(/<[^>]+>/g,'')));
+  var chips=h('div',{class:'chips'}),list=h('div',null);
+  var search=h('input',{type:'text',placeholder:'Buscar país o nacionalidad…','aria-label':'Buscar'});
+  function draw(){
+    chips.innerHTML='';
+    FILT.forEach(function(f){chips.append(h('button',{type:'button',class:filter===f[0]?'on':'',onclick:function(){filter=f[0];draw();}},f[1]));});
+    list.innerHTML='';
+    var rows=COUNTRIES.filter(function(r){
+      var t=(r.es+' '+r.en+' '+r.nat).toLowerCase();
+      return (filter==='all'||r.suf===filter)&&(!q||t.indexOf(q)>-1);
+    });
+    rows.forEach(function(r){
+      var base=r.len?r.nat.slice(0,-r.len):r.nat,suf=r.len?r.nat.slice(-r.len):'';
+      list.append(h('div',{class:'natrow'},
+        h('div',null,h('b',null,r.es),h('small',null,' · '+r.en)),
+        h('div',{class:'natn'},base,suf?h('u',null,suf):null),
+        h('button',{class:'btn sm ghost',type:'button','aria-label':'Escuchar '+r.nat,onclick:function(){playAudio({text:natSentence(r)});}},'🔊')));
+    });
+    if(!rows.length)list.append(h('p',{class:'muted'},'Sin resultados.'));
+    list.prepend(h('small',null,rows.length+' países'));
+  }
+  search.addEventListener('input',function(){q=search.value.trim().toLowerCase();draw();});
+  c.append(search,chips,list);draw();
+  // flashcards
+  c.append(h('h3',null,'🃏 Tarjetas'));
+  var deck=shuffle(COUNTRIES),i=0,flip=false,know=0;
+  var card=h('div',{class:'flash'}),ctl=h('div',{class:'center'});
+  function dc(){
+    var r=deck[i%deck.length];
+    card.innerHTML='';
+    if(!flip){card.append(h('div',{class:'f1'},r.es),h('div',{class:'muted'},r.en+' · toca “Voltear” para ver la nacionalidad'));}
+    else{card.append(h('div',{class:'f1'},r.nat),h('div',null,natSentence(r)));}
+    ctl.innerHTML='';
+    ctl.append(
+      h('button',{class:'btn',type:'button',onclick:function(){flip=!flip;dc();}},'🔄 Voltear'),
+      h('button',{class:'btn',type:'button',onclick:function(){playAudio({text:natSentence(r)});}},'🔊 Escuchar'),
+      h('button',{class:'btn',type:'button',onclick:function(){know++;i++;flip=false;dc();}},'✅ Lo sé'),
+      h('button',{class:'btn',type:'button',onclick:function(){i++;flip=false;dc();}},'↻ Repasar'),
+      h('small',null,'Tarjeta '+((i%deck.length)+1)+' / '+deck.length+' · sabidas: '+know));
+  }
+  c.append(card,ctl);dc();
+}
+function studyNumbers(c){
+  c.append(h('h3',{style:'margin-top:0'},'0 – 20'));
+  var g=h('div',{class:'numgrid'});
+  for(var i=0;i<=20;i++){(function(n){g.append(h('button',{type:'button',title:numWords(n),onclick:function(){playAudio({text:numWords(n)});}},String(n)));})(i);}
+  c.append(g);
+  c.append(h('h3',null,'Decenas'));
+  var g2=h('div',{class:'numgrid'});
+  [20,30,40,50,60,70,80,90,100].forEach(function(n){g2.append(h('button',{type:'button',title:numWords(n),onclick:function(){playAudio({text:numWords(n)});}},String(n)));});
+  c.append(g2);
+  c.append(h('h3',null,'⚠️ Los que suenan parecido (cambia el acento)'));
+  var t=h('table',null,h('tr',null,h('th',null,'-teen (acento al final)'),h('th',null,'-ty (acento al inicio)')));
+  [13,14,15,16,17,18,19].forEach(function(n){
+    var m=(n-10)*10;
+    t.append(h('tr',null,
+      h('td',null,h('span',{class:'say','data-say':numWords(n)},n+' = '+STRESS_TEEN[n])),
+      h('td',null,h('span',{class:'say','data-say':numWords(m)},m+' = '+STRESS_TY[m]))));
+  });
+  c.append(t);
+  c.append(h('h3',null,'🔧 Convertidor (0–1000)'));
+  var inp=h('input',{type:'number',min:0,max:1000,value:47,'aria-label':'Número'}),out=h('div',{class:'natn',style:'margin:8px 0'});
+  function conv(){
+    var n=parseInt(inp.value,10);
+    if(isNaN(n)||n<0||n>1000){out.textContent='Escribe un número entre 0 y 1000.';return;}
+    out.textContent=numWords(n);
+  }
+  inp.addEventListener('input',conv);conv();
+  c.append(h('div',{class:'typerow'},inp,h('button',{class:'btn pri',type:'button',onclick:function(){var n=parseInt(inp.value,10);if(!isNaN(n)&&n>=0&&n<=1000)playAudio({text:numWords(n)});}},'🔊 Escuchar')),out);
+}
+function studyVowels(c){
+  c.append(h('div',{class:'two'},
+    h('div',null,h('h3',{style:'margin-top:0'},'🔵 Vocal LARGA (dice su nombre)'),LONG_SIMPLE.map(function(x){return h('button',{type:'button',class:'wordchip long',onclick:function(){playAudio({text:x[0]});}},x[0]);}),
+      h('p',{class:'hint'},'cake, feet, kite, rope, cute…')),
+    h('div',null,h('h3',{style:'margin-top:0'},'⚪ Vocal CORTA'),SHORTW.map(function(x){return h('button',{type:'button',class:'wordchip',onclick:function(){playAudio({text:x[0]});}},x[0]);}),
+      h('p',{class:'hint'},'apple, jet, fish, clock, sun…'))));
+  c.append(h('h3',null,'📋 Patrones de escritura de las vocales largas'));
+  var t=h('table',null,h('tr',null,h('th',null,'Sonido'),h('th',null,'Patrones y ejemplos (toca para oír)')));
+  ['A','E','I','O','U'].forEach(function(v){
+    var td=h('td');
+    LONGW.filter(function(x){return x.v===v;}).forEach(function(x){td.append(h('button',{type:'button',class:'wordchip',onclick:function(){playAudio({text:x.w});}},x.p+' → '+x.w));});
+    t.append(h('tr',null,h('th',null,'Long '+v),td));
+  });
+  c.append(t);
+}
+function say_(t,label){return '<span class="say" data-say="'+t.replace(/"/g,'&quot;')+'">'+(label||t)+'</span>';}
+function studyGrammar(c){
+  c.append(h('div',{html:
+   '<h3 style="margin-top:0">Verbo BE (presente)</h3>'+
+   '<table><tr><th>Sujeto</th><th>Afirmativo</th><th>Negativo</th><th>Pregunta</th></tr>'+
+   [['I','I am','I am not','Am I…?'],['you','You are','You aren\'t','Are you…?'],['he / she / it','He is','He isn\'t','Is he…?'],['we','We are','We aren\'t','Are we…?'],['they','They are','They aren\'t','Are they…?']].map(function(r){return '<tr><td>'+r[0]+'</td><td>'+say_(r[1])+'</td><td>'+say_(r[2])+'</td><td>'+say_(r[3])+'</td></tr>';}).join('')+
+   '</table>'+
+   '<h3>Adjetivos posesivos</h3><table><tr><th>Pronombre</th><th>Posesivo</th><th>Ejemplo</th></tr>'+
+   [['I','my','My dog is called Max.'],['you','your','Your cat is black.'],['he','his','His parrot is green.'],['she','her','Her fish is called Nemo.'],['we','our','Our rabbit is white.'],['they','their','Their horse is brown.']].map(function(r){return '<tr><td>'+r[0]+'</td><td><b>'+r[1]+'</b></td><td>'+say_(r[2])+'</td></tr>';}).join('')+'</table>'+
+   '<h3>Present Simple: usos</h3><ul>'+
+   '<li><b>Hábitos:</b> '+say_('I go to the gym every Monday.')+'</li>'+
+   '<li><b>Verdades generales:</b> '+say_('Water boils at 100 degrees.')+'</li>'+
+   '<li><b>Situaciones permanentes:</b> '+say_('Raquel lives in Santiago.')+'</li>'+
+   '<li><b>Horarios fijos:</b> '+say_('The train leaves at eight o’clock.')+'</li></ul>'+
+   '<p>Con he / she / it el verbo lleva <b>-s</b>: he live<b>s</b>, she work<b>s</b>, it has.</p>'+
+   '<h3>Persona gramatical</h3><ul><li>1ª: I (sing.) · we (plural)</li><li>2ª: you</li><li>3ª: he / she / it (sing.) · they (plural)</li></ul>'+
+   '<h3>Edad y nombre</h3><ul><li>La edad se dice con BE: '+say_('She is thirty-two years old.')+' (no “has”).</li><li>Nombre de mascota: '+say_('Her fish is called Nemo.')+'</li></ul>'}));
+}
+function vocabTiles(title,list,isColor){
+  var g=h('div',{class:'tilegrid'});
+  list.forEach(function(a){
+    g.append(h('button',{type:'button',class:'vt',onclick:function(){playAudio({text:a.en});}},
+      isColor?h('span',{class:'sw',style:'background:'+a.hex}):h('span',{class:'em'},a.em),
+      h('b',null,a.en),h('small',null,a.es)));
+  });
+  return h('div',null,h('h3',null,title),g);
+}
+function studyVocab(c){
+  c.append(vocabTiles('🎨 Colores',COLORS,true),vocabTiles('🐾 Mascotas',PETS),vocabTiles('🚜 Animales de granja',FARM));
+  c.append(h('h3',null,'✍️ Escribe sobre tu mascota (tarea de clase)'));
+  var nameI=h('input',{type:'text',value:'Max','aria-label':'Nombre'});
+  var anim=h('select',{'aria-label':'Animal'},ANIMALS.map(function(a){return h('option',{value:a.en},a.en+' · '+a.es.split(' / ')[0]);}));
+  var col=h('select',{'aria-label':'Color'},COLORS.map(function(a){return h('option',{value:a.en},a.en);}));
+  var age=h('input',{type:'number',min:1,max:60,value:3,'aria-label':'Edad'});
+  var gen=h('select',{'aria-label':'Género'},h('option',{value:'He'},'He (macho)'),h('option',{value:'She'},'She (hembra)'),h('option',{value:'It'},'It'));
+  var out=h('textarea',{readonly:'readonly','aria-label':'Texto generado'});
+  function build(){
+    var n=parseInt(age.value,10);if(isNaN(n)||n<1)n=1;if(n>60)n=60;
+    var a=anim.value,p=gen.value,nm=nameI.value.trim()||'Max';
+    out.value='I have '+aOrAn(a)+' '+a+'. My '+a+' is called '+nm+'. '+p+' is '+col.value+'. '+p+' is '+numWords(n)+' year'+(n===1?'':'s')+' old. My '+a+' and I are friends.';
+  }
+  [nameI,anim,col,age,gen].forEach(function(e){e.addEventListener('input',build);e.addEventListener('change',build);});
+  build();
+  c.append(h('div',{class:'typerow'},h('label',null,'Nombre ',nameI),h('label',null,'Animal ',anim),h('label',null,'Color ',col),h('label',null,'Edad ',age),h('label',null,'Género ',gen)),out,
+    h('div',{class:'center'},h('button',{class:'btn pri',type:'button',onclick:function(){playAudio({text:out.value});}},'🔊 Escuchar mi texto'),
+      h('button',{class:'btn',type:'button',onclick:function(){playAudio({text:out.value},true);}},'🐢 Lento')),
+    h('p',{class:'hint'},'Cambia los datos y practica leyendo el texto en voz alta. Luego prueba la sección Pronunciación.'));
+}
+
+/* ============================================================
+   SECCIONES Y NAVEGACION
+   ============================================================ */
+var SECTIONS=[
+ {id:'home',icon:'🏠',title:'Inicio'},
+ {id:'alphabet',icon:'🔤',title:'Alfabeto',intro:'Letras, pronunciación y deletreo de nombres y correos.',study:studyAlphabet,quizzes:['al_listen','al_pron','al_spell','al_email','al_speak']},
+ {id:'listening',icon:'🎧',title:'Listening',intro:'Entrena el oído: textos, dictados, números, países y más.',study:studyListening,quizzes:['li_comp','li_dict','li_numbers','li_nat','li_vocab','li_colors','li_ages']},
+ {id:'pron',icon:'🗣️',title:'Pronunciación',intro:'Habla con el micrófono y recibe tu porcentaje de precisión.',study:studyPron,quizzes:['pr_letters','pr_nat','pr_sent','pr_numbers','pr_vowels','pr_vocab','pr_poss']},
+ {id:'nat',icon:'🌍',title:'Nacionalidades',intro:'Más de 70 países con su nacionalidad: -ish, -an, -ese y otras.',study:studyNat,quizzes:['nt_c2n','nt_n2c','nt_fill','nt_suffix','nt_odd','nt_spell','nt_trans','nt_speak']},
+ {id:'numbers',icon:'🔢',title:'Números',intro:'Del 0 al 1000, con foco en 13/30, 14/40…',study:studyNumbers,quizzes:['nm_pairs','nm_w2n','nm_n2w','nm_age','nm_math']},
+ {id:'vowels',icon:'🅰️',title:'Vocales',intro:'Sonidos largos y cortos, y patrones de escritura.',study:studyVowels,quizzes:['vw_ls','vw_pairs','vw_vowel','vw_short','vw_pattern']},
+ {id:'grammar',icon:'🧩',title:'Gramática',intro:'Verbo BE, posesivos, Present Simple, persona gramatical, edad y “is called”.',study:studyGrammar,quizzes:['be_fill','be_neg','be_q','be_order','be_contr','gr_age','po_fill','po_ctx','po_type','po_persona','ps_verb','ps_use','gr_called','gr_trans']},
+ {id:'vocab',icon:'🐾',title:'Vocabulario',intro:'Colores, mascotas y animales de granja.',study:studyVocab,quizzes:['vb_en_es','vb_es_en','vb_emoji','vb_color','vb_spell','vb_called']},
+ {id:'exam',icon:'🎯',title:'Examen'},
+ {id:'progress',icon:'📊',title:'Progreso'}
+];
+var cur='home';
+function renderTabs(){
+  var t=$('#tabs');t.innerHTML='';
+  SECTIONS.forEach(function(s){
+    var b=h('button',{type:'button',onclick:function(){stopAll();go(s.id);}},s.icon+' '+s.title);
+    if(s.id===cur)b.setAttribute('aria-current','page');
+    t.append(b);
+  });
+}
+function go(id){
+  cur=id;sess=null;renderTabs();
+  var v=$('#view');v.innerHTML='';
+  if(id==='home')return renderHome(v);
+  if(id==='exam')return renderExam(v);
+  if(id==='progress')return renderProgress(v);
+  var sec=SECTIONS.filter(function(s){return s.id===id;})[0];
+  v.append(h('h2',null,sec.icon+' '+sec.title),h('p',{class:'muted'},sec.intro));
+  var panel=h('div',{class:'panel'});
+  if(sec.study)sec.study(panel);
+  v.append(h('h3',null,'📚 Estudia'),panel);
+  v.append(h('h3',null,'🧪 Pruebas ('+sec.quizzes.length+')'));
+  var g=h('div',{class:'grid'});
+  sec.quizzes.forEach(function(id2){
+    var d=QZ[id2];
+    g.append(h('button',{type:'button',class:'card',onclick:function(){startQuiz(id2,{back:sec.id});}},
+      h('span',{class:'ic'},d.icon),h('b',null,d.title),h('span',{class:'d'},d.desc),h('span',{class:'go'},'Empezar ('+S.qn+') →')));
+  });
+  v.append(g);
+  window.scrollTo(0,0);
+}
+function renderHome(v){
+  var tot=0,cor=0;Object.keys(S.stats).forEach(function(k){tot+=S.stats[k].t;cor+=S.stats[k].c;});
+  var acc=tot?Math.round(cor/tot*100):0,lvl=Math.floor(S.xp/200)+1,into=S.xp%200;
+  v.append(h('section',{class:'hero'},
+    h('div',null,
+      h('h1',null,'Practica inglés con confianza'),
+      h('p',null,'Listening, pronunciación con micrófono y todo lo visto en clase: alfabeto, vocales, nacionalidades, números, verbo BE, posesivos y mascotas.'),
+      h('div',{class:'cta'},
+        h('button',{class:'btn w',type:'button',onclick:function(){startQuiz('mixed',{title:'Práctica del día',icon:'☀️',gen:mixedGen,n:15,back:'home'});}},'▶ Práctica del día'),
+        h('button',{class:'btn o',type:'button',onclick:function(){go('pron');}},'🎤 Pronunciación'),
+        h('button',{class:'btn o',type:'button',onclick:function(){go('listening');}},'🎧 Listening'))),
+    h('div',{class:'hstats'},
+      h('div',{class:'hs'},h('b',null,String(S.xp)),h('span',null,'XP')),
+      h('div',{class:'hs'},h('b',null,String(S.best)),h('span',null,'Mejor racha')),
+      h('div',{class:'hs'},h('b',null,tot?acc+'%':'—'),h('span',null,'Aciertos')),
+      h('div',{class:'minibar'},h('div',{class:'lbl'},h('span',null,'Nivel '+lvl),h('span',null,into+' / 200 XP')),h('div',{class:'t'},h('div',{style:'width:'+(into/200*100)+'%'}))))));
+  var quick=h('div',{class:'grid',style:'margin-top:20px'});
+  quick.append(
+    h('button',{type:'button',class:'card',onclick:function(){startQuiz('mixed',{title:'Práctica del día',icon:'☀️',gen:mixedGen,n:15,back:'home'});}},h('span',{class:'ic'},'☀️'),h('b',null,'Práctica del día'),h('span',{class:'d'},'15 preguntas mezcladas de todos los temas.'),h('span',{class:'go'},'Empezar →')),
+    h('button',{type:'button',class:'card',onclick:function(){go('exam');}},h('span',{class:'ic'},'🎯'),h('b',null,'Examen'),h('span',{class:'d'},'20 o 30 preguntas mixtas con resultado final.'),h('span',{class:'go'},'Ver opciones →')),
+    h('button',{type:'button',class:'card',onclick:function(){reviewMistakes();}},h('span',{class:'ic'},'🔁'),h('b',null,'Repasar errores'),h('span',{class:'d'},S.mistakes.length+' pregunta(s) para repasar.'),h('span',{class:'go'},'Repasar →')));
+  v.append(quick);
+  v.append(h('h3',null,'Elige un tema'));
+  var g=h('div',{class:'grid'});
+  SECTIONS.filter(function(s){return s.quizzes;}).forEach(function(s){
+    g.append(h('button',{type:'button',class:'card',onclick:function(){go(s.id);}},h('span',{class:'ic'},s.icon),h('b',null,s.title),h('span',{class:'d'},s.intro),h('span',{class:'go'},s.quizzes.length+' pruebas →')));
+  });
+  v.append(g);
+  v.append(h('h3',null,'Lo que vimos en clase'),h('div',{class:'panel',html:
+    '<b>2 nov:</b> colores, verbo BE (am/is/are, negativo y preguntas), Present Simple, persona gramatical.<br>'+
+    '<b>6 nov:</b> alfabeto, deletreo, vocales largas y cortas, nacionalidades (-ish, -an, -ese), números.<br>'+
+    '<b>9 nov:</b> deletreo de nombres, edades, adjetivos posesivos, mascotas, animales de granja, “is called”.'}));
+  if(!TTS)v.append(h('div',{class:'notice'},'Tu navegador no admite voz integrada. Abre este archivo con Chrome o Edge.'));
+}
+function renderExam(v){
+  v.append(h('h2',null,'🎯 Examen mixto'),h('p',{class:'muted'},'Preguntas al azar de todos los temas (la pronunciación con micrófono se practica en su sección).'));
+  var g=h('div',{class:'grid'});
+  [[20,'Examen corto','20 preguntas'],[30,'Examen completo','30 preguntas'],[50,'Maratón','50 preguntas']].forEach(function(x){
+    g.append(h('button',{type:'button',class:'card',onclick:function(){startQuiz('mixed',{title:x[1],icon:'🎯',gen:mixedGen,n:x[0],back:'exam'});}},h('span',{class:'ic'},'📝'),h('b',null,x[1]),h('span',{class:'d'},x[2]+' con listening, gramática, números, vocabulario y más.'),h('span',{class:'go'},'Empezar →')));
+  });
+  g.append(h('button',{type:'button',class:'card',onclick:reviewMistakes},h('span',{class:'ic'},'🔁'),h('b',null,'Repasar mis errores'),h('span',{class:'d'},S.mistakes.length+' pregunta(s) guardadas.'),h('span',{class:'go'},'Repasar →')));
+  v.append(g);
+}
+function reviewMistakes(){
+  if(!S.mistakes.length){toast('¡No tienes errores guardados! 🎉');return;}
+  startQuiz('review',{list:shuffle(S.mistakes),title:'Repaso de errores',icon:'🔁',review:true,back:'progress',n:S.mistakes.length});
+}
+function renderProgress(v){
+  v.append(h('h2',null,'📊 Tu progreso'));
+  v.append(h('div',{class:'panel',html:'⭐ <b>'+S.xp+' XP</b> · Nivel <b>'+(Math.floor(S.xp/200)+1)+'</b> · 🔥 Racha actual <b>'+S.streak+'</b> · Mejor racha <b>'+S.best+'</b>'}));
+  var p=h('div',{class:'panel'});
+  var worst=null,wp=101;
+  Object.keys(TOPICS).forEach(function(k){
+    var st=S.stats[k]||{c:0,t:0},pc=st.t?Math.round(st.c/st.t*100):0;
+    if(st.t>=3&&pc<wp){wp=pc;worst=k;}
+    p.append(h('div',{class:'pbar'},h('span',null,TOPICS[k]),h('div',{class:'t'},h('div',{style:'width:'+pc+'%'})),h('span',null,st.t?pc+'% ('+st.c+'/'+st.t+')':'sin datos')));
+  });
+  v.append(p);
+  if(worst)v.append(h('div',{class:'notice'},'💡 Tu tema más flojo ahora es <b>'+TOPICS[worst]+'</b> ('+wp+'%). Dedícale una prueba hoy.'.replace(/<[^>]+>/g,'')));
+  v.append(h('div',{class:'center'},
+    h('button',{class:'btn pri',type:'button',onclick:reviewMistakes},'🔁 Repasar errores ('+S.mistakes.length+')'),
+    h('button',{class:'btn',type:'button',onclick:function(){if(confirm('¿Borrar todo tu progreso?')){S.stats={};S.xp=0;S.streak=0;S.best=0;S.mistakes=[];save();renderStats();go('progress');}}},'🗑️ Reiniciar progreso')));
+  v.append(h('p',{class:'hint'},'El progreso se guarda en este navegador.'));
+}
+
+/* delegacion para elementos .say */
+document.addEventListener('click',function(e){
+  var t=e.target.closest&&e.target.closest('[data-say]');
+  if(t)playAudio({text:t.getAttribute('data-say')});
+});
+
+/* ============================================================
+   INICIO
+   ============================================================ */
+function applyTheme(){
+  var th=S.theme||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',th);
+}
+$('#themeBtn').addEventListener('click',function(){S.theme=(document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark';applyTheme();save();});
+$('#rate').value=S.rate;$('#rateVal').textContent=Number(S.rate).toFixed(2);
+$('#rate').addEventListener('input',function(){S.rate=parseFloat(this.value)||0.9;$('#rateVal').textContent=S.rate.toFixed(2);save();});
+$('#qn').value=String(S.qn);
+$('#qn').addEventListener('change',function(){S.qn=parseInt(this.value,10)||10;save();});
+$('#voiceSel').addEventListener('change',function(){S.voice=this.value;save();});
+$('#testVoice').addEventListener('click',function(){playAudio({text:'Hello! This is your English voice. Let us practice.'});});
+if(TTS){loadVoices();if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;}
+else $('#voiceSel').append(h('option',null,'Sin voz disponible'));
+applyTheme();renderStats();go('home');
+window.__EP={QZ:QZ,checkType:checkType,scoreSpeech:scoreSpeech,normText:normText,numWords:numWords,COUNTRIES:COUNTRIES,SECTIONS:SECTIONS,EXAM_POOL:EXAM_POOL};
+})();
+</script>
+</body>
+</html>
