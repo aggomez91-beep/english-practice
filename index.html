@@ -21,6 +21,7 @@
   --hero:linear-gradient(135deg,#0a1f4d 0%,#123c91 55%,#1d5fd1 100%);
 }
 *{box-sizing:border-box}
+[hidden]{display:none!important}
 html,body{margin:0}
 body{font-family:"Segoe UI Variable","Segoe UI",system-ui,-apple-system,Roboto,sans-serif;background:var(--bg);color:var(--fg);line-height:1.5;-webkit-font-smoothing:antialiased}
 button,input,select,textarea{font:inherit;color:inherit}
@@ -34,7 +35,10 @@ header.top{background:var(--hero);color:#fff;position:sticky;top:0;z-index:20;bo
 .logo .lg{width:36px;height:36px;border-radius:10px;background:#fff;color:var(--acc-d);display:grid;place-items:center;font-size:15px;font-weight:900;letter-spacing:-.5px;box-shadow:0 2px 8px rgba(0,0,0,.18)}
 .logo em{font-style:normal;font-weight:500;opacity:.85}
 .sp{flex:1}
-.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;white-space:nowrap;backdrop-filter:blur(4px)}
+.stat{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.22);color:#fff;border-radius:999px;padding:5px 13px;font-size:13px;font-weight:600;white-space:nowrap}
+.userchip{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);color:#fff;border-radius:999px;padding:3px 13px 3px 4px;font-weight:700;font-size:13px}
+.userchip:hover{background:rgba(255,255,255,.26)}
+.av{display:inline-grid;place-items:center;border-radius:50%;color:#fff;font-weight:800;flex:none;box-shadow:0 0 0 2px rgba(255,255,255,.6)}
 .setbar{max-width:1120px;margin:0 auto;padding:4px 16px 10px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;font-size:13px}
 .setbar label{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.85)}
 .setbar select,.setbar input[type=range]{max-width:200px}
@@ -42,6 +46,7 @@ header.top{background:var(--hero);color:#fff;position:sticky;top:0;z-index:20;bo
 .setbar input[type=range]{accent-color:#fff}
 .setbar .btn{background:rgba(255,255,255,.14);color:#fff;border:1px solid rgba(255,255,255,.28)}
 .setbar .btn:hover{background:rgba(255,255,255,.24);border-color:#fff}
+.setbar .btn.on{background:#fff;color:#0b3b91;border-color:#fff}
 nav.tabs{max-width:1120px;margin:0 auto;display:flex;gap:4px;overflow-x:auto;padding:0 16px;scrollbar-width:none}
 nav.tabs::-webkit-scrollbar{display:none}
 nav.tabs button{white-space:nowrap;border:0;background:transparent;color:rgba(255,255,255,.82);border-radius:10px 10px 0 0;padding:10px 15px;font-weight:600;font-size:14px;border-bottom:3px solid transparent;transition:background .12s}
@@ -106,8 +111,8 @@ small{color:var(--mut)}
 .chips button{border:1px solid var(--line);background:var(--card);border-radius:999px;padding:6px 14px;font-weight:600;font-size:13px}
 .chips button:hover{border-color:var(--acc)}
 .chips button.on{background:var(--acc);color:var(--accfg);border-color:var(--acc)}
-select,input[type=text],input[type=number],textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:var(--fg)}
-input[type=text]:focus,input[type=number]:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(20,86,200,.18);outline:none}
+select,input[type=text],input[type=number],input[type=password],textarea{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:8px 11px;color:var(--fg)}
+input[type=text]:focus,input[type=number]:focus,input[type=password]:focus,textarea:focus{border-color:var(--acc);box-shadow:0 0 0 3px rgba(20,86,200,.18);outline:none}
 
 /* ---------- ALFABETO ---------- */
 .abcrow{display:flex;flex-wrap:wrap;gap:9px;margin:9px 0}
@@ -182,7 +187,7 @@ th{background:var(--acc2);color:var(--acc-d);font-size:14px}
 .target{font-size:32px;font-weight:800;text-align:center;margin:12px 0;line-height:1.25;color:var(--acc-d)}
 :root[data-theme=dark] .target{color:#fff}
 .target .w-ok{color:var(--ok)}.target .w-bad{color:var(--bad);text-decoration:underline wavy}
-.heard{text-align:center;color:var(--mut);margin:4px 0}
+.heard{text-align:center;color:var(--mut);margin:4px 0;min-height:22px}
 .micbtn{background:linear-gradient(180deg,#1f6be0,#0b3b91);color:#fff;border-color:#0b3b91;font-size:18px;padding:13px 24px;border-radius:999px;box-shadow:0 4px 14px rgba(11,59,145,.4)}
 .micbtn:hover{background:linear-gradient(180deg,#2f80ed,#0f48ad);border-color:#0f48ad}
 .micbtn.live{animation:pulse 1s infinite}
@@ -204,8 +209,56 @@ details{margin:8px 0}
 summary{cursor:pointer;font-weight:600;color:var(--acc)}
 textarea{width:100%;min-height:76px;font-size:18px}
 .pill{font-size:12px;background:var(--acc2);padding:2px 8px;border-radius:99px;margin-left:6px}
-@media(max-width:700px){header.top{position:static}}
-.foot{text-align:center;color:var(--mut);font-size:12px;margin-top:40px}
+
+/* ---------- PERFILES / EQUIPO / PROGRESO ---------- */
+.login{max-width:940px;margin:6px auto}
+.login h2{text-align:center;font-size:30px}
+.login .sub{text-align:center;margin:0 0 6px}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px;margin-top:20px}
+.pcard{background:var(--card);border:1px solid var(--line);border-radius:20px;padding:22px 16px;text-align:center;box-shadow:var(--shadow);display:flex;flex-direction:column;align-items:center;gap:6px;transition:transform .12s,border-color .12s,box-shadow .12s}
+.pcard:hover{transform:translateY(-4px);border-color:var(--acc);box-shadow:0 12px 28px rgba(20,86,200,.2)}
+.pcard .av{box-shadow:0 0 0 4px var(--acc2)}
+.pcard b{font-size:19px}
+.pcard .role{font-size:12px;font-weight:700;background:var(--acc);color:var(--accfg);border-radius:99px;padding:2px 10px}
+.pcard .role.st{background:var(--acc2);color:var(--acc-d)}
+:root[data-theme=dark] .pcard .role.st{color:var(--acc)}
+.pcard small{display:block}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:14px 0}
+@media(max-width:640px){.kpis{grid-template-columns:repeat(2,1fr)}}
+.kpi{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:12px 8px;text-align:center;box-shadow:var(--shadow)}
+.kpi b{display:block;font-size:26px;line-height:1.15;color:var(--acc-d)}
+:root[data-theme=dark] .kpi b{color:#fff}
+.kpi span{font-size:12px;color:var(--mut)}
+.phead{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:6px}
+.phead h2{margin:0}
+.tblwrap{overflow-x:auto;border-radius:12px}
+.tblwrap table{min-width:800px}
+.tblwrap th,.tblwrap td{padding:9px 8px}
+.tblwrap td:last-child{white-space:nowrap}
+.rk{font-weight:800;text-align:center;width:44px}
+.who{display:flex;align-items:center;gap:10px;font-weight:700;white-space:nowrap}
+.xpcell{min-width:110px}
+.xpcell b{display:block}
+.xpcell .t{height:6px;background:var(--acc2);border-radius:99px;overflow:hidden;margin-top:4px}
+.xpcell .t div{height:100%;background:linear-gradient(90deg,#2f80ed,#0a2a6b)}
+.tag{display:inline-block;font-size:12px;font-weight:700;background:var(--acc2);color:var(--acc-d);border-radius:99px;padding:2px 9px}
+:root[data-theme=dark] .tag{color:var(--acc)}
+.chartbox{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:12px;box-shadow:var(--shadow)}
+.chartbox svg{display:block;width:100%;height:auto}
+.chartbox text{fill:var(--mut);font-size:11px;font-family:inherit}
+.chartbox .c-ok{fill:var(--acc)}.chartbox .c-no{fill:var(--acc3)}
+.chartbox .gl{stroke:var(--line);stroke-width:1}
+.chartbox .ln{fill:none;stroke:var(--acc);stroke-width:2.5;stroke-linejoin:round}
+.chartbox .dt{fill:var(--card);stroke:var(--acc);stroke-width:2}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--mut);margin-top:6px}
+.legend i{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:5px;vertical-align:-1px}
+.mini{display:inline-block;width:80px;height:8px;background:var(--acc2);border-radius:99px;overflow:hidden;vertical-align:middle;margin-right:8px}
+.mini div{height:100%;background:var(--acc)}
+.field{display:flex;flex-direction:column;gap:4px;margin:8px 0}
+.field label{font-size:13px;font-weight:600}
+.field input{width:100%}
+.smsg{font-size:13px;color:var(--mut);margin-top:8px}
+@media(max-width:700px){header.top{position:static}.pbar{grid-template-columns:110px 1fr 80px}}
 </style>
 </head>
 <body>
@@ -213,9 +266,10 @@ textarea{width:100%;min-height:76px;font-size:18px}
   <div class="topin">
     <div class="logo"><span class="lg" aria-hidden="true">EP</span><span>English <em>Practice</em></span></div>
     <div class="sp"></div>
-    <div class="stat" id="stXP">⭐ 0 XP</div>
-    <div class="stat" id="stStreak">🔥 Racha 0</div>
-    <div class="stat" id="stLevel">Nivel 1</div>
+    <div class="stat" id="stXP" hidden>⭐ 0 XP</div>
+    <div class="stat" id="stStreak" hidden>🔥 Racha 0</div>
+    <div class="stat" id="stLevel" hidden>Nivel 1</div>
+    <button class="userchip" id="userChip" type="button" aria-label="Cambiar de perfil" hidden></button>
   </div>
   <div class="setbar">
     <label>Voz <select id="voiceSel" aria-label="Voz en inglés"></select></label>
@@ -224,6 +278,7 @@ textarea{width:100%;min-height:76px;font-size:18px}
       <select id="qn"><option>5</option><option>10</option><option>15</option><option>20</option></select>
     </label>
     <button class="btn sm" id="testVoice" type="button">🔊 Probar voz</button>
+    <button class="btn sm" id="micChip" type="button" aria-pressed="false">🎙️ Micrófono: apagado</button>
     <button class="btn sm" id="themeBtn" type="button">🌙 / ☀️</button>
   </div>
   <nav class="tabs" id="tabs" aria-label="Secciones"></nav>
@@ -234,9 +289,23 @@ textarea{width:100%;min-height:76px;font-size:18px}
 (function(){
 'use strict';
 /* ============================================================
+   CONFIGURACION
+   ============================================================ */
+// Opcional: URL del servicio de Google Apps Script (https://script.google.com/macros/s/.../exec)
+// para compartir el progreso entre computadores. Se puede dejar vacío y configurarlo en la pestaña Equipo.
+var CLOUD_URL='';
+
+var PROFILES=[
+  {id:'nadine',   name:'Nadine',   label:'Profesora Nadine', role:'teacher', init:'N', grad:'linear-gradient(135deg,#071d4f,#1456c8)'},
+  {id:'agustin',  name:'Agustín',  label:'Agustín',          role:'student', init:'A', grad:'linear-gradient(135deg,#0b3b91,#3b8cff)'},
+  {id:'rodrigo',  name:'Rodrigo',  label:'Rodrigo',          role:'student', init:'R', grad:'linear-gradient(135deg,#0e4fbf,#5aa2ff)'},
+  {id:'barbara',  name:'Bárbara',  label:'Bárbara',          role:'student', init:'B', grad:'linear-gradient(135deg,#12307a,#2a72e0)'},
+  {id:'katherine',name:'Katherine',label:'Katherine',        role:'student', init:'K', grad:'linear-gradient(135deg,#1a4db3,#79b4ff)'}
+];
+
+/* ============================================================
    UTILIDADES
    ============================================================ */
-var KEY='englishPractice_v1';
 function $(s,r){return (r||document).querySelector(s);}
 function h(tag,props){
   var e=document.createElement(tag);
@@ -265,13 +334,28 @@ function mcOpts(correct,pool,n){
 function cap(s){return s.charAt(0).toUpperCase()+s.slice(1);}
 function sleep(ms){return new Promise(function(r){setTimeout(r,ms);});}
 function aOrAn(w){return /^[aeiou]/i.test(w)?'an':'a';}
+function dayKey(d){d=d||new Date();return d.getFullYear()+'-'+('0'+(d.getMonth()+1)).slice(-2)+'-'+('0'+d.getDate()).slice(-2);}
 
 /* ============================================================
-   ESTADO (se guarda en el navegador)
+   DATOS GUARDADOS (por perfil, en este navegador)
    ============================================================ */
-var S={stats:{},xp:0,streak:0,best:0,mistakes:[],rate:0.9,voice:'',qn:10,theme:''};
-try{var saved=JSON.parse(localStorage.getItem(KEY)||'{}');for(var k in saved)S[k]=saved[k];}catch(e){}
-function save(){try{localStorage.setItem(KEY,JSON.stringify(S));}catch(e){}}
+var DKEY='englishPractice_v2_db',CKEY='englishPractice_v2_cfg';
+var CFG={rate:0.9,voice:'',qn:10,theme:'',lastUser:'',cloudUrl:CLOUD_URL,cloudKey:'',lastSync:0};
+var DB={users:{}};
+try{var c0=JSON.parse(localStorage.getItem(CKEY)||'{}');for(var k0 in c0)CFG[k0]=c0[k0];}catch(e){}
+try{var d0=JSON.parse(localStorage.getItem(DKEY)||'{}');if(d0&&d0.users)DB.users=d0.users;}catch(e){}
+function newUser(){return {xp:0,streak:0,best:0,sessions:0,stats:{},mistakes:[],history:[],daily:{},first:0,updated:0};}
+PROFILES.forEach(function(p){
+  var u=DB.users[p.id]||{},n=newUser();
+  for(var k1 in n)if(u[k1]==null)u[k1]=n[k1];
+  DB.users[p.id]=u;
+});
+var S=newUser();      // datos del perfil activo
+var USER=null;        // id del perfil activo
+function save(){try{localStorage.setItem(DKEY,JSON.stringify(DB));}catch(e){}}
+function saveCfg(){try{localStorage.setItem(CKEY,JSON.stringify(CFG));}catch(e){}}
+function profileOf(id){return PROFILES.filter(function(p){return p.id===id;})[0];}
+function setUser(id){USER=id;S=DB.users[id];CFG.lastUser=id;saveCfg();renderStats();}
 
 var TOPICS={
   alphabet:'Alfabeto',listening:'Listening',pron:'Pronunciación',nat:'Nacionalidades',
@@ -279,7 +363,7 @@ var TOPICS={
 };
 
 /* ============================================================
-   DATOS
+   DATOS DE CLASE
    ============================================================ */
 var ALPHA='ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 var ES_PRON={A:'ei',B:'bi',C:'ci',D:'di',E:'ii',F:'ef',G:'yi',H:'eich',I:'ai',J:'yei',K:'kei',L:'el',M:'em',N:'en',O:'ou',P:'pi',Q:'kiu',R:'ar',S:'es',T:'ti',U:'iu',V:'vi',W:'dobl ui',X:'ex',Y:'wai',Z:'zi'};
@@ -291,7 +375,6 @@ var FIRST=['Noah','Mason','Eli','Theo','Emma','Olivia','Liam','Sophia','Lucas','
 var LAST=['Anderson','Hughes','Sanders','Johnson','Miller','Brown','Wilson','Taylor','Clark','Walker','Harris','Young','Lewis','King','Scott','Green','Baker','Adams','Turner','Parker'];
 var EMAILS=['john.smith@gmail.com','emma_clark@outlook.com','mason.hughes@work.com','olivia88@mail.com','theo-sanders@company.com','noah.anderson@latam.com','mia.baker@gmail.com','lucas_young@yahoo.com'];
 
-/* paises: [es, en, nacionalidad, articulo] */
 var RAW_COUNTRIES=[
 ['Chile','Chile','Chilean'],['Argentina','Argentina','Argentinian'],['Perú','Peru','Peruvian'],['Colombia','Colombia','Colombian'],
 ['Brasil','Brazil','Brazilian'],['México','Mexico','Mexican'],['Venezuela','Venezuela','Venezuelan'],['Ecuador','Ecuador','Ecuadorian'],
@@ -452,7 +535,7 @@ function scoreSpeech(target,alts,accept){
 }
 
 /* ============================================================
-   AUDIO (voz del navegador) Y MICROFONO
+   VOZ (texto a voz)
    ============================================================ */
 var TTS=('speechSynthesis' in window)&&('SpeechSynthesisUtterance' in window);
 var SR=window.SpeechRecognition||window.webkitSpeechRecognition;
@@ -463,20 +546,20 @@ function loadVoices(){
   var sel=$('#voiceSel');sel.innerHTML='';
   if(!voices.length){sel.append(h('option',{value:''},'Voz predeterminada'));return;}
   voices.forEach(function(v){sel.append(h('option',{value:v.name},v.name+' ('+v.lang+')'));});
-  var cur=voices.filter(function(v){return v.name===S.voice;})[0];
+  var cur=voices.filter(function(v){return v.name===CFG.voice;})[0];
   if(!cur){
     cur=voices.filter(function(v){return /natural|online/i.test(v.name)&&/en-US/i.test(v.lang);})[0]||
         voices.filter(function(v){return /en[-_]US/i.test(v.lang);})[0]||voices[0];
   }
-  sel.value=cur.name;S.voice=cur.name;
+  sel.value=cur.name;CFG.voice=cur.name;
 }
-function curVoice(){return voices.filter(function(v){return v.name===S.voice;})[0]||null;}
+function curVoice(){return voices.filter(function(v){return v.name===CFG.voice;})[0]||null;}
 function say(text,rate){
   return new Promise(function(res){
     if(!TTS){res();return;}
     var u=new SpeechSynthesisUtterance(text);
     u.lang='en-US';var v=curVoice();if(v){u.voice=v;u.lang=v.lang;}
-    u.rate=rate||S.rate;
+    u.rate=rate||CFG.rate;
     u.onend=u.onerror=function(){res();};
     speechSynthesis.speak(u);
   });
@@ -502,7 +585,7 @@ async function playAudio(a,slow){
   var t=++playTok;
   speechSynthesis.cancel();
   await sleep(70);
-  var rate=slow?Math.min(0.6,S.rate):S.rate;
+  var rate=slow?Math.min(0.6,CFG.rate):CFG.rate;
   if(a.text){await say(a.text,rate);return;}
   if(a.spell){
     var tk=spellTokens(a.spell);
@@ -514,30 +597,135 @@ async function playAudio(a,slow){
     }
   }
 }
-function stopAll(){playTok++;if(TTS)speechSynthesis.cancel();if(curRec){try{curRec.abort();}catch(e){}}}
-var curRec=null;
-function listenOnce(){
-  return new Promise(function(resolve,reject){
-    var r=new SR();curRec=r;
-    r.lang='en-US';r.maxAlternatives=5;r.interimResults=false;r.continuous=false;
-    var done=false;
-    r.onresult=function(e){
-      done=true;var alts=[];
-      for(var i=0;i<e.results[0].length;i++)alts.push(e.results[0][i].transcript);
-      resolve(alts);
-    };
-    r.onerror=function(e){if(!done){done=true;reject(e.error||'error');}};
-    r.onnomatch=function(){if(!done){done=true;reject('no-speech');}};
-    r.onend=function(){if(!done){done=true;reject('no-speech');}};
-    try{r.start();}catch(e){reject('error');}
-  });
-}
+function stopAll(){playTok++;if(TTS)speechSynthesis.cancel();Mic.cancel();}
+
 var toastTimer;
 function toast(msg){
   var t=$('#toast');
-  if(!t){t=h('div',{id:'toast',style:'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#0a2a6b;color:#fff;padding:10px 16px;border-radius:10px;z-index:99;max-width:90%;font-size:14px'});document.body.append(t);}
-  t.textContent=msg;t.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.style.display='none';},3500);
+  if(!t){t=h('div',{id:'toast',role:'status',style:'position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#0a2a6b;color:#fff;padding:10px 16px;border-radius:10px;z-index:99;max-width:90%;font-size:14px'});document.body.append(t);}
+  t.textContent=msg;t.style.display='block';clearTimeout(toastTimer);toastTimer=setTimeout(function(){t.style.display='none';},4200);
 }
+
+/* ============================================================
+   MICROFONO  (se activa UNA sola vez y queda abierto)
+   - Un solo permiso por visita: getUserMedia se pide una vez y el
+     stream se mantiene abierto mientras practicas.
+   - Un solo reconocedor continuo que se reinicia solo; cada pregunta
+     solo abre una "ventana de escucha", sin volver a pedir permiso.
+   - Se apaga solo tras 10 min sin usarlo, o con el botón 🎙️.
+   ============================================================ */
+function micMsg(err){
+  return {
+    'not-allowed':'El micrófono está bloqueado. Toca el candado junto a la dirección → Micrófono → Permitir, y recarga.',
+    'service-not-allowed':'El micrófono está bloqueado para esta página.',
+    'no-speech':'No te escuché. Acércate al micrófono e inténtalo de nuevo.',
+    'network':'El reconocimiento de voz necesita conexión a Internet.',
+    'audio-capture':'No se encontró un micrófono.',
+    'unsupported':'Tu navegador no admite reconocimiento de voz. Usa Chrome o Edge.',
+    'aborted':''
+  }[err]||'No pude reconocer tu voz. Inténtalo otra vez.';
+}
+var Mic={
+  stream:null,rec:null,wanted:false,running:false,win:null,idle:null,restarts:[],
+  touch:function(){
+    var m=this;clearTimeout(m.idle);
+    m.idle=setTimeout(function(){if(m.wanted&&!m.win){m.disable();toast('Micrófono apagado por inactividad.');}},600000);
+  },
+  chip:function(){
+    var b=$('#micChip');if(!b)return;
+    if(!SR){b.hidden=true;return;}
+    b.textContent=this.wanted?'🎙️ Micrófono: activo':'🎙️ Micrófono: apagado';
+    b.classList.toggle('on',!!this.wanted);
+    b.setAttribute('aria-pressed',this.wanted?'true':'false');
+  },
+  enable:async function(){
+    var m=this;
+    if(!SR)throw 'unsupported';
+    if(m.wanted){m.touch();if(!m.running)m.start();return true;}
+    if(navigator.mediaDevices&&navigator.mediaDevices.getUserMedia&&!m.stream){
+      try{m.stream=await navigator.mediaDevices.getUserMedia({audio:true});}
+      catch(e){
+        var n=e&&e.name;
+        throw (n==='NotFoundError'||n==='DevicesNotFoundError')?'audio-capture':
+              (n==='NotAllowedError'||n==='SecurityError'||n==='PermissionDeniedError')?'not-allowed':'error';
+      }
+    }
+    m.wanted=true;m.restarts=[];m.start();m.touch();m.chip();
+    return true;
+  },
+  release:function(){
+    if(this.stream){try{this.stream.getTracks().forEach(function(t){t.stop();});}catch(e){}this.stream=null;}
+  },
+  disable:function(){
+    var m=this;m.wanted=false;clearTimeout(m.idle);
+    try{if(m.rec)m.rec.abort();}catch(e){}
+    m.running=false;m.release();m.closeWin('aborted');m.chip();
+  },
+  fail:function(code){
+    var m=this;
+    if(!m.wanted){m.release();m.running=false;}
+    m.closeWin(code);m.chip();
+  },
+  start:function(){
+    var m=this;if(!SR||m.running)return;
+    var now=Date.now();
+    m.restarts=m.restarts.filter(function(t){return now-t<10000;});
+    if(m.restarts.length>=12){m.wanted=false;m.fail('error');return;}
+    m.restarts.push(now);
+    var r=new SR();
+    r.lang='en-US';r.continuous=true;r.interimResults=true;r.maxAlternatives=5;
+    r.onresult=function(e){m.result(e);};
+    r.onerror=function(e){
+      var c=e&&e.error;
+      if(c==='not-allowed'||c==='service-not-allowed'){m.wanted=false;m.fail('not-allowed');}
+      else if(c==='audio-capture'){m.wanted=false;m.fail('audio-capture');}
+      else if(c==='network'){m.closeWin('network');}
+    };
+    r.onend=function(){
+      m.running=false;
+      if(m.wanted)setTimeout(function(){if(m.wanted&&!m.running)m.start();},250);
+      else m.chip();
+    };
+    m.rec=r;
+    try{r.start();m.running=true;}catch(e){m.running=false;}
+  },
+  result:function(e){
+    var w=this.win;if(!w)return;
+    for(var i=e.resultIndex;i<e.results.length;i++){
+      var r=e.results[i],alts=[];
+      for(var j=0;j<r.length;j++)alts.push(r[j].transcript);
+      if(!alts.length)continue;
+      w.interim=alts;
+      if(w.onInterim)w.onInterim(alts[0]);
+      if(r.isFinal){w.done(alts);return;}
+    }
+    clearTimeout(w.silence);
+    w.silence=setTimeout(function(){if(w.interim&&w.interim[0])w.done(w.interim);},1700);
+  },
+  closeWin:function(reason){
+    var w=this.win;
+    if(w){this.win=null;w.reject(reason||'aborted');}
+  },
+  cancel:function(){this.closeWin('aborted');},
+  listen:function(onInterim){
+    var m=this;m.touch();m.closeWin('aborted');
+    return new Promise(function(resolve,reject){
+      var w={interim:null,onInterim:onInterim,finished:false};
+      function clear(){clearTimeout(w.silence);clearTimeout(w.max);}
+      w.done=function(a){if(w.finished)return;w.finished=true;clear();if(m.win===w)m.win=null;resolve(a);};
+      w.reject=function(c){if(w.finished)return;w.finished=true;clear();if(m.win===w)m.win=null;reject(c);};
+      w.max=setTimeout(function(){
+        if(w.interim&&w.interim[0])w.done(w.interim);else w.reject('no-speech');
+      },9000);
+      m.win=w;
+      if(!m.running&&m.wanted)m.start();
+    });
+  },
+  ask:async function(onInterim){
+    await this.enable();
+    return this.listen(onInterim);
+  }
+};
 
 /* ============================================================
    GENERADORES DE PREGUNTAS
@@ -818,7 +1006,7 @@ def('ps_use','🧭','¿Para qué se usa?','Hábito, verdad general, situación p
   return {kind:'mc',prompt:'¿Qué uso del Present Simple es?<span class="big" style="font-size:22px">'+it[0]+'</span>',options:['Hábito o rutina','Verdad general','Situación permanente','Horario fijo'],answer:it[1],explain:'<b>'+it[1]+'</b>.'};
 });
 
-/* ---------- OTRAS DE GRAMATICA (BE) ---------- */
+/* ---------- OTRAS DE GRAMATICA ---------- */
 def('gr_called','🏷️','Is called / are called','Su pez se llama Nemo.','poss',function(){
   var plural=Math.random()<0.4;
   var s=plural?'Their dogs ____ Max and Rex.':'Her fish ____ '+pick(PETNAMES)+'.';
@@ -862,7 +1050,7 @@ def('vb_color','🎨','Color → palabra','Mira el color y elige su nombre.','vo
 });
 def('vb_spell','🔤','Deletrea el animal','Oyes el animal deletreado y lo escribes.','vocab',function(){
   var a=pick(ANIMALS.concat(COLORS));
-  return {kind:'type',cmp:'letters',prompt:'Escucha el deletreo y escribe la palabra.',audio:{spell:a.en},answer:a.en,hint:a.en.replace(/[^ ]/g,'•').length+' caracteres',explain:'Era <b>'+a.en+'</b> ('+a.es+').'};
+  return {kind:'type',cmp:'letters',prompt:'Escucha el deletreo y escribe la palabra.',audio:{spell:a.en},answer:a.en,hint:a.en.length+' caracteres',explain:'Era <b>'+a.en+'</b> ('+a.es+').'};
 });
 def('vb_called','🏷️','Mi mascota se llama…','Completa frases sobre mascotas.','vocab',function(){
   var a=pick(PETS),nm=pick(PETNAMES),p=pick(POSS);
@@ -871,7 +1059,7 @@ def('vb_called','🏷️','Mi mascota se llama…','Completa frases sobre mascot
 
 /* ---------- EXAMEN ---------- */
 var EXAM_POOL=['al_listen','al_pron','al_spell','li_comp','li_dict','li_numbers','li_nat','li_vocab','li_colors','li_ages','nt_c2n','nt_n2c','nt_fill','nt_suffix','nt_odd','nt_spell','nt_trans','nm_pairs','nm_w2n','nm_n2w','nm_age','nm_math','vw_ls','vw_pairs','vw_vowel','vw_short','vw_pattern','be_fill','be_neg','be_q','be_order','be_contr','po_fill','po_ctx','po_type','po_persona','ps_verb','ps_use','gr_called','gr_age','gr_trans','vb_en_es','vb_es_en','vb_emoji','vb_color','vb_spell','vb_called'];
-function mixedGen(){return QZ[pick(EXAM_POOL)].gen();}
+function mixedGen(){var d=QZ[pick(EXAM_POOL)],q=d.gen();q.topic=d.topic;return q;}
 
 /* ============================================================
    SESION DE PRUEBA
@@ -882,7 +1070,7 @@ function startQuiz(id,opts){
   opts=opts||{};
   stopAll();
   var d=QZ[id]||{id:id,icon:opts.icon||'🎯',title:opts.title||'Prueba',topic:'vocab',gen:opts.gen};
-  var n=opts.n||parseInt(S.qn,10)||10,qs=[],seen={},tries=0;
+  var n=opts.n||parseInt(CFG.qn,10)||10,qs=[],seen={},tries=0;
   if(opts.list){qs=opts.list.slice(0,n);}
   else{
     while(qs.length<n&&tries<n*25){
@@ -896,7 +1084,7 @@ function startQuiz(id,opts){
     }
   }
   if(!qs.length){toast('No hay preguntas disponibles.');return;}
-  sess={id:id,title:opts.title||d.title,icon:opts.icon||d.icon,qs:qs,i:0,score:0,wrong:[],back:opts.back||'home',review:!!opts.review};
+  sess={id:id,title:opts.title||d.title,icon:opts.icon||d.icon,qs:qs,i:0,score:0,wrong:[],back:opts.back||'home',review:!!opts.review,xp0:S.xp};
   renderQ();
   window.scrollTo(0,0);
 }
@@ -904,20 +1092,84 @@ function record(q,ok){
   var t=q.topic||'vocab';
   S.stats[t]=S.stats[t]||{c:0,t:0};
   S.stats[t].t++;
-  if(ok){S.stats[t].c++;S.streak++;S.best=Math.max(S.best,S.streak);S.xp+=10+Math.min(S.streak,5);}
+  var gain=0;
+  if(ok){S.stats[t].c++;S.streak++;S.best=Math.max(S.best,S.streak);gain=10+Math.min(S.streak,5);S.xp+=gain;}
   else S.streak=0;
+  var dk=dayKey(),dd=S.daily[dk]||(S.daily[dk]={q:0,c:0,xp:0});
+  dd.q++;if(ok)dd.c++;dd.xp+=gain;
+  if(!S.first)S.first=Date.now();
+  S.updated=Date.now();
   var k=qKey(q);
   if(!ok){
     if(!S.mistakes.some(function(m){return qKey(m)===k;})){S.mistakes.push(q);if(S.mistakes.length>80)S.mistakes.shift();}
   }else if(sess&&sess.review){S.mistakes=S.mistakes.filter(function(m){return qKey(m)!==k;});}
   save();renderStats();
 }
-function renderStats(){
-  $('#stXP').textContent='⭐ '+S.xp+' XP';
-  $('#stStreak').textContent='🔥 Racha '+S.streak;
-  $('#stLevel').textContent='Nivel '+(Math.floor(S.xp/200)+1);
+function endSession(){
+  if(!sess||sess.logged)return;
+  sess.logged=true;
+  var tot=sess.qs.length;
+  S.sessions=(S.sessions||0)+1;
+  S.history.push({ts:Date.now(),id:sess.id,title:sess.title,icon:sess.icon,score:sess.score,total:tot,pct:Math.round(sess.score/tot*100)});
+  if(S.history.length>200)S.history=S.history.slice(-200);
+  var keys=Object.keys(S.daily).sort();
+  while(keys.length>120)delete S.daily[keys.shift()];
+  S.updated=Date.now();
+  save();
+  cloudPush(USER);
 }
 
+/* ============================================================
+   PERFILES: AYUDAS
+   ============================================================ */
+function avatar(p,size){
+  size=size||40;
+  return h('span',{class:'av',style:'width:'+size+'px;height:'+size+'px;font-size:'+Math.round(size*0.42)+'px;background:'+p.grad,'aria-hidden':'true'},p.init);
+}
+function lvl(u){return Math.floor(u.xp/200)+1;}
+function totals(u){var q=0,c=0;Object.keys(u.stats).forEach(function(k){q+=u.stats[k].t;c+=u.stats[k].c;});return {q:q,c:c,acc:q?Math.round(c/q*100):0};}
+function weekXP(u){var s=0,i;for(i=0;i<7;i++){var d=new Date();d.setDate(d.getDate()-i);var x=u.daily[dayKey(d)];if(x)s+=x.xp||0;}return s;}
+function lastAct(u){var t=u.updated||0;if(u.history.length)t=Math.max(t,u.history[u.history.length-1].ts);return t;}
+function ago(ts){
+  if(!ts)return 'nunca';
+  var m=Math.floor((Date.now()-ts)/60000);
+  if(m<1)return 'hace un momento';
+  if(m<60)return 'hace '+m+' min';
+  var hh=Math.floor(m/60);if(hh<24)return 'hace '+hh+' h';
+  var d=Math.floor(hh/24);return d===1?'ayer':'hace '+d+' días';
+}
+function weakest(u){
+  var w=null,wp=101;
+  Object.keys(TOPICS).forEach(function(k){var st=u.stats[k];if(!st||st.t<3)return;var pc=Math.round(st.c/st.t*100);if(pc<wp){wp=pc;w=k;}});
+  return w?{k:w,pc:wp}:null;
+}
+function fmtDate(ts){
+  var d=new Date(ts);
+  return d.toLocaleDateString('es-CL',{day:'2-digit',month:'short'})+' '+d.toLocaleTimeString('es-CL',{hour:'2-digit',minute:'2-digit'});
+}
+function isTeacher(){var p=USER&&profileOf(USER);return !!(p&&p.role==='teacher');}
+function metrics(id){
+  var u=DB.users[id],t=totals(u);
+  return {id:id,p:profileOf(id),u:u,xp:u.xp,level:lvl(u),sessions:u.sessions||0,q:t.q,acc:t.acc,best:u.best,week:weekXP(u),last:lastAct(u),weak:weakest(u)};
+}
+function renderStats(){
+  var on=!!USER;
+  ['#stXP','#stStreak','#stLevel'].forEach(function(s){$(s).hidden=!on;});
+  $('#stXP').textContent='⭐ '+S.xp+' XP';
+  $('#stStreak').textContent='🔥 Racha '+S.streak;
+  $('#stLevel').textContent='Nivel '+lvl(S);
+  var chip=$('#userChip');
+  chip.hidden=!on;
+  if(on){
+    var p=profileOf(USER);
+    chip.innerHTML='';
+    chip.append(avatar(p,28),h('span',null,p.label),h('span',{'aria-hidden':'true'},'⇄'));
+  }
+}
+
+/* ============================================================
+   PREGUNTA ACTUAL
+   ============================================================ */
 function renderQ(){
   var q=sess.qs[sess.i],answered=false,attempts=0;
   var v=$('#view');v.innerHTML='';
@@ -995,13 +1247,14 @@ function renderQ(){
   else if(q.kind==='order'){
     var bank=h('div',{class:'bank'}),ans=h('div',{class:'ans'});
     var items=q.words.map(function(w,i){return {w:w,i:i,placed:false};});
+    var cnt=0;
     function draw(){
       bank.innerHTML='';ans.innerHTML='';
       var placed=items.filter(function(x){return x.placed;}).sort(function(a,b){return (a.ord||0)-(b.ord||0);});
       items.forEach(function(it){if(!it.placed)bank.append(h('button',{type:'button',onclick:function(){if(answered)return;it.placed=true;it.ord=++cnt;draw();}},it.w));});
       placed.forEach(function(it){ans.append(h('button',{type:'button',onclick:function(){if(answered)return;it.placed=false;draw();}},it.w));});
     }
-    var cnt=0;draw();
+    draw();
     var ck=h('button',{class:'btn pri',type:'button',onclick:function(){
       if(answered)return;
       var placed=items.filter(function(x){return x.placed;}).sort(function(a,b){return a.ord-b.ord;}).map(function(x){return x.w;});
@@ -1015,7 +1268,7 @@ function renderQ(){
   else if(q.kind==='speak'){
     body.append(h('div',{class:'target',id:'tgt'},q.target));
     if(q.es)body.append(h('div',{class:'heard'},q.es));
-    var heard=h('div',{class:'heard',id:'heard'},'');
+    var heard=h('div',{class:'heard',id:'heard','aria-live':'polite'},'');
     var mic=h('button',{class:'btn micbtn',type:'button'},'🎤 Hablar');
     body.append(h('div',{class:'center'},
       h('button',{class:'btn',type:'button',onclick:function(){playAudio(q.model||{text:q.target});}},'🔊 Escuchar modelo'),
@@ -1031,10 +1284,9 @@ function renderQ(){
     if(SR){body.append(h('details',null,h('summary',null,'¿No funciona el micrófono? Autoevalúate'),self));}else body.append(self);
     if(SR)mic.addEventListener('click',async function(){
       if(answered)return;
-      stopAll();mic.classList.add('live');mic.textContent='🎙️ Escuchando…';mic.disabled=true;heard.textContent='';
+      stopAll();mic.classList.add('live');mic.textContent='🎙️ Escuchando…';mic.disabled=true;heard.textContent=Mic.wanted?'Habla ahora…':'Permite el micrófono cuando el navegador lo pida (solo esta vez).';
       try{
-        await sleep(150);
-        var alts=await listenOnce();
+        var alts=await Mic.ask(function(t){heard.textContent='Te escucho: “'+t+'”…';});
         var r=scoreSpeech(q.target,alts,q.accept);
         $('#tgt').innerHTML=r.marks.map(function(m){return '<span class="'+(m.ok?'w-ok':'w-bad')+'">'+m.w+'</span>';}).join(' ');
         heard.textContent='Te escuché: “'+r.heard+'”  ·  precisión '+Math.round(r.score*100)+'%';
@@ -1043,8 +1295,7 @@ function renderQ(){
         else if(attempts>=3){finish(false,r.heard);}
         else{heard.textContent+='  ·  Inténtalo otra vez ('+attempts+'/3)';}
       }catch(err){
-        var msg={'not-allowed':'Permite el micrófono en el navegador y vuelve a intentar.','service-not-allowed':'El micrófono está bloqueado para esta página.','no-speech':'No te escuché. Acércate al micrófono e inténtalo de nuevo.','network':'El reconocimiento de voz necesita conexión a Internet.','audio-capture':'No se encontró un micrófono.'}[err]||'No pude reconocer tu voz. Inténtalo otra vez.';
-        heard.textContent=msg;
+        if(err!=='aborted')heard.textContent=micMsg(err);
       }
       mic.classList.remove('live');mic.textContent='🎤 Hablar';mic.disabled=false;
     });
@@ -1053,14 +1304,16 @@ function renderQ(){
 }
 
 function renderResult(){
+  endSession();
   var v=$('#view');v.innerHTML='';
   var pct=Math.round(sess.score/sess.qs.length*100);
   var msg=pct>=90?'¡Excelente! 🏆':pct>=70?'¡Muy bien! 👏':pct>=50?'Vas bien, sigue practicando 💪':'Repasa y vuelve a intentarlo 📚';
+  var gained=S.xp-(sess.xp0||0);
   var wrap=h('div',{class:'qcard result'},
     h('div',{class:'chip'},sess.icon+' '+sess.title),
     h('div',{class:'score'},pct+'%'),
-    h('h3',{style:'margin:4px 0'},msg),
-    h('p',{class:'muted'},sess.score+' de '+sess.qs.length+' correctas  ·  ⭐ '+S.xp+' XP'));
+    h('h3',{style:'margin:4px 0;justify-content:center'},msg),
+    h('p',{class:'muted'},sess.score+' de '+sess.qs.length+' correctas  ·  +'+gained+' XP  ·  ⭐ '+S.xp+' XP en total'));
   if(sess.wrong.length){
     var wl=h('div',{class:'wronglist'},h('b',null,'Para repasar:'));
     sess.wrong.forEach(function(q){
@@ -1074,8 +1327,8 @@ function renderResult(){
     else startQuiz(sess.id,{title:sess.title,icon:sess.icon,back:sess.back,gen:sess.id==='mixed'?mixedGen:null,n:sess.qs.length});
   }},'🔁 Repetir');
   var back=h('button',{class:'btn',type:'button',onclick:function(){go(sess.back);}},'← Volver');
-  var home=h('button',{class:'btn',type:'button',onclick:function(){go('home');}},'🏠 Inicio');
-  wrap.append(h('div',{class:'center',style:'margin-top:16px'},again,back,home));
+  var prog=h('button',{class:'btn',type:'button',onclick:function(){go('progress');}},'📊 Mi progreso');
+  wrap.append(h('div',{class:'center',style:'margin-top:16px'},again,back,prog));
   v.append(wrap);
   window.scrollTo(0,0);
 }
@@ -1086,9 +1339,6 @@ document.addEventListener('keydown',function(e){
 /* ============================================================
    PANELES DE ESTUDIO
    ============================================================ */
-function tileBtn(label,sub,say,cls){
-  return h('button',{type:'button',class:'vt '+(cls||''),onclick:function(){playAudio({text:say||label});}},h('b',null,label),sub?h('small',null,sub):null);
-}
 function studyAlphabet(c){
   c.append(h('h3',{style:'margin-top:0'},'Toca una letra para escucharla'));
   [['A','I','pink'],['J','R','green'],['S','Z','blue']].forEach(function(r){
@@ -1098,7 +1348,7 @@ function studyAlphabet(c){
     }
     c.append(row);
   });
-  c.append(h('div',{class:'notice'},'⚠️ Letras que más se confunden: <b>E (ii) / I (ai)</b> · <b>G (yi) / J (yei)</b> · <b>W (dobl ui) / Y (wai)</b> · <b>A (ei) / H (eich)</b> · <b>B / V / P</b>.'.replace(/<[^>]+>/g,'')));
+  c.append(h('div',{class:'notice'},'⚠️ Letras que más se confunden: E (ii) / I (ai) · G (yi) / J (yei) · W (dobl ui) / Y (wai) · A (ei) / H (eich) · B / V / P.'));
   var inp=h('input',{type:'text',placeholder:'Escribe un nombre, ej. Anderson',maxlength:30,'aria-label':'Palabra a deletrear'});
   var out=h('div',{class:'spellout'});
   function go1(){
@@ -1124,10 +1374,10 @@ function studyListening(c){
   });
 }
 function studyPron(c){
-  c.append(h('div',{class:'notice'},'🎤 El reconocimiento de voz funciona en <b>Chrome</b> o <b>Edge</b> y necesita Internet y permiso de micrófono.'.replace(/<[^>]+>/g,'')));
+  c.append(h('div',{class:'notice'},'🎤 El micrófono se activa una sola vez al tocar “Hablar” y queda abierto mientras practicas (se apaga solo tras 10 min sin usarlo, o con el botón 🎙️ de arriba). Funciona en Chrome o Edge y necesita Internet.'));
   c.append(h('h3',{style:'margin-top:0'},'Laboratorio libre'));
   var ta=h('textarea',{'aria-label':'Texto a practicar'},'Her fish is called Nemo.');
-  var res=h('div',{class:'heard'}),tg=h('div',{class:'target'});
+  var res=h('div',{class:'heard','aria-live':'polite'}),tg=h('div',{class:'target'});
   var mic=h('button',{class:'btn micbtn',type:'button'},'🎤 Hablar');
   c.append(ta,h('div',{class:'center'},
     h('button',{class:'btn',type:'button',onclick:function(){playAudio({text:ta.value});}},'🔊 Escuchar'),
@@ -1137,17 +1387,18 @@ function studyPron(c){
   if(SR)mic.addEventListener('click',async function(){
     stopAll();mic.classList.add('live');mic.textContent='🎙️ Escuchando…';mic.disabled=true;res.textContent='';
     try{
-      await sleep(150);var alts=await listenOnce();var r=scoreSpeech(ta.value,alts);
+      var alts=await Mic.ask(function(t){res.textContent='Te escucho: “'+t+'”…';});
+      var r=scoreSpeech(ta.value,alts);
       tg.innerHTML=r.marks.map(function(m){return '<span class="'+(m.ok?'w-ok':'w-bad')+'">'+m.w+'</span>';}).join(' ');
       res.textContent='Te escuché: “'+r.heard+'”  ·  precisión '+Math.round(r.score*100)+'%  (verde = bien, rojo = repasar)';
-    }catch(e){res.textContent='No pude escucharte ('+e+'). Revisa el permiso del micrófono.';}
+    }catch(e){if(e!=='aborted')res.textContent=micMsg(e);}
     mic.classList.remove('live');mic.textContent='🎤 Hablar';mic.disabled=false;
   });
 }
 function studyNat(c){
   var filter='all',q='';
   var FILT=[['all','Todas'],['ish','-ish / -sh'],['an','-an / -ian'],['ese','-ese'],['other','Otras']];
-  c.append(h('p',{class:'muted'},'Regla de clase: <b>-ish</b> (Spanish, Polish, Turkish, British, English), <b>-an</b> (Italian, Argentinian, Russian, American) y <b>-ese</b> (Chinese, Japanese). Estructura: <i>I am from Chile. I am Chilean.</i>'.replace(/<[^>]+>/g,'')));
+  c.append(h('p',{class:'muted'},'Regla de clase: -ish (Spanish, Polish, Turkish, British, English), -an (Italian, Argentinian, Russian, American) y -ese (Chinese, Japanese). Estructura: I am from Chile. I am Chilean.'));
   var chips=h('div',{class:'chips'}),list=h('div',null);
   var search=h('input',{type:'text',placeholder:'Buscar país o nacionalidad…','aria-label':'Buscar'});
   function draw(){
@@ -1170,7 +1421,6 @@ function studyNat(c){
   }
   search.addEventListener('input',function(){q=search.value.trim().toLowerCase();draw();});
   c.append(search,chips,list);draw();
-  // flashcards
   c.append(h('h3',null,'🃏 Tarjetas'));
   var deck=shuffle(COUNTRIES),i=0,flip=false,know=0;
   var card=h('div',{class:'flash'}),ctl=h('div',{class:'center'});
@@ -1295,11 +1545,14 @@ var SECTIONS=[
  {id:'grammar',icon:'🧩',title:'Gramática',intro:'Verbo BE, posesivos, Present Simple, persona gramatical, edad y “is called”.',study:studyGrammar,quizzes:['be_fill','be_neg','be_q','be_order','be_contr','gr_age','po_fill','po_ctx','po_type','po_persona','ps_verb','ps_use','gr_called','gr_trans']},
  {id:'vocab',icon:'🐾',title:'Vocabulario',intro:'Colores, mascotas y animales de granja.',study:studyVocab,quizzes:['vb_en_es','vb_es_en','vb_emoji','vb_color','vb_spell','vb_called']},
  {id:'exam',icon:'🎯',title:'Examen'},
- {id:'progress',icon:'📊',title:'Progreso'}
+ {id:'progress',icon:'📊',title:'Mi progreso'},
+ {id:'team',icon:'👥',title:'Equipo'}
 ];
 var cur='home';
 function renderTabs(){
   var t=$('#tabs');t.innerHTML='';
+  t.style.display=(!USER||cur==='login')?'none':'flex';
+  if(!USER)return;
   SECTIONS.forEach(function(s){
     var b=h('button',{type:'button',onclick:function(){stopAll();go(s.id);}},s.icon+' '+s.title);
     if(s.id===cur)b.setAttribute('aria-current','page');
@@ -1307,11 +1560,14 @@ function renderTabs(){
   });
 }
 function go(id){
+  if(!USER&&id!=='login')id='login';
   cur=id;sess=null;renderTabs();
   var v=$('#view');v.innerHTML='';
+  if(id==='login')return renderLogin(v);
   if(id==='home')return renderHome(v);
   if(id==='exam')return renderExam(v);
-  if(id==='progress')return renderProgress(v);
+  if(id==='progress')return renderProgress(v,USER,false);
+  if(id==='team')return renderTeam(v);
   var sec=SECTIONS.filter(function(s){return s.id===id;})[0];
   v.append(h('h2',null,sec.icon+' '+sec.title),h('p',{class:'muted'},sec.intro));
   var panel=h('div',{class:'panel'});
@@ -1322,17 +1578,40 @@ function go(id){
   sec.quizzes.forEach(function(id2){
     var d=QZ[id2];
     g.append(h('button',{type:'button',class:'card',onclick:function(){startQuiz(id2,{back:sec.id});}},
-      h('span',{class:'ic'},d.icon),h('b',null,d.title),h('span',{class:'d'},d.desc),h('span',{class:'go'},'Empezar ('+S.qn+') →')));
+      h('span',{class:'ic'},d.icon),h('b',null,d.title),h('span',{class:'d'},d.desc),h('span',{class:'go'},'Empezar ('+CFG.qn+') →')));
   });
   v.append(g);
   window.scrollTo(0,0);
 }
+
+/* ---------- LOGIN / PERFILES ---------- */
+function renderLogin(v){
+  var box=h('div',{class:'login'},
+    h('h2',null,'¿Quién practica hoy?'),
+    h('p',{class:'muted sub'},'Elige tu perfil. Cada persona tiene su propio puntaje, su racha y su progreso.'));
+  var g=h('div',{class:'pgrid'});
+  PROFILES.forEach(function(p){
+    var u=DB.users[p.id],t=totals(u);
+    g.append(h('button',{type:'button',class:'pcard','aria-label':'Entrar como '+p.label,onclick:function(){
+      stopAll();setUser(p.id);go('home');
+      if(cloudOn())cloudPull().then(function(n){if(n&&cur==='home')go('home');});
+    }},
+      avatar(p,72),
+      h('b',null,p.label),
+      h('span',{class:'role'+(p.role==='teacher'?'':' st')},p.role==='teacher'?'Profesora':'Estudiante'),
+      h('small',null,'Nivel '+lvl(u)+' · '+u.xp+' XP'),
+      h('small',null,t.q?(t.acc+'% de aciertos · '+ago(lastAct(u))):'Aún sin práctica')));
+  });
+  box.append(g,h('p',{class:'hint',style:'text-align:center;margin-top:18px'},'El progreso se guarda en este navegador. Para ver a todo el equipo desde distintos computadores, activa la sincronización en la pestaña Equipo.'));
+  v.append(box);
+}
+
+/* ---------- INICIO ---------- */
 function renderHome(v){
-  var tot=0,cor=0;Object.keys(S.stats).forEach(function(k){tot+=S.stats[k].t;cor+=S.stats[k].c;});
-  var acc=tot?Math.round(cor/tot*100):0,lvl=Math.floor(S.xp/200)+1,into=S.xp%200;
+  var p=profileOf(USER),tt=totals(S),into=S.xp%200,lv=lvl(S);
   v.append(h('section',{class:'hero'},
     h('div',null,
-      h('h1',null,'Practica inglés con confianza'),
+      h('h1',null,'Hola, '+p.name+' 👋'),
       h('p',null,'Listening, pronunciación con micrófono y todo lo visto en clase: alfabeto, vocales, nacionalidades, números, verbo BE, posesivos y mascotas.'),
       h('div',{class:'cta'},
         h('button',{class:'btn w',type:'button',onclick:function(){startQuiz('mixed',{title:'Práctica del día',icon:'☀️',gen:mixedGen,n:15,back:'home'});}},'▶ Práctica del día'),
@@ -1341,13 +1620,14 @@ function renderHome(v){
     h('div',{class:'hstats'},
       h('div',{class:'hs'},h('b',null,String(S.xp)),h('span',null,'XP')),
       h('div',{class:'hs'},h('b',null,String(S.best)),h('span',null,'Mejor racha')),
-      h('div',{class:'hs'},h('b',null,tot?acc+'%':'—'),h('span',null,'Aciertos')),
-      h('div',{class:'minibar'},h('div',{class:'lbl'},h('span',null,'Nivel '+lvl),h('span',null,into+' / 200 XP')),h('div',{class:'t'},h('div',{style:'width:'+(into/200*100)+'%'}))))));
+      h('div',{class:'hs'},h('b',null,tt.q?tt.acc+'%':'—'),h('span',null,'Aciertos')),
+      h('div',{class:'minibar'},h('div',{class:'lbl'},h('span',null,'Nivel '+lv),h('span',null,into+' / 200 XP')),h('div',{class:'t'},h('div',{style:'width:'+(into/200*100)+'%'}))))));
   var quick=h('div',{class:'grid',style:'margin-top:20px'});
   quick.append(
     h('button',{type:'button',class:'card',onclick:function(){startQuiz('mixed',{title:'Práctica del día',icon:'☀️',gen:mixedGen,n:15,back:'home'});}},h('span',{class:'ic'},'☀️'),h('b',null,'Práctica del día'),h('span',{class:'d'},'15 preguntas mezcladas de todos los temas.'),h('span',{class:'go'},'Empezar →')),
-    h('button',{type:'button',class:'card',onclick:function(){go('exam');}},h('span',{class:'ic'},'🎯'),h('b',null,'Examen'),h('span',{class:'d'},'20 o 30 preguntas mixtas con resultado final.'),h('span',{class:'go'},'Ver opciones →')),
-    h('button',{type:'button',class:'card',onclick:function(){reviewMistakes();}},h('span',{class:'ic'},'🔁'),h('b',null,'Repasar errores'),h('span',{class:'d'},S.mistakes.length+' pregunta(s) para repasar.'),h('span',{class:'go'},'Repasar →')));
+    h('button',{type:'button',class:'card',onclick:function(){go('exam');}},h('span',{class:'ic'},'🎯'),h('b',null,'Examen'),h('span',{class:'d'},'20, 30 o 50 preguntas mixtas con resultado final.'),h('span',{class:'go'},'Ver opciones →')),
+    h('button',{type:'button',class:'card',onclick:reviewMistakes},h('span',{class:'ic'},'🔁'),h('b',null,'Repasar errores'),h('span',{class:'d'},S.mistakes.length+' pregunta(s) para repasar.'),h('span',{class:'go'},'Repasar →')),
+    h('button',{type:'button',class:'card',onclick:function(){go('team');}},h('span',{class:'ic'},'👥'),h('b',null,'Equipo'),h('span',{class:'d'},'Ranking y progreso de todos los perfiles.'),h('span',{class:'go'},'Ver ranking →')));
   v.append(quick);
   v.append(h('h3',null,'Elige un tema'));
   var g=h('div',{class:'grid'});
@@ -1374,48 +1654,315 @@ function reviewMistakes(){
   if(!S.mistakes.length){toast('¡No tienes errores guardados! 🎉');return;}
   startQuiz('review',{list:shuffle(S.mistakes),title:'Repaso de errores',icon:'🔁',review:true,back:'progress',n:S.mistakes.length});
 }
-function renderProgress(v){
-  v.append(h('h2',null,'📊 Tu progreso'));
-  v.append(h('div',{class:'panel',html:'⭐ <b>'+S.xp+' XP</b> · Nivel <b>'+(Math.floor(S.xp/200)+1)+'</b> · 🔥 Racha actual <b>'+S.streak+'</b> · Mejor racha <b>'+S.best+'</b>'}));
-  var p=h('div',{class:'panel'});
-  var worst=null,wp=101;
-  Object.keys(TOPICS).forEach(function(k){
-    var st=S.stats[k]||{c:0,t:0},pc=st.t?Math.round(st.c/st.t*100):0;
-    if(st.t>=3&&pc<wp){wp=pc;worst=k;}
-    p.append(h('div',{class:'pbar'},h('span',null,TOPICS[k]),h('div',{class:'t'},h('div',{style:'width:'+pc+'%'})),h('span',null,st.t?pc+'% ('+st.c+'/'+st.t+')':'sin datos')));
+
+/* ============================================================
+   PROGRESO (de un perfil)
+   ============================================================ */
+function chartDays(u){
+  var days=[],i;
+  for(i=13;i>=0;i--){var d=new Date();d.setDate(d.getDate()-i);days.push(d);}
+  var max=1;
+  days.forEach(function(d){var x=u.daily[dayKey(d)];if(x&&x.q>max)max=x.q;});
+  var W=640,H=180,pl=32,pr=8,pt=12,pb=26,cw=W-pl-pr,ch=H-pt-pb,bw=cw/14;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Preguntas respondidas por día, últimos 14 días">';
+  [0,0.5,1].forEach(function(f){
+    var y=pt+ch-ch*f;
+    s+='<line class="gl" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(pl-6)+'" y="'+(y+4)+'" text-anchor="end">'+Math.round(max*f)+'</text>';
   });
-  v.append(p);
-  if(worst)v.append(h('div',{class:'notice'},'💡 Tu tema más flojo ahora es <b>'+TOPICS[worst]+'</b> ('+wp+'%). Dedícale una prueba hoy.'.replace(/<[^>]+>/g,'')));
-  v.append(h('div',{class:'center'},
-    h('button',{class:'btn pri',type:'button',onclick:reviewMistakes},'🔁 Repasar errores ('+S.mistakes.length+')'),
-    h('button',{class:'btn',type:'button',onclick:function(){if(confirm('¿Borrar todo tu progreso?')){S.stats={};S.xp=0;S.streak=0;S.best=0;S.mistakes=[];save();renderStats();go('progress');}}},'🗑️ Reiniciar progreso')));
-  v.append(h('p',{class:'hint'},'El progreso se guarda en este navegador.'));
+  days.forEach(function(d,idx){
+    var x=u.daily[dayKey(d)]||{q:0,c:0,xp:0},bx=pl+idx*bw+bw*0.18,bwid=bw*0.64;
+    var th=ch*x.q/max,chh=x.q?th*x.c/x.q:0;
+    if(x.q){
+      var tip=d.toLocaleDateString('es-CL',{day:'numeric',month:'short'})+': '+x.q+' preguntas, '+x.c+' correctas, '+x.xp+' XP';
+      s+='<g><title>'+tip+'</title><rect class="c-no" x="'+bx.toFixed(1)+'" y="'+(pt+ch-th).toFixed(1)+'" width="'+bwid.toFixed(1)+'" height="'+th.toFixed(1)+'" rx="3"/><rect class="c-ok" x="'+bx.toFixed(1)+'" y="'+(pt+ch-chh).toFixed(1)+'" width="'+bwid.toFixed(1)+'" height="'+chh.toFixed(1)+'" rx="3"/></g>';
+    }
+    s+='<text x="'+(bx+bwid/2).toFixed(1)+'" y="'+(H-8)+'" text-anchor="middle">'+d.getDate()+'</text>';
+  });
+  return s+'</svg>';
+}
+function chartTrend(u){
+  var hs=u.history.slice(-20);
+  if(hs.length<2)return null;
+  var W=640,H=170,pl=42,pr=14,pt=12,pb=22,cw=W-pl-pr,ch=H-pt-pb,n=hs.length;
+  var s='<svg viewBox="0 0 '+W+' '+H+'" role="img" aria-label="Resultado de las últimas pruebas">';
+  [0,50,100].forEach(function(f){
+    var y=pt+ch-ch*f/100;
+    s+='<line class="gl" x1="'+pl+'" x2="'+(W-pr)+'" y1="'+y+'" y2="'+y+'"/><text x="'+(pl-6)+'" y="'+(y+4)+'" text-anchor="end">'+f+'%</text>';
+  });
+  var pts=hs.map(function(e,i){return [pl+i*(cw/(n-1)),pt+ch-ch*e.pct/100,e];});
+  s+='<polyline class="ln" points="'+pts.map(function(p){return p[0].toFixed(1)+','+p[1].toFixed(1);}).join(' ')+'"/>';
+  pts.forEach(function(p){
+    s+='<circle class="dt" cx="'+p[0].toFixed(1)+'" cy="'+p[1].toFixed(1)+'" r="4"><title>'+fmtDate(p[2].ts)+' · '+p[2].title+': '+p[2].pct+'%</title></circle>';
+  });
+  return s+'</svg>';
+}
+function renderProgress(v,uid,ro){
+  var p=profileOf(uid),u=DB.users[uid],mine=(uid===USER),tt=totals(u),lv=lvl(u),into=u.xp%200;
+  var head=h('div',{class:'phead'});
+  if(ro)head.append(h('button',{class:'btn sm',type:'button',onclick:function(){go('team');}},'← Equipo'));
+  head.append(avatar(p,48),h('div',null,h('h2',null,mine?'Mi progreso':p.label),h('small',null,(p.role==='teacher'?'Profesora':'Estudiante')+(mine&&!ro?' · '+p.label:'')+' · última práctica '+ago(lastAct(u)))));
+  v.append(head);
+  v.append(h('div',{class:'kpis'},
+    h('div',{class:'kpi'},h('b',null,String(u.xp)),h('span',null,'XP total')),
+    h('div',{class:'kpi'},h('b',null,String(lv)),h('span',null,'Nivel')),
+    h('div',{class:'kpi'},h('b',null,tt.q?tt.acc+'%':'—'),h('span',null,'Aciertos')),
+    h('div',{class:'kpi'},h('b',null,String(u.sessions||0)),h('span',null,'Pruebas hechas')),
+    h('div',{class:'kpi'},h('b',null,String(tt.q)),h('span',null,'Preguntas')),
+    h('div',{class:'kpi'},h('b',null,String(u.streak)),h('span',null,'Racha actual')),
+    h('div',{class:'kpi'},h('b',null,String(u.best)),h('span',null,'Mejor racha')),
+    h('div',{class:'kpi'},h('b',null,String(weekXP(u))),h('span',null,'XP últimos 7 días'))));
+  v.append(h('div',{class:'minibar',style:'color:var(--fg);margin:0 0 6px'},h('div',{class:'lbl'},h('span',null,'Nivel '+lv+' → '+(lv+1)),h('span',null,into+' / 200 XP')),h('div',{class:'t',style:'background:var(--acc2)'},h('div',{style:'width:'+(into/200*100)+'%;background:var(--acc)'}))));
+
+  v.append(h('h3',null,'📅 Actividad de los últimos 14 días'));
+  v.append(h('div',{class:'chartbox'},h('div',{html:chartDays(u)}),h('div',{class:'legend'},h('span',null,h('i',{style:'background:var(--acc)'}),'Correctas'),h('span',null,h('i',{style:'background:var(--acc3)'}),'Incorrectas'))));
+
+  var tr=chartTrend(u);
+  v.append(h('h3',null,'📈 Resultado de las últimas pruebas'));
+  v.append(tr?h('div',{class:'chartbox'},h('div',{html:tr})):h('div',{class:'notice'},'Completa al menos 2 pruebas para ver la evolución.'));
+
+  v.append(h('h3',null,'🎯 Aciertos por tema'));
+  var pn=h('div',{class:'panel'});
+  Object.keys(TOPICS).forEach(function(k){
+    var st=u.stats[k]||{c:0,t:0},pc=st.t?Math.round(st.c/st.t*100):0;
+    pn.append(h('div',{class:'pbar'},h('span',null,TOPICS[k]),h('div',{class:'t'},h('div',{style:'width:'+pc+'%'})),h('span',null,st.t?pc+'% ('+st.c+'/'+st.t+')':'sin datos')));
+  });
+  v.append(pn);
+  var wk=weakest(u);
+  if(wk)v.append(h('div',{class:'notice'},'💡 Tema a reforzar: '+TOPICS[wk.k]+' ('+wk.pc+'%). Una prueba corta de ese tema ayuda a subirlo.'));
+
+  v.append(h('h3',null,'🕘 Últimas pruebas'));
+  if(u.history.length){
+    var t=h('table',null,h('tr',null,h('th',null,'Fecha'),h('th',null,'Prueba'),h('th',null,'Resultado')));
+    u.history.slice(-12).reverse().forEach(function(e){
+      t.append(h('tr',null,h('td',null,fmtDate(e.ts)),h('td',null,(e.icon||'')+' '+e.title),h('td',null,h('span',{class:'mini'},h('div',{style:'width:'+e.pct+'%'})),e.score+'/'+e.total+' · '+e.pct+'%')));
+    });
+    v.append(h('div',{class:'tblwrap'},t));
+  }else v.append(h('p',{class:'muted'},'Todavía no hay pruebas completadas.'));
+
+  var acts=h('div',{class:'center',style:'justify-content:flex-start;margin-top:18px'});
+  if(mine&&!ro){
+    acts.append(h('button',{class:'btn pri',type:'button',onclick:reviewMistakes},'🔁 Repasar errores ('+u.mistakes.length+')'));
+  }
+  if(mine||isTeacher()){
+    acts.append(h('button',{class:'btn',type:'button',onclick:function(){if(resetUser(uid)){if(ro)viewUser(uid);else go('progress');}}},'🗑️ Reiniciar progreso'));
+  }
+  v.append(acts);
+  window.scrollTo(0,0);
+}
+function viewUser(id){
+  stopAll();
+  var v=$('#view');v.innerHTML='';
+  renderProgress(v,id,true);
+}
+function resetUser(id){
+  if(!confirm('¿Borrar todo el progreso de '+profileOf(id).label+'? Esta acción no se puede deshacer.'))return false;
+  var n=newUser();n.updated=Date.now();
+  DB.users[id]=n;
+  if(id===USER)S=n;
+  save();renderStats();cloudPush(id);
+  return true;
 }
 
-/* delegacion para elementos .say */
+/* ============================================================
+   EQUIPO (ranking y respaldo)
+   ============================================================ */
+function download(name,text,type){
+  var b=new Blob([text],{type:type||'text/plain'});
+  var a=document.createElement('a');
+  a.href=URL.createObjectURL(b);a.download=name;document.body.append(a);a.click();
+  setTimeout(function(){URL.revokeObjectURL(a.href);a.remove();},500);
+}
+function teamRows(){
+  var st=PROFILES.filter(function(p){return p.role!=='teacher';}).map(function(p){return metrics(p.id);});
+  st.sort(function(a,b){return b.xp-a.xp||b.acc-a.acc;});
+  var teachers=PROFILES.filter(function(p){return p.role==='teacher';}).map(function(p){return metrics(p.id);});
+  return {students:st,teachers:teachers};
+}
+function teamCSV(){
+  var cols=['Perfil','Rol','XP','Nivel','Pruebas','Preguntas','Aciertos %','Mejor racha','XP 7 días','Última actividad'].concat(Object.keys(TOPICS).map(function(k){return TOPICS[k]+' %';}));
+  var r=teamRows(),all=r.students.concat(r.teachers);
+  var q=function(x){return '"'+String(x).replace(/"/g,'""')+'"';};
+  var lines=[cols.map(q).join(';')];
+  all.forEach(function(m){
+    var row=[m.p.label,m.p.role==='teacher'?'Profesora':'Estudiante',m.xp,m.level,m.sessions,m.q,m.acc,m.best,m.week,m.last?new Date(m.last).toLocaleString('es-CL'):''];
+    Object.keys(TOPICS).forEach(function(k){var s=m.u.stats[k];row.push(s&&s.t?Math.round(s.c/s.t*100):'');});
+    lines.push(row.map(q).join(';'));
+  });
+  return '\ufeff'+lines.join('\r\n');
+}
+function drawTeam(box){
+  box.innerHTML='';
+  var r=teamRows(),maxXP=Math.max.apply(null,r.students.concat(r.teachers).map(function(m){return m.xp;}).concat([1]));
+  var medals=['🥇','🥈','🥉'];
+  var t=h('table',null,h('tr',null,['#','Perfil','XP','Nivel','Aciertos','Pruebas','Racha máx.','XP 7 d','Última vez','A reforzar',''].map(function(x){return h('th',null,x);})));
+  function row(m,pos){
+    var me=m.id===USER;
+    var tr=h('tr',me?{style:'background:var(--acc2)'}:null);
+    tr.append(
+      h('td',{class:'rk'},pos==null?'—':(m.xp>0&&pos<3?h('span',{style:'font-size:20px'},medals[pos]):String(pos+1))),
+      h('td',null,h('div',{class:'who'},avatar(m.p,34),h('span',null,m.p.label),m.p.role==='teacher'?h('span',{class:'tag'},'Profesora'):null,me?h('span',{class:'tag'},'Tú'):null)),
+      h('td',{class:'xpcell'},h('b',null,String(m.xp)),h('div',{class:'t'},h('div',{style:'width:'+(m.xp/maxXP*100)+'%'}))),
+      h('td',null,String(m.level)),
+      h('td',null,m.q?m.acc+'%':'—'),
+      h('td',null,String(m.sessions)),
+      h('td',null,String(m.best)),
+      h('td',null,String(m.week)),
+      h('td',null,ago(m.last)),
+      h('td',null,m.weak?TOPICS[m.weak.k]+' ('+m.weak.pc+'%)':'—'),
+      h('td',null,h('button',{class:'btn sm',type:'button','aria-label':'Ver progreso de '+m.p.label,onclick:function(){viewUser(m.id);}},'Ver'),isTeacher()?h('button',{class:'btn sm ghost',type:'button',title:'Reiniciar este perfil','aria-label':'Reiniciar '+m.p.label,onclick:function(){if(resetUser(m.id))drawTeam(box);}},'↺'):null));
+    t.append(tr);
+  }
+  r.students.forEach(function(m,i){row(m,i);});
+  r.teachers.forEach(function(m){row(m,null);});
+  box.append(h('div',{class:'tblwrap'},t));
+}
+function syncPanel(){
+  var url=h('input',{type:'text',placeholder:'https://script.google.com/macros/s/…/exec','aria-label':'URL del servicio',value:CFG.cloudUrl||''});
+  var key=h('input',{type:'password',placeholder:'Clave compartida (la misma del script)','aria-label':'Clave',value:CFG.cloudKey||'',autocomplete:'off'});
+  var msg=h('div',{class:'smsg',id:'syncMsg'});
+  var btn=h('button',{class:'btn pri',type:'button',onclick:async function(){
+    CFG.cloudUrl=url.value.trim();CFG.cloudKey=key.value;saveCfg();
+    if(!cloudOn()){setSyncMsg('Pega una URL válida que empiece con https://');return;}
+    btn.disabled=true;setSyncMsg('Sincronizando…');
+    await syncAll();
+    btn.disabled=false;
+    var box=$('#teamBox');if(box&&cur==='team')drawTeam(box);
+  }},'☁️ Guardar y sincronizar');
+  var off=h('button',{class:'btn ghost',type:'button',onclick:function(){CFG.cloudUrl='';CFG.cloudKey='';CFG.lastSync=0;saveCfg();url.value='';key.value='';setSyncMsg();}},'Desactivar');
+  var d=h('details',{class:'panel'},
+    h('summary',null,'☁️ Sincronización entre computadores (opcional)'),
+    h('p',{class:'muted'},'Sin esto, cada navegador guarda solo su propio progreso. Con un servicio de Google Apps Script (archivo Code.gs), todos los perfiles se ven en el ranking desde cualquier computador. Los datos también quedan en una hoja de Google Sheets.'),
+    h('div',{class:'field'},h('label',null,'URL del servicio'),url),
+    h('div',{class:'field'},h('label',null,'Clave'),key),
+    h('div',{class:'center',style:'justify-content:flex-start'},btn,off),msg);
+  setTimeout(function(){setSyncMsg();},0);
+  return d;
+}
+function backupPanel(){
+  var file=h('input',{type:'file',accept:'.json,application/json',hidden:true,'aria-label':'Importar respaldo'});
+  file.addEventListener('change',function(){
+    var f=file.files&&file.files[0];if(!f)return;
+    var rd=new FileReader();
+    rd.onload=function(){
+      try{
+        var j=JSON.parse(rd.result),n=mergeUsers(j.users||{},true);
+        toast(n?('Importado: '+n+' perfil(es) actualizados.'):'No había datos más recientes que importar.');
+        var box=$('#teamBox');if(box)drawTeam(box);
+      }catch(e){toast('El archivo no es un respaldo válido.');}
+      file.value='';
+    };
+    rd.readAsText(f);
+  });
+  return h('details',{class:'panel'},
+    h('summary',null,'💾 Respaldo y exportación'),
+    h('p',{class:'muted'},'Descarga el progreso de todos los perfiles para guardarlo, llevarlo a otro computador o abrirlo en Excel.'),
+    h('div',{class:'center',style:'justify-content:flex-start'},
+      h('button',{class:'btn',type:'button',onclick:function(){download('english-practice-respaldo-'+dayKey()+'.json',JSON.stringify({app:'english-practice',v:2,exported:Date.now(),users:DB.users}),'application/json');}},'⬇️ Respaldo (JSON)'),
+      h('button',{class:'btn',type:'button',onclick:function(){download('english-practice-equipo-'+dayKey()+'.csv',teamCSV(),'text/csv;charset=utf-8');}},'📄 Resumen para Excel (CSV)'),
+      h('button',{class:'btn',type:'button',onclick:function(){file.click();}},'⬆️ Importar respaldo'),file));
+}
+function renderTeam(v){
+  v.append(h('h2',null,'👥 Equipo'),h('p',{class:'muted'},'Ranking por XP entre los estudiantes y progreso de cada perfil. Toca “Ver” para abrir el progreso detallado de cada perfil.'));
+  var box=h('div',{id:'teamBox'});
+  v.append(box);
+  drawTeam(box);
+  v.append(syncPanel(),backupPanel());
+  if(cloudOn())cloudPull().then(function(n){if(n&&cur==='team'){var b=$('#teamBox');if(b)drawTeam(b);}});
+}
+
+/* ============================================================
+   SINCRONIZACION (Google Apps Script, opcional)
+   ============================================================ */
+function cloudOn(){return !!(CFG.cloudUrl&&/^https:\/\//.test(CFG.cloudUrl));}
+function setSyncMsg(t){
+  var m=$('#syncMsg');if(!m)return;
+  m.textContent=t||(CFG.lastSync?'☁️ Última sincronización: '+fmtDate(CFG.lastSync):(cloudOn()?'☁️ Sincronización activada.':'☁️ Sin sincronización: el progreso se guarda solo en este navegador.'));
+}
+function summaryOf(id){
+  var u=DB.users[id];
+  return {xp:u.xp,best:u.best,streak:u.streak,sessions:u.sessions||0,stats:u.stats,history:u.history.slice(-60),daily:u.daily,first:u.first,updated:u.updated};
+}
+async function cloudPush(id){
+  if(!cloudOn()||!id||!DB.users[id]||!DB.users[id].updated)return false;
+  try{
+    var r=await fetch(CFG.cloudUrl,{method:'POST',body:JSON.stringify({action:'save',key:CFG.cloudKey,id:id,name:profileOf(id).label,data:summaryOf(id)})});
+    var j=await r.json();
+    if(j&&j.ok){CFG.lastSync=Date.now();saveCfg();setSyncMsg();return true;}
+    setSyncMsg('⚠️ El servicio respondió: '+((j&&j.error)||'error desconocido'));return false;
+  }catch(e){setSyncMsg('⚠️ No se pudo conectar con el servicio.');return false;}
+}
+function mergeUsers(remote,full){
+  var n=0;
+  Object.keys(remote).forEach(function(id){
+    var u=DB.users[id],r=remote[id];
+    if(!u||!r)return;
+    if((r.updated||0)>(u.updated||0)){
+      ['xp','best','streak','sessions','stats','history','daily','first','updated'].forEach(function(k){if(r[k]!=null)u[k]=r[k];});
+      if(full&&Array.isArray(r.mistakes))u.mistakes=r.mistakes;
+      n++;
+    }
+  });
+  if(n){save();if(USER)S=DB.users[USER];renderStats();}
+  return n;
+}
+async function cloudPull(){
+  if(!cloudOn())return 0;
+  try{
+    var r=await fetch(CFG.cloudUrl+(CFG.cloudUrl.indexOf('?')>-1?'&':'?')+'key='+encodeURIComponent(CFG.cloudKey||''));
+    var j=await r.json();
+    if(!j||!j.ok){setSyncMsg('⚠️ El servicio respondió: '+((j&&j.error)||'error desconocido'));return 0;}
+    var n=mergeUsers(j.users||{});
+    CFG.lastSync=Date.now();saveCfg();setSyncMsg();
+    return n;
+  }catch(e){setSyncMsg('⚠️ No se pudo conectar con el servicio.');return 0;}
+}
+async function syncAll(){
+  var n=await cloudPull();
+  for(var i=0;i<PROFILES.length;i++){await cloudPush(PROFILES[i].id);}
+  return n;
+}
+
+/* ============================================================
+   EVENTOS GENERALES
+   ============================================================ */
 document.addEventListener('click',function(e){
   var t=e.target.closest&&e.target.closest('[data-say]');
   if(t)playAudio({text:t.getAttribute('data-say')});
 });
+function applyTheme(){
+  var th=CFG.theme||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
+  document.documentElement.setAttribute('data-theme',th);
+}
+$('#themeBtn').addEventListener('click',function(){CFG.theme=(document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark';applyTheme();saveCfg();});
+$('#rate').value=CFG.rate;$('#rateVal').textContent=Number(CFG.rate).toFixed(2);
+$('#rate').addEventListener('input',function(){CFG.rate=parseFloat(this.value)||0.9;$('#rateVal').textContent=CFG.rate.toFixed(2);saveCfg();});
+$('#qn').value=String(CFG.qn);
+$('#qn').addEventListener('change',function(){CFG.qn=parseInt(this.value,10)||10;saveCfg();});
+$('#voiceSel').addEventListener('change',function(){CFG.voice=this.value;saveCfg();});
+$('#testVoice').addEventListener('click',function(){playAudio({text:'Hello! This is your English voice. Let us practice.'});});
+$('#userChip').addEventListener('click',function(){stopAll();go('login');});
+$('#micChip').addEventListener('click',async function(){
+  if(Mic.wanted){Mic.disable();toast('Micrófono apagado.');return;}
+  try{await Mic.enable();toast('Micrófono activo. Queda abierto mientras practicas.');}
+  catch(e){toast(micMsg(e));}
+});
+if(TTS){loadVoices();if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;}
+else $('#voiceSel').append(h('option',null,'Sin voz disponible'));
+Mic.chip();
+window.addEventListener('beforeunload',function(){try{Mic.disable();}catch(e){}});
 
 /* ============================================================
    INICIO
    ============================================================ */
-function applyTheme(){
-  var th=S.theme||(window.matchMedia&&matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');
-  document.documentElement.setAttribute('data-theme',th);
-}
-$('#themeBtn').addEventListener('click',function(){S.theme=(document.documentElement.getAttribute('data-theme')==='dark')?'light':'dark';applyTheme();save();});
-$('#rate').value=S.rate;$('#rateVal').textContent=Number(S.rate).toFixed(2);
-$('#rate').addEventListener('input',function(){S.rate=parseFloat(this.value)||0.9;$('#rateVal').textContent=S.rate.toFixed(2);save();});
-$('#qn').value=String(S.qn);
-$('#qn').addEventListener('change',function(){S.qn=parseInt(this.value,10)||10;save();});
-$('#voiceSel').addEventListener('change',function(){S.voice=this.value;save();});
-$('#testVoice').addEventListener('click',function(){playAudio({text:'Hello! This is your English voice. Let us practice.'});});
-if(TTS){loadVoices();if(speechSynthesis.onvoiceschanged!==undefined)speechSynthesis.onvoiceschanged=loadVoices;}
-else $('#voiceSel').append(h('option',null,'Sin voz disponible'));
-applyTheme();renderStats();go('home');
-window.__EP={QZ:QZ,checkType:checkType,scoreSpeech:scoreSpeech,normText:normText,numWords:numWords,COUNTRIES:COUNTRIES,SECTIONS:SECTIONS,EXAM_POOL:EXAM_POOL};
+applyTheme();renderStats();
+(function boot(){
+  var ok=CFG.lastUser&&profileOf(CFG.lastUser);
+  if(ok)setUser(CFG.lastUser);
+  go(ok?'home':'login');
+  if(cloudOn())cloudPull().then(function(n){if(n&&cur==='home')go('home');});
+})();
+window.__EP={QZ:QZ,checkType:checkType,scoreSpeech:scoreSpeech,normText:normText,numWords:numWords,COUNTRIES:COUNTRIES,SECTIONS:SECTIONS,EXAM_POOL:EXAM_POOL,
+  DB:DB,CFG:CFG,Mic:Mic,PROFILES:PROFILES,setUser:setUser,go:go,startQuiz:startQuiz,mergeUsers:mergeUsers,mixedGen:mixedGen,teamCSV:teamCSV,getS:function(){return S;},getUser:function(){return USER;}};
 })();
 </script>
 </body>
